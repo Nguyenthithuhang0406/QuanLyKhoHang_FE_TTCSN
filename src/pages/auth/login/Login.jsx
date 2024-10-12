@@ -2,10 +2,18 @@
 import React from 'react'
 
 import './Login.css';
+import { Form, Formik } from 'formik';
 
 const Login = () => {
+
   return (
-    <div>Login</div>
+    <div>
+      <Formik>
+        <Form>
+          
+        </Form>
+      </Formik>
+    </div>
   )
 }
 

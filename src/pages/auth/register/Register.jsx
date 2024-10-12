@@ -5,7 +5,10 @@ import './Register.css';
 
 const Register = () => {
   return (
-    <div>Register</div>
+    <div>
+      Register
+      <i className="fa-solid fa-bell "></i>
+    </div>
   )
 }
 
