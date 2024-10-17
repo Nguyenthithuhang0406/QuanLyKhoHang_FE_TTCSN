@@ -11,6 +11,7 @@ import CreatedProduct from './pages/product/createdProduct/CreatedProduct';
 import EditProduct from './pages/product/editProduct/EditProduct';
 import ListProduct from './pages/product/listProduct/ListProduct';
 import ConfirmDeleteProduct from './components/confirmDeleteProduct/ConfirmDeleteProduct';
+import Header from './components/header/Header';
 
 const App = () => {
   const routes = useRoutes([
@@ -25,6 +26,10 @@ const App = () => {
     {
       path: '/reset-password',
       element: <ResetPassword />,
+    },
+    {
+      path: '/header',
+      element:<Header/>,
     },
     {
       path: '/forgot-password',
