@@ -2,26 +2,32 @@
 import React from 'react'
 
 import './ResetPassword.css';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 const ResetPassword = () => {
   return (
- <div class="container">
-{/* //     <h2>Change Password</h2>
-//     <form>
-//       <div class="form-group">
-//         <label for="current-password">Current Password</label>
-//         <input type="password" id="current-password" name="current-password" required>
-//       </div>
-//       <div class="form-group">
-//         <label for="new-password">New Password</label>
-//         <input type="password" id="new-password" name="new-password" required>
-//       </div>
-//       <div class="form-group">
-//         <label for="confirm-password">Confirm Password</label>
-//         <input type="password" id="confirm-password" name="confirm-password" required>
-//       </div>
-//       <button type="submit">Change Password</button>
-//     </form> */}
+ <div className="ResetPasswordcontent">
+    <Formik>
+      <Form>
+        <h1>Đổi Mật Khẩu</h1>
+        <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <Field type="email" id="email" name="email" />
+              <ErrorMessage name="email" component="div" className="error" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="username">Tên Đăng Nhập</label>
+              <Field type="text" id="username" name="username" />
+              <ErrorMessage name="username" component="div" className="error" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="newPassword">Mật Khẩu Mới</label>
+              <Field type="password" id="newPassword" name="newPassword" />
+              <ErrorMessage name="newPassword" component="div" className="error" />
+            </div>
+            <button type="submit">Đổi Mật Khẩu</button>
+      </Form>
+    </Formik>
   </div>
  )
  }
