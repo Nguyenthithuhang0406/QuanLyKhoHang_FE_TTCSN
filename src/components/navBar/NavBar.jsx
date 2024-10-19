@@ -26,7 +26,7 @@ const NavBar = () => {
 
           <div className="navBar-menu-item">
             <div className="menu-item-title">
-              <p> <i class="fa-solid fa-clipboard"></i>Xuất - nhập với NCC</p>
+              <p><i class="fa-solid fa-clipboard"></i>Xuất - nhập với NCC</p>
               <div className="sub-menu">
                 <div className="sub-menu-item">
                   <p><i className="fa-solid fa-chevron-right"></i>Xuất kho</p>

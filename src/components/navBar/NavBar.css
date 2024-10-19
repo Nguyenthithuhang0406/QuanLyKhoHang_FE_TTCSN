@@ -54,9 +54,15 @@
     color: #fff;
     background-color: rgba(2, 9, 206, 0.845);
 }
-.sub-menu{
-    display: none;
+.navBar-menu-item p:hover i{
+    color: #fff;
 }
+.navBar i{
+    color: rgba(2, 9, 206, 0.845);;
+}
+/* .sub-menu{
+    display: none;
+} 
 .menu-item-title:hover .sub-menu{
     display: block;
-}
+} */
