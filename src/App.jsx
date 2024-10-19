@@ -12,6 +12,7 @@ import EditProduct from './pages/product/editProduct/EditProduct';
 import ListProduct from './pages/product/listProduct/ListProduct';
 import ConfirmDeleteProduct from './components/confirmDeleteProduct/ConfirmDeleteProduct';
 import Header from './components/header/Header';
+import Information from './pages/auth/information/Information';
 
 const App = () => {
   const routes = useRoutes([
@@ -42,6 +43,10 @@ const App = () => {
     {
       path: '/register',
       element: <Register />,
+    },
+    {
+      path: '/information',
+      element: <Information/>
     },
     {
       path: '/createdProduct',
