@@ -9,7 +9,7 @@ import { ErrorMessage } from "formik";
 const Information = () => {
   return (
     <div>
-      <Header />
+      <Header className="header-info"/>
       <NavBar />
       <div className="infoBody">
         <div className="infoAvatar">
