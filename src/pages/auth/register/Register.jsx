@@ -200,7 +200,7 @@ const Register = () => {
           <div className="imagine">
             <img
               className="imagine-img"
-              src="https://s3-alpha-sig.figma.com/img/6e4d/719d/e6aff13fc8e464cd1fb5fdb136c71ae2?Expires=1728864000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Z-AK3S7BONsiHapy-MHHUX0nnnwvphDMHEoTxEpPRy3mxjgmUi910dzdcyeSCFwtUZ2nIAGGlYQbOUMQac4SHV8g2yBAgIS5Rvr9C2gYust-eEt41VjqjTjUpPUkV7CZGN8QC1dOX3FhBg6uqnbEh--fUUTOQUFh6e39LeQDKA9iA6Z4iyu0UYKX7crWeAehIRxIQ9VEv0YD6sR7gglULSQ4sHN9Llc5E1crK~tnaUmS7MhJ3liZRUo1kQGd~gOwZw3QZBg0BibxT9Cnclb0~w6DjEBNskJFstLCuf5pE1H9qaLa2zueyR2EwBdGCKF-nlHYry-~OjgVMpCifhcE-Q__"
+              src="https://s3-alpha-sig.figma.com/img/6e4d/719d/e6aff13fc8e464cd1fb5fdb136c71ae2?Expires=1730073600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=QQ1Fig3jU23tz6gl-7OdB5V7hhkS1434WFTwdYQnJ0IOfeP3u8LONYOtGfxtk5R7A-WkFVsGLVYrV2HsqfLEq9G4K5W-C5hyfz8Y3w6rbwmmf~0m9F3VemIrRSurq~xprIzq9onCPBExk0vgGF~FgD-cgPaoW8UVR2h8lCzRZRb9TiVcXqZ8k0XT87AEYz~4duZUzGwGPPv0BZWj3TpG3rLd3RxPe6cUEPKwK9gTnRWwc~EWf1kElXQA3iSuguYYquWjocgrWvDjDLm6B~3MCFUu38XPTER6aabo0pkxHU5Xx7peZ2pYMFb-dcWGnX3GQqAlTWMwz4riiuA8~4qLxg__"
               alt=""
             />
           </div>
