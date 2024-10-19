@@ -11,6 +11,7 @@ import CreatedProduct from './pages/product/createdProduct/CreatedProduct';
 import EditProduct from './pages/product/editProduct/EditProduct';
 import ListProduct from './pages/product/listProduct/ListProduct';
 import ConfirmDeleteProduct from './components/confirmDeleteProduct/ConfirmDeleteProduct';
+import NavBar from './components/navBar/NavBar';
 
 const App = () => {
   const routes = useRoutes([
@@ -53,6 +54,10 @@ const App = () => {
     {
       path: '/confirmDeleteProduct',
       element: <ConfirmDeleteProduct />,
+    },
+    {
+      path: '/navbar',
+      element: <NavBar/>,
     }
   ]);
   return (
