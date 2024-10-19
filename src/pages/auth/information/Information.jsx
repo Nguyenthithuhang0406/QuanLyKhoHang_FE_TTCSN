@@ -9,8 +9,8 @@ import { ErrorMessage } from "formik";
 const Information = () => {
   return (
     <div>
-      <Header />
-      <NavBar />
+      <Header className='info-header' />
+      <NavBar className='info-navBar'/>
       <div className="infoBody">
         <div className="infoAvatar">
           <img
