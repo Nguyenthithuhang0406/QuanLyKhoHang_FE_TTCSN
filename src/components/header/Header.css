@@ -1,7 +1,4 @@
-*{
-    margin:0;
-    padding:0;
-}
+
 .header{
     background-color: blue;
     width:100%;
@@ -16,6 +13,7 @@
     height:100%;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     margin-left: 70%;
 }
 .fa-solid{
@@ -26,6 +24,7 @@
     height:100%;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     margin-left: 50px;
 
 }
