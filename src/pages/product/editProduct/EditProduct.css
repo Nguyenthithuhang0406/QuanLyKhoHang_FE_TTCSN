@@ -1,9 +1,22 @@
-.main-container {
-  background-color: #f3f4f6;
+.container{
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  padding: 1rem;
+  align-items: normal;
+}
+.header{
+  padding: 10px;
+}
+.main{
+  display: flex;
 }
 
+.navBar{
+  width: 20vh;
+  padding: 10px;
+  margin-right: 50px;
+}
 .breadcrumb {
   margin-bottom: 1rem;
   display: flex;
@@ -22,13 +35,18 @@
 }
 
 .content-container {
+  border-radius: 5px;
+  border: 1px solid gray;
   background-color: white;
   border-radius: 0.5rem;
   overflow: hidden;
+  background-color: white;
+  min-height: 100vh;
+  width: 85vw;
 }
 
 .title-bar {
-  background-color: #1a56db;
+  background-color: #0B08AB;
   color: white;
   padding: 1rem;
   font-weight: 500;
