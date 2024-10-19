@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import './EditProduct.css';
 import product from './product.png';
@@ -5,7 +6,7 @@ import icon from './icon.png';
 
 const EditProduct = () => {
   return (
-    <div className="container">
+    <div className="container-editProduct">
       <div className="header">
         <h1>HEADER</h1>
       </div>

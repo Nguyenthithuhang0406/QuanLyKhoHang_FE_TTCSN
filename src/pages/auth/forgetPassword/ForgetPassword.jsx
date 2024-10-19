@@ -4,7 +4,7 @@ import './ForgetPassword.css';
 
 const ForgetPassword = () => {
   return (
-    <div className="container">
+    <div className="container-forgotPassword">
       <main className="main-content">
         <div className="form-card">
           <h2 className="form-title">QUÊN MẬT KHẨU</h2>
