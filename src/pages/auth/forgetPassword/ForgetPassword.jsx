@@ -15,12 +15,12 @@ const ForgetPassword = () => {
               <h2 className="form-title">QUÊN MẬT KHẨU</h2>
               <form>
                 <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <Field type="email" id="email" name="email" />
+                  <label htmlFor="email" className='foget-label'>Email</label>
+                  <Field type="email" id="email" name="email" className='foget-input'/>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="username">Tên đăng nhập</label>
-                  <Field type="text" id="username" name="username" />
+                  <label htmlFor="username" className='foget-label'>Tên đăng nhập</label>
+                  <Field type="text" id="username" name="username" className='foget-input' />
                 </div>
                 <button type="submit" className="submit-btn">Gửi lại mật khẩu</button>
               </form>

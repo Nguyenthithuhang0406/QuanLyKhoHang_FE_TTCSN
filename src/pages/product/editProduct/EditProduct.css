@@ -56,7 +56,7 @@
   padding: 1.5rem;
 }
 
-.form-group {
+.form-group-edit-product {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 1rem;
