@@ -1,48 +1,39 @@
-.container-editProduct{
-  background-color: lightgray;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  align-items: normal;
+.header-editProduct{
+  position: relative;
 }
-.header{
-  padding: 10px;
+.main-editProduct{
+  max-height: 90vh;
+  overflow: auto;
+  margin-left: 25%;
+  position: absolute;
+  top: 100px;
+  width: 70%;
 }
-.main{
-  display: flex;
+.body-editProduct{
+  width: 100%;
+  height: 90vh;
 }
-
-/* .navBar{
-  width: 20vh;
-  padding: 10px;
-  margin-right: 50px;
-} */
 .breadcrumb {
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.875rem;
+  font-size: 18px;
 }
 
-.breadcrumb a {
-  color: #1a56db;
-  text-decoration: none;
+.title-editproduct{
+  color: black;
+  font-weight: 500;
 }
-
-.breadcrumb span {
-  color: #6b7280;
-}
-
 .content-container {
   border-radius: 5px;
   border: 1px solid gray;
   background-color: white;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: auto;
   background-color: white;
-  min-height: 100vh;
-  width: 85vw;
+  max-height: 90vh;
+  width: 100%;
 }
 
 .title-bar {
@@ -57,9 +48,8 @@
 }
 
 .form-group-edit-product {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 1rem;
+  display: flex;
+  gap:10px;
   margin-bottom: 1rem;
   align-items: start;
 }
@@ -67,6 +57,7 @@
 .form-label {
   font-weight: 500;
   padding-top: 0.5rem;
+  width: 150px;
 }
 
 .form-input {
@@ -130,9 +121,24 @@
 .save-btn {
   background-color: #1a56db;
   color: white;
+  border: none;
 }
 
 .cancel-btn {
   background-color: #dc2626;
   color: white;
+  border: none;
+}
+
+.description-editProduct{
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  max-height: 300px;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+}
+
+.description-editProduct:focus{
+  border: none;
 }
