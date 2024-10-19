@@ -12,11 +12,11 @@
   display: flex;
 }
 
-.navBar{
+/* .navBar{
   width: 20vh;
   padding: 10px;
   margin-right: 50px;
-}
+} */
 .breadcrumb {
   margin-bottom: 1rem;
   display: flex;

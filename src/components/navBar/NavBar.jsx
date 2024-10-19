@@ -26,7 +26,7 @@ const NavBar = () => {
 
           <div className="navBar-menu-item">
             <div className="menu-item-title">
-              <p> <i class="fa-solid fa-clipboard icon-navbar"></i>Xuất - nhập với NCC</p>
+              <p> <i className="fa-solid fa-clipboard icon-navbar"></i>Xuất - nhập với NCC</p>
               <div className="sub-menu">
                 <div className="sub-menu-item">
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Xuất kho</p>
@@ -39,7 +39,7 @@ const NavBar = () => {
 
           <div className="navBar-menu-item">
             <div className="menu-item-title">
-              <p><i class="fa-solid fa-clipboard icon-navbar"></i>Xuất - nhập với nội bộ</p>
+              <p><i className="fa-solid fa-clipboard icon-navbar"></i>Xuất - nhập với nội bộ</p>
               <div className="sub-menu">
                 <div className="sub-menu-item">
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Xuất kho</p>
@@ -61,7 +61,7 @@ const NavBar = () => {
 
           <div className="navBar-menu-item">
             <div className="menu-item-title">
-              <p><i class="fa-solid fa-clipboard icon-navbar"></i>Xuất - nhập với NVBH</p>
+              <p><i className="fa-solid fa-clipboard icon-navbar"></i>Xuất - nhập với NVBH</p>
               <div className="sub-menu">
                 <div className="sub-menu-item"> 
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Xuất kho</p>
