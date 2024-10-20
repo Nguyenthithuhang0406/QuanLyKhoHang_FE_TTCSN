@@ -11,7 +11,7 @@ const NavBar = () => {
 
   const handleClickProfile = () => {
     const userId = user._id;
-    navigate(`/information/:${userId}`);
+    navigate(`/information/${userId}`);
   };
 
   return (

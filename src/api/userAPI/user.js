@@ -107,11 +107,11 @@ export const getRefreshToken = async () => {
 export const getUserById = async (userId) => {
   try {
     const respone = await requestWithToken(authInstance, {
-      url: `/user/:${userId}`,
+      url: `/user/${userId}`,
       method: "get",
     });
 
-    return respone.data.value;
+    return respone.data.data.user;
   } catch (error) {
     console.error(error);
     throw error;
