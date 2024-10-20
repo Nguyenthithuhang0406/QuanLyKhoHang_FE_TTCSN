@@ -57,6 +57,7 @@
     /* margin: 10px 0; */
     border: none;
     border-radius: 5px;
+    height: 40px;
     cursor: pointer;
     background-color: #002776;
     color: white;
@@ -68,4 +69,11 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    color: rgb(120, 119, 119);
+}
+
+.resent-OTP:hover {
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
 }

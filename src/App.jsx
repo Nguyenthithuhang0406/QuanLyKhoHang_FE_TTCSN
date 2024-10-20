@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React from 'react'
 import { useRoutes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Home from './pages/home/Home';
 import ConfirmOTP from './pages/auth/confirmOTP/ConfirmOTP';
 import ResetPassword from './pages/auth/resetPassword/ResetPassword';
@@ -31,11 +34,11 @@ const App = () => {
     },
     {
       path: '/header',
-      element:<Header/>,
+      element: <Header />,
     },
     {
       path: '/forgot-password',
-      element: <ForgetPassword/>,
+      element: <ForgetPassword />,
     },
     {
       path: '/login',
@@ -46,8 +49,8 @@ const App = () => {
       element: <Register />,
     },
     {
-      path: '/information',
-      element: <Information/>
+      path: '/information/:userId',
+      element: <Information />
     },
     {
       path: '/createdProduct',
@@ -67,11 +70,12 @@ const App = () => {
     },
     {
       path: '/navbar',
-      element: <NavBar/>,
+      element: <NavBar />,
     }
   ]);
   return (
     <>
+      <ToastContainer />
       {routes}
     </>
   )

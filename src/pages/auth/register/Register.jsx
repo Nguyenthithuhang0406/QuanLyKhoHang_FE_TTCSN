@@ -4,10 +4,10 @@ import React, { useEffect, useState } from "react";
 import "./Register.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import Header from "../../../components/header/Header";
-// import { registerAPI } from "@/api/userApi/user";
+import { registerAPI } from "@/api/userAPI/user";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-// import { registerValidation } from "@/utils/validation.js/userValidation";
+import { registerValidation } from "@/utils/validation.js/userValidation";
 import image4 from  "@/assets/images/image4.png"
 
 const Register = () => {
@@ -26,11 +26,11 @@ const Register = () => {
 
   const handleSubmit = async (values) => {
     try {
-      // const user = await registerAPI(values);
+      const user = await registerAPI(values);
       toast.success("Đăng ký thành công");
-      // localStorage.setItem("userId", user.data.user._id);
-      // localStorage.setItem("email", user.data.user.email);
-      // localStorage.setItem("fullName", user.data.user.fullName);
+      localStorage.setItem("userId", user.data.user._id);
+      localStorage.setItem("email", user.data.user.email);
+      localStorage.setItem("fullName", user.data.user.fullName);
       navigate("/confirm-OTP");
     } catch (error) {
       console.log(error);
@@ -53,8 +53,8 @@ const Register = () => {
         <div className="register-container">
           <div className="register-form">
             <Formik
-              // initialValues={initialValues}
-              // validationSchema={registerValidation}
+              initialValues={initialValues}
+              validationSchema={registerValidation}
               onSubmit={handleSubmit}
             >
               {({ handleSubmit, errors, setFieldValue, values }) => (
@@ -163,7 +163,7 @@ const Register = () => {
                         name="role"
                         value="staff"
                         onChange={() => setFieldValue("role", "staff")}
-                        // checked={values.role === "staff"}
+                        checked={values.role === "staff"}
                       />
                     </div>
                     <div className="register-role-group">
@@ -173,7 +173,7 @@ const Register = () => {
                         name="role"
                         value="manager"
                         onChange={() => setFieldValue("role", "manager")}
-                        // checked={values.role === "manager"}
+                        checked={values.role === "manager"}
                       />
                     </div>
                   </div>

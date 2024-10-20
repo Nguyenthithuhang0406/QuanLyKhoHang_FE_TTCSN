@@ -102,3 +102,13 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+.login-eye-icon{
+    position: absolute;
+    top: 50px ;
+    right: 20px;
+}
+
+.login-eye{
+    position: relative;
+}

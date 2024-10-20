@@ -2,18 +2,28 @@
 import React from 'react'
 
 import './NavBar.css';
-import hinhnen from '../../assets/images/hinhnen.jpg'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 const NavBar = () => {
+  const user = useSelector(state => state.user);
+
+  const navigate = useNavigate();
+
+  const handleClickProfile = () => {
+    const userId = user._id;
+    navigate(`/information/:${userId}`);
+  };
+
   return (
     <div className='main'>
 
       <div className='navBar'>
         <div className="navBar-user">
           <div className="user-avt">
-            <img src={hinhnen} alt="" />
+            <img src={user.avatar} alt="" onClick={handleClickProfile}/>
           </div>
-          <div className="user-name">
-            Phạm Duy Đức
+          <div className="user-name" onClick={handleClickProfile}>
+            {user.userName}
           </div>
         </div>
 
