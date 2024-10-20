@@ -17,6 +17,9 @@ import ConfirmDeleteProduct from './components/confirmDeleteProduct/ConfirmDelet
 import NavBar from './components/navBar/NavBar';
 import Header from './components/header/Header';
 import Information from './pages/auth/information/Information';
+import CreatedAgency from './pages/agency/createdAgency/CreatedAgency';
+import InforAgency from './pages/agency/inforAgency/InforAgency';
+import ListAgency from './pages/agency/listAgency/ListAgency';
 
 const App = () => {
   const routes = useRoutes([
@@ -31,10 +34,6 @@ const App = () => {
     {
       path: '/reset-password',
       element: <ResetPassword />,
-    },
-    {
-      path: '/header',
-      element: <Header />,
     },
     {
       path: '/forgot-password',
@@ -69,8 +68,16 @@ const App = () => {
       element: <ConfirmDeleteProduct />,
     },
     {
-      path: '/navbar',
-      element: <NavBar />,
+      path: '/createdAgency',
+      element: <CreatedAgency/>
+    },
+    {
+      path: '/inforAgency',
+      element: <InforAgency/>
+    },
+    {
+      path: '/listAgency',
+      element: <ListAgency/>
     }
   ]);
   return (
