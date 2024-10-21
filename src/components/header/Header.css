@@ -1,11 +1,10 @@
 
-.headercontaint{
+.header{
     background-color: blue;
     width:100% !important;
     height: 70px;
     display: flex;
     font-size: 25px;
-    padding-top: 20px;
     color:white;
 }
 .iconheader {
@@ -13,6 +12,7 @@
     height:100%;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     margin-left: 70%;
 }
 .fa-solid{
@@ -23,6 +23,7 @@
     height:100%;
     display:flex;
     justify-content: space-between;
+    align-items: center;
     margin-left: 50px;
 
 }
