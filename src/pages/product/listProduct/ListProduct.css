@@ -1,7 +1,12 @@
+.listproductheader{
+    position: relative;
+}
 .ListProductkien {
+    position: absolute;
+    top:50px;
     margin-top: 80px;
     width: 70%; 
-    height: auto; 
+    height: 80vh; 
     padding: 20px; 
     border: 1px solid #ccc; 
     border-radius: 5px; 
@@ -10,27 +15,36 @@
     margin-left: 25%;
 }
 .daulist {
-    display: flex; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width:100%;
+    height:210px;
+    display: flex;
     justify-content: space-between;
-    align-items: flex-start; 
     margin-bottom: 20px;
 }
 
 .left-sec,
 .right-sec {
-    width: 400%; 
+    width: 50%; 
     padding: 10px; 
 }
 
-.left label,
-.right label {
-    display: block; 
+.left-sec .mhhlistproduct,
+.right-sec .mhhlistproduct {
+    display: flex; 
+    justify-content: space-between;
     font-weight: bold; 
     margin-bottom: 5px; 
 }
+.itemleft{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
 
-.left input,
-.right input {
+}
+.left-sec .listproductinput,
+.right-sec .listproductinput {
     width: 100%; 
     padding: 8px; 
     border: 1px solid #ccc;
@@ -38,8 +52,8 @@
     font-size: 16px; 
 }
 
-.timkiem {
-    padding: 5px 10px;
+.tklistproduct {
+    /* padding: 5px 10px; */
     background-color: #007bff; 
     color: white; 
     border: none; 
@@ -47,16 +61,19 @@
     cursor: pointer; 
     font-size: 16px; 
     transition: background-color 0.3s; 
-    margin-top: 100px;
+    margin-top: 80px;
+    margin-right: 20px;
+    width:150px ;
+    height:50px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.timkiem:hover {
+.tklistproduct:hover {
     background-color: #0056b3;
 }
 
-.timkiem:active {
-    background-color: #004085; 
-}
 .button-container {
     display: flex;
     justify-content: flex-end;
@@ -97,13 +114,13 @@
     background-color: white;
 }
 
-.Listkien th, .Listkien td {
+.Listkien th, .Listkien .listtable3 {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-.Listkien th {
+.Listkien .listtable2 {
     background-color: #f2f2f2;
     font-weight: bold;
 }
