@@ -1,17 +1,14 @@
-*{
-    margin:0;
-    padding:0;
-}
-.header{
+
+.headercontaint{
     background-color: blue;
-    width:100%;
+    width:100% !important;
     height: 70px;
     display: flex;
     font-size: 25px;
     padding-top: 20px;
     color:white;
 }
-.icon {
+.iconheader {
     width:70px;
     height:100%;
     display:flex;
@@ -21,7 +18,7 @@
 .fa-solid{
     color:white;
 }
-.ten{
+.tenheader{
     width:180px;
     height:100%;
     display:flex;
