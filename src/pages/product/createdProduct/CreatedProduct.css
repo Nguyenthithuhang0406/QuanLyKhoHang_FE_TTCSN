@@ -1,0 +1,90 @@
+.header-cP{
+    position: relative;
+}
+.createProduct-nav{
+    margin-bottom: 30px;
+}
+.createProduct-nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.createProduct{
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    left: 340px;
+    min-height: max-content;
+}
+
+.createProduct-form{
+    border-top: 1px solid #ccc;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    
+}
+.createProductForm-title{
+    background-color: blue;
+    color: white;
+    padding: 30px;
+    border-radius: 15px 15px 0px 0px;
+    font-size: 22px;
+    margin-bottom: 30px;
+
+}
+.productInfor-row{
+    padding: 30px 60px;
+    display: flex;
+}
+.productInfor-row .createProduct-lbl{
+    flex-basis: 130px;
+    line-height: 50px;
+}
+.productInfor-row .createProduc-textbox{
+    flex-basis: 500px;
+    height: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    border: 1px solid grey;
+}
+.productInfor-column{
+    display: flex;
+    flex-direction: column;
+    padding: 30px 60px;
+}
+
+.productInfor-column .createProduc-textbox{
+    flex-basis: 50px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    border: 1px solid grey;
+}
+.productInfor-column .createProduct-lbl{
+    padding-bottom: 30px;
+}
+
+.productInfor-column .bigTextbox{
+    border: 1px solid grey;
+    flex-basis: 180px;
+    padding: 20px;
+}
+.productInfor-row-btn{
+    padding: 30px 60px;
+    display: flex;
+    justify-content: end;
+}
+.productInfor-row-btn .btn{
+    flex-basis: 250px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.productInfor-row-btn .save-btn{
+    margin-right: 50px;
+}
+

@@ -1,6 +1,9 @@
 /* eslint-disable */
 import React from 'react'
 import { useRoutes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Home from './pages/home/Home';
 import ConfirmOTP from './pages/auth/confirmOTP/ConfirmOTP';
 import ResetPassword from './pages/auth/resetPassword/ResetPassword';
@@ -14,6 +17,9 @@ import ConfirmDeleteProduct from './components/confirmDeleteProduct/ConfirmDelet
 import NavBar from './components/navBar/NavBar';
 import Header from './components/header/Header';
 import Information from './pages/auth/information/Information';
+import CreatedAgency from './pages/agency/createdAgency/CreatedAgency';
+import InforAgency from './pages/agency/inforAgency/InforAgency';
+import ListAgency from './pages/agency/listAgency/ListAgency';
 
 const App = () => {
   const routes = useRoutes([
@@ -30,12 +36,8 @@ const App = () => {
       element: <ResetPassword />,
     },
     {
-      path: '/header',
-      element:<Header/>,
-    },
-    {
       path: '/forgot-password',
-      element: <ForgetPassword/>,
+      element: <ForgetPassword />,
     },
     {
       path: '/login',
@@ -46,8 +48,8 @@ const App = () => {
       element: <Register />,
     },
     {
-      path: '/information',
-      element: <Information/>
+      path: '/information/:userId',
+      element: <Information />
     },
     {
       path: '/createdProduct',
@@ -66,12 +68,21 @@ const App = () => {
       element: <ConfirmDeleteProduct />,
     },
     {
-      path: '/navbar',
-      element: <NavBar/>,
+      path: '/createdAgency',
+      element: <CreatedAgency/>
+    },
+    {
+      path: '/inforAgency',
+      element: <InforAgency/>
+    },
+    {
+      path: '/listAgency',
+      element: <ListAgency/>
     }
   ]);
   return (
     <>
+      <ToastContainer />
       {routes}
     </>
   )
