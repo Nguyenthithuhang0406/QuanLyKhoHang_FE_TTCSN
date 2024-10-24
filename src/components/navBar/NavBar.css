@@ -66,6 +66,12 @@
 /* .sub-menu{
     display: none;
 }
+.navBar i{
+    color: rgba(2, 9, 206, 0.845);;
+}
+/* .sub-menu{
+    display: none;
+} 
 .menu-item-title:hover .sub-menu{
     display: block;
 } */
