@@ -4,6 +4,8 @@
 .createProduct-nav{
     margin-bottom: 30px;
     display: flex;
+    gap: 10px;
+    align-items: center;
 }
 .create-link{
     text-decoration: none;
@@ -15,7 +17,8 @@
     top: 100px;
     right: 40px;
     left: 340px;
-    min-height: max-content;
+    max-height: 90vh;
+    overflow: auto
 }
 
 .createProduct-form{
@@ -28,14 +31,14 @@
 .createProductForm-title{
     background-color: blue;
     color: white;
-    padding: 30px;
+    padding: 20px 30px;
     border-radius: 15px 15px 0px 0px;
     font-size: 22px;
     margin-bottom: 30px;
 
 }
 .productInfor-row{
-    padding: 30px 60px;
+    padding: 10px 60px;
     display: flex;
 }
 .productInfor-row .createProduct-lbl{
@@ -50,10 +53,16 @@
     font-size: 20px;
     border: 1px solid grey;
 }
+
+.createProduc-textbox:focus{
+    outline: 1px solid rgb(59, 59, 252);
+    border: none;
+}
 .productInfor-column{
     display: flex;
     flex-direction: column;
-    padding: 30px 60px;
+    padding: 10px 60px;
+    width: 58%;
 }
 
 .productInfor-column .createProduc-textbox{
@@ -63,8 +72,9 @@
     font-size: 20px;
     border: 1px solid grey;
 }
+
 .productInfor-column .createProduct-lbl{
-    padding-bottom: 30px;
+    padding-bottom: 10px;
 }
 
 .productInfor-column .bigTextbox{
@@ -72,13 +82,18 @@
     flex-basis: 180px;
     padding: 20px;
 }
+
+.createProduc-textbox:focus{
+    outline: 1px solid rgb(59, 59, 252);
+    border: none;
+}
 .productInfor-row-btn{
-    padding: 30px 60px;
+    padding: 20px 20px;
     display: flex;
     justify-content: end;
 }
 .productInfor-row-btn .btn{
-    flex-basis: 250px;
+    flex-basis: 150px;
     height: 50px;
     font-size: 20px;
     border-radius: 10px;
@@ -89,3 +104,15 @@
     margin-right: 50px;
 }
 
+.createdProduct-s4{
+    background-color: #c2c2c2;
+    width: 100px;
+    height: 100px;
+    /* text-align: center;
+    line-height: 200px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+}
