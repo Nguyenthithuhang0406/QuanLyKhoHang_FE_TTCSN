@@ -14,8 +14,8 @@ const CreatedProduct = () => {
     <NavBar/>
       <div className="createProduct">
         <div className="createProduct-nav">
-          <a href="">Quản lý danh mục hàng hóa  >  </a>
-          <a href="">Thêm hàng hóa </a>
+          <p className='create-link'>Quản lý danh mục hàng hóa</p>
+          <p className='create-link'>Thêm hàng hóa </p>
         </div>
 
         <div className="createProduct-form">

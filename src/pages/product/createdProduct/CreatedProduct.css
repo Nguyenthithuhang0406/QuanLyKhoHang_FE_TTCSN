@@ -3,8 +3,9 @@
 }
 .createProduct-nav{
     margin-bottom: 30px;
+    display: flex;
 }
-.createProduct-nav a{
+.create-link{
     text-decoration: none;
     color: black;
     font-weight: bold;

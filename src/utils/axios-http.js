@@ -14,7 +14,12 @@ const createAuthInstance = (baseURL) => {
 
   instance.interceptors.response.use(
     (response) => response, async (error) => {
+      // const originalRequest = error.config;
+
+      // if (error.response && error.response.status === 401 && !originalRequest._retry) {
       if (error.response.status === 401) {
+        // originalRequest._retry = true;
+
         try {
           //api refreshToken
           const data = await getRefreshToken();
@@ -22,7 +27,9 @@ const createAuthInstance = (baseURL) => {
           localStorage.setItem('refreshToken', data.refreshToken);
 
           instance.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
+          // originalRequest.headers['Authorization'] = `Bearer ${data.accessToken}`;
 
+          // return instance(originalRequest);
           return instance;
         } catch (error) {
           console.error(error);
