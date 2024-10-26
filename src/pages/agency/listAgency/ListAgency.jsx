@@ -61,7 +61,7 @@ const ListAgency = () => {
                   <i class="fa-solid fa-pen"></i>
                 </span> */}
                 <span className="bin_ListAgency">
-                  <i class="fa-solid fa-trash"></i>
+                  <i className="fa-solid fa-trash" style={{color: 'red'}}></i>
                 </span>
               </td>
             </tr>

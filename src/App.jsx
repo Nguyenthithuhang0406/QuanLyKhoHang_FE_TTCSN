@@ -83,6 +83,10 @@ const App = () => {
     {
       path: '/listAgency',
       element: <ListAgency/>
+    },
+    {
+      path: '*',
+      element: <div>404: Page not found!</div>
     }
   ]);
   return (

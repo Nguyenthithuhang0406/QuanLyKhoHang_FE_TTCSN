@@ -5,7 +5,7 @@ import "./ConfirmDeleteProduct.css";
 import { deleteProduct } from "@/api/productAPI/product";
 import { toast } from "react-toastify";
 
-const ConfirmDeleteProduct = ({ type, onCancel, id }) => {
+const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) => {
   
   const handleAgree = async () => {
     if (type === "deletedProduct") {
@@ -17,6 +17,8 @@ const ConfirmDeleteProduct = ({ type, onCancel, id }) => {
         console.log(error);
       }
     }
+
+    setIsRefresh(!isRefresh);
   };
 
   return (
