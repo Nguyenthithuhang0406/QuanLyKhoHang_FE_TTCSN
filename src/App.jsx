@@ -20,6 +20,7 @@ import Information from './pages/auth/information/Information';
 import CreatedAgency from './pages/agency/createdAgency/CreatedAgency';
 import InforAgency from './pages/agency/inforAgency/InforAgency';
 import ListAgency from './pages/agency/listAgency/ListAgency';
+import InforProduct from './pages/product/inforProduct/InforProduct';
 
 const App = () => {
   const routes = useRoutes([
@@ -56,12 +57,16 @@ const App = () => {
       element: <CreatedProduct />,
     },
     {
-      path: '/editProduct',
+      path: '/editProduct/:productId',
       element: <EditProduct />,
     },
     {
       path: '/listProduct',
       element: <ListProduct />,
+    },
+    {
+      path: '/infoProduct/:productId',
+      element: <InforProduct/>
     },
     {
       path: '/confirmDeleteProduct',

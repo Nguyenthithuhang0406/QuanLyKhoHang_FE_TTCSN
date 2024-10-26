@@ -97,7 +97,7 @@ export const getRefreshToken = async () => {
       },
     });
 
-    return response.data.value;
+    return response.data.data;
   } catch (error) {
     console.error(error);
     throw error;
@@ -188,7 +188,7 @@ export const uploadAvatar = async (data, userId) => {
       data: formData,
     });
 
-    return respone.data.value;
+    return respone.data.data;
   } catch (error) {
     console.error(error);
     throw error;
