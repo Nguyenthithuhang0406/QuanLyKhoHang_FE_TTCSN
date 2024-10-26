@@ -27,6 +27,11 @@ const CreatedAgency = () => {
               </div>
 
               <div className="form-group-created-agency">
+                <label className="form-label">Tên nguồn</label>
+                <input type="text" value="" className="form-input" readOnly />
+              </div>
+
+              <div className="form-group-created-agency">
                 <label className="form-label">Loại nguồn</label>
                 <select name="" id="" className="form-input" required>
                   <option value="">-Loại nguồn-</option>
