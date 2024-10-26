@@ -11,7 +11,7 @@ const InforAgency = () => {
       <NavBar/>
       <div className="inforAgency">
         <div className="inforAgency-nav">
-          <a href="">Quản lý nhà cung cấp > </a>
+          <a href="">Quản lý nhà cung cấp {">"} </a>
           <a href="">Xem hàng hóa</a>
         </div>
         <div className="updateAgency-btn">
@@ -40,7 +40,7 @@ const InforAgency = () => {
             </div>
 
             <div className="inforAgency-form-row">
-              <label htmlFor="agencyManager" className="inforAgency-lbl">Người phụ trách</label>
+              <label htmlFor="agencyManager" className="inforAgency-lbl">Người đại diện</label>
               <div id="agencyManager" name="agencyManager" className="inforBox">Phạm Duy Đức</div>
             </div>
 

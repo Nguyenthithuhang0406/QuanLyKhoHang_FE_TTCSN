@@ -13,13 +13,19 @@
     border-top: 1px solid #ccc;
     border-radius: 15px;
     border: 1px solid #ccc;
-    font-size: 20px;
+    font-size: 18px;
     box-shadow: 10px 10px 10px #ccc;
+}
+
+.inforAgency-form-main{
+    padding-bottom: 50px;
 }
 .inforAgency-form-title{
     background-color: grey;
     color: white;
-    padding: 30px;
+    height: 70px;
+    align-items: center;
+    padding: 0 30px;
     border-radius: 15px 15px 0px 0px;
     font-size: 22px;
     margin-bottom: 30px;
@@ -27,7 +33,7 @@
     justify-content: space-between;
 }
 .inforAgency-form-row{
-    padding: 30px 60px;
+    padding: 10px 60px;
     display: flex;
 }
 .inforAgency-lbl{
@@ -40,7 +46,7 @@
     line-height: 50px;
     border-radius: 5px;
     padding-left: 20px;
-    font-size: 20px;
+    font-size: 18px;
     border: 1px solid grey;
 }
 
