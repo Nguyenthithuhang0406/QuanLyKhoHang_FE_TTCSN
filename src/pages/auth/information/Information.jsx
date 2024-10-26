@@ -51,8 +51,8 @@ const Information = () => {
 
   return (
     <div>
-      <Header className="header-info" />
-      <NavBar />
+      <Header className='info-header' />
+      <NavBar className='info-navBar'/>
       <div className="infoBody">
         <div className="infoAvatar">
           <img
