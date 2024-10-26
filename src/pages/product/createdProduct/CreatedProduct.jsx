@@ -160,8 +160,8 @@ const CreatedProduct = () => {
             </div>
 
             <div className="productInfor-row-btn">
-              <button className="save-btn btn" type='submit' onClick={handleSubmit}>Lưu</button>
-              <button className="cancel-btn btn" type='submit' onClick={handleCancel}>Hủy</button>
+              <button className="save-btn btn-createdProduct" type='submit' onClick={handleSubmit}>Lưu</button>
+              <button className="cancel-btn btn-createdProduct" type='submit' onClick={handleCancel}>Hủy</button>
             </div>
 
 
