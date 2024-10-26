@@ -4,9 +4,10 @@
 .ListProductkien {
     position: absolute;
     top:50px;
-    margin-top: 80px;
+    margin-top: 50px;
     width: 70%; 
-    height: 80vh; 
+    height: 90vh; 
+    overflow: auto;
     padding: 20px; 
     border: 1px solid #ccc; 
     border-radius: 5px; 
@@ -119,10 +120,12 @@
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    max-width: 500px;
 }
 
 .Listkien .listtable2 {
-    background-color: #f2f2f2;
+    background-color: #0B08AB;
+    color: white;
     font-weight: bold;
 }
 
@@ -132,6 +135,8 @@
 
 .center {
     text-align: center;
+     background-color: #0B08AB;
+    color: white;
 }
 
 .pen .fa-pen {
@@ -165,4 +170,9 @@
       justify-content: center;
       align-items: center;
       z-index: 3;
+}
+
+.purple{
+    text-align: center;
+    border: 1px solid #ccc;
 }

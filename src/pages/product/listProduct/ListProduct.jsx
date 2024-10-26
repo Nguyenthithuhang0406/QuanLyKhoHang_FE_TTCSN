@@ -114,18 +114,20 @@ const ListProduct = () => {
                   </tr>
                   {
                     listProducts.length > 0 && listProducts.map((product, index) => {
-                      <tr key={product._id}>
-                        <td className="listtable3">{index + 1}</td>
-                        <td className="listtable3">{product.productName}</td>
-                        <td className="listtable3">{product.productCode}</td>
-                        <td className="listtable3">{product.productGroup}</td>
-                        <td className="listtable3">{product.productDVT}</td>
-                        <td className="listtable3">{product.productPrice}</td>
-                        <td className='purple'>
-                          <span className='pen' onClick={() => handleClickPen(product._id)}><i className="fa-solid fa-pen"></i></span>
-                          <span className='bin' onClick={() => handleClickBin(product._id)}><i className="fa-solid fa-trash-can"></i></span>
-                        </td>
-                      </tr>
+                      return (
+                        <tr key={product._id}>
+                          <td className="listtable3">{index + 1}</td>
+                          <td className="listtable3">{product.productName}</td>
+                          <td className="listtable3">{product.productCode}</td>
+                          <td className="listtable3">{product.productGroup}</td>
+                          <td className="listtable3">{product.productDVT}</td>
+                          <td className="listtable3">{product.productPrice}</td>
+                          <td className='purple'>
+                            <span className='pen' onClick={() => handleClickPen(product._id)}><i className="fa-solid fa-pen"></i></span>
+                            <span className='bin' onClick={() => handleClickBin(product._id)}><i className="fa-solid fa-trash-can"></i></span>
+                          </td>
+                        </tr>
+                      )
                     })
                   }
                 </tbody>
@@ -135,27 +137,27 @@ const ListProduct = () => {
                 pageSize={limit}
                 current={page}
                 onChange={handleChangePage}
-                style={{ "position": "absolute", "bottom": "50px", "right": "100px", "position": "fixed" }}
+                style={{ "position": "absolute", "bottom": "7px", "right": "100px", "position": "fixed" }}
               />
             </div>
           </div>
         </div>
       </div>
-        {
-          isDeleteProduct && (
-            <div className='overlay' onClick={handleCancelDelete}>
-              <motion.div
-                className='itemDelete'
-                onClick={(e) => e.stopPropagation()}
-                animate={{ opacity: 1, scal: 1 }}
-                initial={{ opacity: 0, scal: 0.5 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ConfirmDeleteProduct type={type} onCancel={handleCancelDelete} id={deletedId} />
-              </motion.div>
-            </div>
-          )
-        }
+      {
+        isDeleteProduct && (
+          <div className='overlay' onClick={handleCancelDelete}>
+            <motion.div
+              className='itemDelete'
+              onClick={(e) => e.stopPropagation()}
+              animate={{ opacity: 1, scal: 1 }}
+              initial={{ opacity: 0, scal: 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ConfirmDeleteProduct type={type} onCancel={handleCancelDelete} id={deletedId} />
+            </motion.div>
+          </div>
+        )
+      }
     </>
   )
 }
