@@ -15,6 +15,7 @@
     right: 40px;
     left: 340px;
     min-height: max-content;
+    height: 1250px;
 }
 
 .createProduct-form{
@@ -22,6 +23,7 @@
     border-radius: 15px;
     border: 1px solid #ccc;
     font-size: 20px;
+    box-shadow: 10px 10px 10px #ccc;
     
 }
 .createProductForm-title{
@@ -86,5 +88,11 @@
 
 .productInfor-row-btn .save-btn{
     margin-right: 50px;
+}
+.productInfor-row-btn .save-btn:hover{
+    background-color: blue;
+}
+.productInfor-row-btn .cancel-btn:hover{
+    background-color: red;
 }
 
