@@ -95,7 +95,7 @@ export const getSupplies = async (limit, page) => {
   }
 }
 
-export const searchSupply = async (code = "", name = "", phone = "", type, page, limit) => {
+export const searchSupply = async (code = "", name = "", phone = "", type="", page, limit) => {
   try {
     const supplies = await requestWithToken(authInstance,{
       url: `/supplies/searchSupply?code=${code}&name=${name}&phone=${phone}&type=${type}&page=${page}&limit=${limit}`,
