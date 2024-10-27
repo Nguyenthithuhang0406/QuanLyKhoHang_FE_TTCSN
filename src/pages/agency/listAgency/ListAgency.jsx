@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 import "./ListAgency.css";
 import Header from "@/components/header/Header";
@@ -7,6 +8,7 @@ import NavBar from "@/components/navBar/NavBar";
 import { getSupplies, searchSupply } from "@/api/suppliesAPI/supply";
 import { Pagination } from "antd";
 import { useNavigate } from "react-router-dom";
+import ConfirmDeleteProduct from "@/components/confirmDeleteProduct/ConfirmDeleteProduct";
 
 const ListAgency = () => {
   const [supplies, setSupplies] = useState([]);
@@ -17,6 +19,10 @@ const ListAgency = () => {
   const [supplyName, setSupplyName] = useState("");
   const [typeSupply, setTypeSupply] = useState("");
   const [supplyPhone, setSupplyPhone] = useState("");
+  const [isDelete, setIsDelete] = useState(false);
+  const [isRefresh, setIsRefresh] = useState(false);
+  const [type, setType] = useState("supply");
+  const [deletedId, setDeletedId] = useState("");
 
   const navigate = useNavigate();
   
@@ -32,7 +38,7 @@ const ListAgency = () => {
     };
 
     getListSupplies();
-  }, [page]);
+  }, [page, isRefresh]);
 
   const handleChangePage = (page) => {
     setPage(page);
@@ -64,6 +70,16 @@ const ListAgency = () => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleClickBin = (supplyId, type) => {
+    setDeletedId(supplyId);
+    setType(type);
+    setIsDelete(true);
+  };
+
+  const handleCancelDelete = () => {
+    setIsDelete(false);
   };
 
   return (
@@ -123,13 +139,13 @@ const ListAgency = () => {
                 supplies.length > 0 && supplies.map((supply, index) => (
                   <tr className="listAgency_tr_2" key={supply._id}>
                     <td className="listAgency_td_2">{(page - 1) * limit + index + 1}</td>
-                    <td className="listAgency_td">{supply.providerName || supply.agencyName}</td>
+                    <td className="listAgency_td nameSupply">{supply.providerName || supply.agencyName}</td>
                     <td className="listAgency_td_2">{supply.providerName ? "Nhà cung cấp " : "Đại lý"}</td>
                     <td className="listAgency_td_2">{supply.providerCode || supply.agencyCode}</td>
                     <td className="listAgency_td_2">{supply.providerPhone || supply.agencyPhone}</td>
                     <td className="listAgency_td">{supply.providerAddress || supply.agencyAddress}</td>
                     <td className="purple">
-                      <span className="bin_ListAgency">
+                      <span className="bin_ListAgency" onClick={() => handleClickBin(supply._id, supply.providerName ? "provider" : "agency")}>
                         <i className="fa-solid fa-trash" style={{ color: 'red' }}></i>
                       </span>
                     </td>
@@ -147,6 +163,21 @@ const ListAgency = () => {
           />
         </div>
       </div>
+      {
+        isDelete && (
+          <div className='overlay' onClick={handleCancelDelete}>
+            <motion.div
+              className='itemDelete'
+              onClick={(e) => e.stopPropagation()}
+              animate={{ opacity: 1, scal: 1 }}
+              initial={{ opacity: 0, scal: 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <ConfirmDeleteProduct type={type} onCancel={handleCancelDelete} id={deletedId} isRefresh={isRefresh} setIsRefresh={setIsRefresh} />
+            </motion.div>
+          </div>
+        )
+      }
     </>
   );
 };

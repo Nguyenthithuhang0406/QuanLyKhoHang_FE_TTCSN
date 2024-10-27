@@ -195,3 +195,9 @@
   border: 1px solid darkgray;
   text-align: left;
 }
+
+.nameSupply:hover{
+  cursor: pointer;
+  color: rgb(3, 3, 118);
+  text-decoration: underline;
+}

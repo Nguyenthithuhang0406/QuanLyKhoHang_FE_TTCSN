@@ -4,6 +4,7 @@ import React from "react";
 import "./ConfirmDeleteProduct.css";
 import { deleteProduct } from "@/api/productAPI/product";
 import { toast } from "react-toastify";
+import { deleteSupply } from "@/api/suppliesAPI/supply";
 
 const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) => {
   
@@ -13,6 +14,16 @@ const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) =
         await deleteProduct(id);
         onCancel();
         toast.success("Xoá hàng hóa thành công");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if(type === "agency" || type === "provider") {
+      try {
+        await deleteSupply(type,id);
+        onCancel();
+        toast.success("Xoá nguồn hàng thành công");
       } catch (error) {
         console.log(error);
       }
