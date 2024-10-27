@@ -117,7 +117,7 @@ const ListProduct = () => {
                     listProducts.length > 0 && listProducts.map((product, index) => {
                       return (
                         <tr key={product._id}>
-                          <td className="listtable3">{index + 1}</td>
+                          <td className="listtable3">{(page - 1) * limit + index + 1}</td>
                           <td className="listtable3">{product.productName}</td>
                           <td className="listtable3">{product.productCode}</td>
                           <td className="listtable3">{product.productGroup}</td>
