@@ -2,7 +2,7 @@ import { authInstance, requestWithToken } from "@/utils/axios-http";
 
 
 export const createdSupply = async (data) => {
-  const { code, name, address, phone, email, respresentative, type } = data;
+  const { code, name, address, phone, email, representative, type } = data;
   try {
     const supply = await requestWithToken(authInstance,{
       url: "/supplies/createSupplies",
@@ -13,7 +13,7 @@ export const createdSupply = async (data) => {
         address,
         phone,
         email,
-        respresentative,
+        representative,
         type,
       },
     });

@@ -6,6 +6,7 @@ import Header from "@/components/header/Header";
 import NavBar from "@/components/navBar/NavBar";
 import { getSupplies, searchSupply } from "@/api/suppliesAPI/supply";
 import { Pagination } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const ListAgency = () => {
   const [supplies, setSupplies] = useState([]);
@@ -17,7 +18,8 @@ const ListAgency = () => {
   const [typeSupply, setTypeSupply] = useState("");
   const [supplyPhone, setSupplyPhone] = useState("");
 
-
+  const navigate = useNavigate();
+  
   useEffect(() => {
     const getListSupplies = async () => {
       try {
@@ -58,7 +60,7 @@ const ListAgency = () => {
 
       setSupplies(res.supplies);
       setTotal(res.supplies.length);
-      
+
     } catch (error) {
       console.log(error);
     }
@@ -102,7 +104,7 @@ const ListAgency = () => {
             </span>
           </div>
         </div>
-        <div className="sub_3_ListAgency">
+        <div className="sub_3_ListAgency" onClick={() => navigate('/createdAgency')}>
           <p>+ Thêm mới nguồn</p>
         </div>
         <div className="table_ListAgency">
