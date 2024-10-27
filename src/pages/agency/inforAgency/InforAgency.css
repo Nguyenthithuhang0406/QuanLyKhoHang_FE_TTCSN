@@ -3,11 +3,12 @@
 }
 .inforAgency{
     position: absolute;
+    width: 70%;
     top: 100px;
     right: 40px;
-    left: 340px;
+    left: 24%;
     min-height: max-content;
-    height: 1050px;
+    height: 80vh;
 }
 .inforAgency-form{
     border-top: 1px solid #ccc;
@@ -41,7 +42,7 @@
     line-height: 50px;
 }
 .inforBox{
-    flex-basis: 500px;
+    flex-basis: 700px;
     height: 50px;
     line-height: 50px;
     border-radius: 5px;
@@ -52,11 +53,13 @@
 
 .inforAgency-nav{
     margin-bottom: 20px;
+    display: flex;
 }
-.inforAgency a{
+.inforAgency p{
     text-decoration: none;
     color: black;
     font-weight: bold;
+    cursor: pointer;
 }
 .updateAgency-btn{
     display: flex;

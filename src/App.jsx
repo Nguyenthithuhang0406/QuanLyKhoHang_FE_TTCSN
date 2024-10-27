@@ -86,7 +86,7 @@ const App = () => {
       element: <CreatedAgency/>
     },
     {
-      path: '/inforAgency',
+      path: '/inforAgency/:type/:supplyId',
       element: <InforAgency/>
     },
     {

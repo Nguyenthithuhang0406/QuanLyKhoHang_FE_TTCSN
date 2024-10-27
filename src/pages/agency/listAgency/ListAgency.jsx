@@ -82,6 +82,10 @@ const ListAgency = () => {
     setIsDelete(false);
   };
 
+  const handleClickName = (supplyId, type) => {
+    navigate(`/inforAgency/${type}/${supplyId}`);
+  };
+
   return (
     <>
       <Header className="ListAgency" />
@@ -139,7 +143,7 @@ const ListAgency = () => {
                 supplies.length > 0 && supplies.map((supply, index) => (
                   <tr className="listAgency_tr_2" key={supply._id}>
                     <td className="listAgency_td_2">{(page - 1) * limit + index + 1}</td>
-                    <td className="listAgency_td nameSupply">{supply.providerName || supply.agencyName}</td>
+                    <td className="listAgency_td nameSupply" onClick={() => handleClickName(supply._id, supply.providerName ? "provider" : "agency")}>{supply.providerName || supply.agencyName}</td>
                     <td className="listAgency_td_2">{supply.providerName ? "Nhà cung cấp " : "Đại lý"}</td>
                     <td className="listAgency_td_2">{supply.providerCode || supply.agencyCode}</td>
                     <td className="listAgency_td_2">{supply.providerPhone || supply.agencyPhone}</td>

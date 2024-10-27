@@ -67,11 +67,8 @@ export const deleteSupply = async (type, supplyId) => {
 export const getSupplyById = async (type, supplyId) => {
   try {
     const supply = await requestWithToken(authInstance,{
-      url: `/supplies/getSupplyById/${supplyId}`,
+      url: `/supplies/getSupplyById/${type}/${supplyId}`,
       method: "get",
-      data: {
-        type,
-      },
     });
 
     return supply.data.data;
