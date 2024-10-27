@@ -14,13 +14,22 @@ import CreatedProduct from './pages/product/createdProduct/CreatedProduct';
 import EditProduct from './pages/product/editProduct/EditProduct';
 import ListProduct from './pages/product/listProduct/ListProduct';
 import ConfirmDeleteProduct from './components/confirmDeleteProduct/ConfirmDeleteProduct';
-import NavBar from './components/navBar/NavBar';
-import Header from './components/header/Header';
 import Information from './pages/auth/information/Information';
 import CreatedAgency from './pages/agency/createdAgency/CreatedAgency';
 import InforAgency from './pages/agency/inforAgency/InforAgency';
 import ListAgency from './pages/agency/listAgency/ListAgency';
 import InforProduct from './pages/product/inforProduct/InforProduct';
+import ListImportSlip from './pages/importSlip/listImportSlip/ListImportSlip';
+import CreatedImportSlip from './pages/importSlip/createdImportSlip/CreatedImportSlip';
+import InforImportSlip from './pages/importSlip/inforImportSlip/InforImportSlip';
+import ListExportSlip from './pages/exportSlip/listExportSlip/ListExportSlip';
+import CreatedExportSlip from './pages/exportSlip/createdExportSlip/CreatedExportSlip';
+import InforExportSlip from './pages/exportSlip/inforExportSlip/InforExportSlip';
+import DLFromLocal from './components/downloadProduct/downloadProductFromLocal/DLFromLocal';
+import DLFromExcel from './components/downloadProduct/downloadProductFromExcel/DLFromExcel';
+import CreatedInventory from './pages/inventory/createdInventory/CreatedInventory';
+import InforInventory from './pages/inventory/inforInventory/InforInventory';
+import ListInventory from './pages/inventory/listInventory/ListInventory';
 
 const App = () => {
   const routes = useRoutes([
@@ -83,6 +92,50 @@ const App = () => {
     {
       path: '/listAgency',
       element: <ListAgency/>
+    },
+    {
+      path: '/listImportSlip',
+      element: <ListImportSlip/>
+    },
+    {
+      path: '/createdImportSlip',
+      element: <CreatedImportSlip/>
+    },
+    {
+      path: '/inforImportSlip',
+      element: <InforImportSlip/>
+    },
+    {
+      path: '/listExportSlip',
+      element: <ListExportSlip/>
+    },
+    {
+      path: '/createdExportSlip',
+      element: <CreatedExportSlip/>
+    },
+    {
+      path: '/inforExportSlip',
+      element: <InforExportSlip/>
+    },
+    {
+      path: '/download/local',
+      element: <DLFromLocal/>
+    },
+    {
+      path: '/download/excel',
+      element: <DLFromExcel/>
+    },
+    {
+      path: '/createdInventory',
+      element: <CreatedInventory/>
+    },
+    {
+      path: '/inforInventory',
+      element: <InforInventory/>
+    },
+    {
+      path: '/listInventory',
+      element: <ListInventory/>
     },
     {
       path: '*',
