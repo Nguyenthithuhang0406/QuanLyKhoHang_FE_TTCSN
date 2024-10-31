@@ -20,6 +20,7 @@ const ListProduct = () => {
   const [isDeleteProduct, setIsDeleteProduct] = useState(false);
   const [type, setType] = useState("deletedProduct");
   const [deletedId, setDeletedId] = useState("");
+  const [isRefresh, setIsRefresh] = useState(false);
 
   const navigate = useNavigate();
 
@@ -31,7 +32,7 @@ const ListProduct = () => {
     };
 
     getListProducts();
-  }, [page]);
+  }, [page, isRefresh]);
 
   const handleChangePage = (page) => {
     setPage(page);
@@ -116,7 +117,7 @@ const ListProduct = () => {
                     listProducts.length > 0 && listProducts.map((product, index) => {
                       return (
                         <tr key={product._id}>
-                          <td className="listtable3">{index + 1}</td>
+                          <td className="listtable3">{(page - 1) * limit + index + 1}</td>
                           <td className="listtable3">{product.productName}</td>
                           <td className="listtable3">{product.productCode}</td>
                           <td className="listtable3">{product.productGroup}</td>
@@ -153,7 +154,7 @@ const ListProduct = () => {
               initial={{ opacity: 0, scal: 0.5 }}
               transition={{ duration: 0.3 }}
             >
-              <ConfirmDeleteProduct type={type} onCancel={handleCancelDelete} id={deletedId} />
+              <ConfirmDeleteProduct type={type} onCancel={handleCancelDelete} id={deletedId} isRefresh={isRefresh} setIsRefresh={setIsRefresh} />
             </motion.div>
           </div>
         )

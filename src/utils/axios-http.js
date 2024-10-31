@@ -1,3 +1,4 @@
+
 import { getRefreshToken } from '@/api/userAPI/user';
 import axios from 'axios';
 
@@ -14,22 +15,17 @@ const createAuthInstance = (baseURL) => {
 
   instance.interceptors.response.use(
     (response) => response, async (error) => {
-      // const originalRequest = error.config;
-
-      // if (error.response && error.response.status === 401 && !originalRequest._retry) {
+      console.log("error", error);
       if (error.response.status === 401) {
-        // originalRequest._retry = true;
-
         try {
           //api refreshToken
           const data = await getRefreshToken();
+          console.log("data", data);
           localStorage.setItem('accessToken', data.accessToken);
           localStorage.setItem('refreshToken', data.refreshToken);
 
           instance.defaults.headers.common['Authorization'] = `Bearer ${data.accessToken}`;
-          // originalRequest.headers['Authorization'] = `Bearer ${data.accessToken}`;
 
-          // return instance(originalRequest);
           return instance;
         } catch (error) {
           console.error(error);
