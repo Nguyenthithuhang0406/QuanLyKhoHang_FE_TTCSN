@@ -39,11 +39,11 @@ const CreatedExportSlip = () => {
   return (
     <div className="main-container">
       <Header className="header-createdExportSlip" />
-      <div className="content-container">
+      <div className="content-container-createdExportSlip">
         <NavBar />
         <div className="right-content">
           <div className="navigation-path">
-            Xuất - nhập với NCC &gt; Tạo mới phiếu nhập kho
+            Xuất - nhập với NCC &gt; Tạo mới phiếu xuất kho
           </div>
 
           <div className="action-buttons">
@@ -56,26 +56,27 @@ const CreatedExportSlip = () => {
           </div>
 
           <div className="form-container">
-            <h2 className="form-title">PHIẾU NHẬP KHO</h2>
+            <h2 className="form-title">PHIẾU XUẤT KHO</h2>
 
             <div className="form-section">
               <div className="info-section">
                 <h3>Thông tin chung</h3>
                 <div className="form-grid">
                   <div className="form-group">
-                    <label>Nguồn xuất</label>
+                    <label>Nguồn nhận</label>
                     <select
-                      value={formData.nguonXuat}
+                      value={formData.nguonNhan}
                       onChange={(e) =>
-                        setFormData({ ...formData, nguonXuat: e.target.value })
+                        setFormData({ ...formData, nguonNhan: e.target.value })
                       }
                     >
-                      <option value="">Chọn nguồn xuất</option>
+                      <option value="">Chọn nguồn nhận</option>
                     </select>
                   </div>
                   <div className="form-group">
                     <label>Mã phiếu</label>
                     <select
+                      className="ma-phieu"
                       value={formData.maPhieu}
                       onChange={(e) =>
                         setFormData({ ...formData, maPhieu: e.target.value })
@@ -119,12 +120,12 @@ const CreatedExportSlip = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Lý do nhập</label>
+                    <label>Lý do xuất</label>
                     <textarea
                       rows="5"
-                      value={formData.lyDoNhap}
+                      value={formData.lyDoXuat}
                       onChange={(e) =>
-                        setFormData({ ...formData, lyDoNhap: e.target.value })
+                        setFormData({ ...formData, lyDoXuat: e.target.value })
                       }
                     />
                   </div>
@@ -197,7 +198,7 @@ const CreatedExportSlip = () => {
                   </div>
                 </div>
 
-                <div className="document-section">
+                {/* <div className="document-section">
                   <h3>Sở cứ</h3>
                   <div className="upload-group">
                     <div className="form-group">
@@ -212,14 +213,13 @@ const CreatedExportSlip = () => {
                         <div className="input-img">
                           <input type="text" />
                           <div className="custom-file-input">
-                            {/* <img src={upload} alt="" className="upload" /> */}
-                            <div className="custom-file-input">Ảnh</div>
+                            <img src={upload} alt="" className="upload" />
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="button-section">
