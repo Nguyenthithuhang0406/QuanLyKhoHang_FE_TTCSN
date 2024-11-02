@@ -41,11 +41,11 @@ const CreatedImportSlip = () => {
   return (
     <div className="main-container">
       <Header className="header-createdImportSlip" />
-      <div className="content-container">
+      <div className="content-container-createdImportSlip">
         <NavBar />
         <div className="right-content">
           <div className="navigation-path">
-            Xuất - nhập với NCC &gt; Tạo mới phiếu xuất kho
+            Xuất - nhập với NCC &gt; Tạo mới phiếu nhập kho
           </div>
 
           <div className="action-buttons">
@@ -58,26 +58,27 @@ const CreatedImportSlip = () => {
           </div>
 
           <div className="form-container">
-            <h2 className="form-title">PHIẾU XUẤT KHO</h2>
+            <h2 className="form-title">PHIẾU NHẬP KHO</h2>
 
             <div className="form-section">
               <div className="info-section">
                 <h3>Thông tin chung</h3>
                 <div className="form-grid">
                   <div className="form-group">
-                    <label>Nguồn nhận</label>
+                    <label>Nguồn xuất</label>
                     <select
-                      value={formData.nguonNhan}
+                      value={formData.nguonXuat}
                       onChange={(e) =>
-                        setFormData({ ...formData, nguonNhan: e.target.value })
+                        setFormData({ ...formData, nguonXuat: e.target.value })
                       }
                     >
-                      <option value="">Chọn nguồn nhận</option>
+                      <option value="">Chọn nguồn xuất</option>
                     </select>
                   </div>
                   <div className="form-group">
                     <label>Mã phiếu</label>
                     <select
+                      className="ma-phieu"
                       value={formData.maPhieu}
                       onChange={(e) =>
                         setFormData({ ...formData, maPhieu: e.target.value })
@@ -121,12 +122,12 @@ const CreatedImportSlip = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label>Lý do xuất</label>
+                    <label>Lý do nhập</label>
                     <textarea
                       rows="5"
-                      value={formData.lyDoXuat}
+                      value={formData.lyDoNhap}
                       onChange={(e) =>
-                        setFormData({ ...formData, lyDoXuat: e.target.value })
+                        setFormData({ ...formData, lyDoNhap: e.target.value })
                       }
                     />
                   </div>
@@ -214,8 +215,7 @@ const CreatedImportSlip = () => {
                         <div className="input-img">
                           <input type="text" />
                           <div className="custom-file-input">
-                            {/* <img src={upload} alt="" className="upload" /> */}
-                            {/* <div className="custom-file-input">Ảnh</div>
+                          <div className="custom-file-input">Ảnh</div>
                           </div>
                         </div>
                       </div>
