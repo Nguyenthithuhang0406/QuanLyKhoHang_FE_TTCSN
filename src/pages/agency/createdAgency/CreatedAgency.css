@@ -67,6 +67,10 @@
   width: 100%;
 }
 
+.form-input:focus {
+  outline: none;
+  border-color: #2563eb;
+}
 .button-group {
   display: flex;
   justify-content: flex-end;
