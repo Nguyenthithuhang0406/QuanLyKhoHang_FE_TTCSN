@@ -146,13 +146,13 @@
 .pen .fa-pen {
     color: #007bff;
     cursor: pointer;
-    margin-left: 15px;
+    /* margin-left: 15px; */
 }
 
 .bin .fa-trash-can {
     color: #dc3545;
     cursor: pointer;
-    margin-left: 22px;
+    margin-left: 10px;
 }
 
 .fa-pen:hover {
@@ -176,7 +176,7 @@
       z-index: 3;
 }
 
-.purple{
+.purplekien{
     text-align: center;
     border: 1px solid #ccc;
 }

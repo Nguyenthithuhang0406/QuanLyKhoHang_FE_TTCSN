@@ -123,7 +123,7 @@ const ListProduct = () => {
                           <td className="listtable3">{product.productGroup}</td>
                           <td className="listtable3">{product.productDVT}</td>
                           <td className="listtable3">{product.productPrice}</td>
-                          <td className='purple'>
+                          <td className='purplekien'>
                             <span className='pen' onClick={() => handleClickPen(product._id)}><i className="fa-solid fa-pen"></i></span>
                             <span className='bin' onClick={() => handleClickBin(product._id)}><i className="fa-solid fa-trash-can"></i></span>
                           </td>
