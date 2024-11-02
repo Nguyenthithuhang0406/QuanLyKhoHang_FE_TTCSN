@@ -1,10 +1,10 @@
-.header_ListAgency {
+.header_ListExportSlip {
   position: relative;
 }
-.container_ListAgency {
+.container_ListExportSlip {
   position: absolute;
   top: 70px;
-  left: 18%;
+  left: 21%;
   width: 80%;
   background-color: #c2c2c2;
   padding-left: 25px;
@@ -14,32 +14,32 @@
   max-height: 92vh;
   overflow: auto;
 }
-.sub_ListAgency {
+.sub_ListExportSlip {
   background-color: white;
   display: flex;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   justify-content: space-between;
-  height: 150px;
+  height: 110px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   /* width: 95%;
     margin-left: 2%; */
 }
-.input_ListAgency {
+.input_ListExportSlip {
   background: #e9e9e9;
   width: 300px;
-  height: 40px;
+  height: 30px;
   border: none;
   border-radius: 5px;
   margin: 12px;
   outline: none;
   padding-left: 10px;
 }
-.input1_ListAgency {
+.input1_ListExportSlip {
   background: #e9e9e9;
   width: 300px;
-  height: 40px;
+  height: 30px;
   border: none;
   border-radius: 5px;
   padding: auto;
@@ -47,45 +47,35 @@
   outline: none;
   border-radius: 5px;
 }
-.sub_1_ListAgency {
+.sub_1_ListExportSlip {
   padding: 10px;
-  height: 150px;
+  height: 100px;
   margin-left: 40px;
 }
-
-.group-listAgency{
-  display: flex;
-  justify-content: space-between;
-  gap: 50px;
-}
-.input2_ListAgency {
+.input2_ListExportSlip {
   background: #e9e9e9;
   width: 300px;
-  height: 40px;
+  height: 30px;
   border: none;
   border-radius: 5px;
   padding: auto;
   margin: 5px;
   outline: none;
-  /* padding: 20px; */
 }
-.sub_2_ListAgency {
+.sub_2_ListExportSlip {
   /* padding: 30px 40px; */
-  background-color: #0318ff;
+  background-color: #98a2ff;
   width: 120px;
-  height: 40px;
+  height: 30px;
   margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   border-radius: 5px;
-  color: white;
 }
-.sub_2_ListAgency:hover {
-  background-color: #0413a2;
+.sub_2_ListExportSlip:hover {
+  background-color: #868fe0;
   cursor: pointer;
 }
-.sub_3_ListAgency {
+.sub_3_ListExportSlip {
   background-color: rgb(5, 5, 187);
   width: 180px;
   height: 40px;
@@ -96,108 +86,110 @@
   border-radius: 5px;
   padding-top: 7px;
 }
-.sub_3_ListAgency:hover {
+.sub_3_ListExportSlip:hover {
   background-color: rgb(3, 3, 143);
   cursor: pointer;
 }
-.table_ListAgency {
+.table_ListExportSlip {
   margin: 70px 0px 30px;
 }
-.button1_ListAgency {
+.button1_ListExportSlip {
   background-color: rgb(244, 244, 5);
   text-align: center;
   padding: 5px 10px;
   border-radius: 5px;
   justify-content: space-between;
-  margin-right: 30px;
+  /* margin-right: 30px; */
 }
-.button2_ListAgency {
+.button2_ListExportSlip {
   background-color: rgb(9, 9, 238);
   text-align: center;
   padding: 5px 16px;
   border-radius: 5px;
-  margin-right: 30px;
+  /* margin-right: 30px; */
 }
-.button3_ListAgency {
+.button3_ListExportSlip {
   background-color: rgb(229, 6, 6);
   text-align: center;
   padding: 5px 20px;
   border-radius: 5px;
   margin-right: 30px;
 }
-.button4_ListAgency {
+.button4_ListExportSlip {
   background-color: rgb(193, 16, 209);
   text-align: center;
   padding: 5px 7px;
   border-radius: 5px;
   margin-right: 30px;
 }
-.button_ListAgency {
+.button_ListExportSlip {
   background-color: rgb(7, 190, 7);
   text-align: center;
   padding: 5px 15px;
   border-radius: 5px;
   margin-right: 30px;
 }
-.ListAgency_th {
+.ListExportSlip_th {
   background-color: rgb(5, 5, 187);
   height: 50px;
   color: white;
   padding: 10px 45px;
-  border: 1px solid darkgray;
-  text-align: center;
+  border: 1px solid white;
 }
-.ListAgency_th_1 {
+.ListExportSlip_th_1 {
   background-color: rgb(5, 5, 187);
   height: 50px;
   color: white;
   padding: 10px 10px;
 }
-.table2_ListAgency {
-  border: 1px solid darkgray;
+.table2_ListExportSlip {
+  border: 2px solid white;
   width: 100%;
-  text-align: right;
-  background-color: whitesmoke;
+  height: 150px;
+  text-align: center;
+  background-color: white;
   border-spacing: 0px;
 }
-
-.bin_ListAgency {
-  align-items: center;
+.pen_ListExportSlip {
+  color: blue;
+  padding-right: 5px;
+}
+.penListExportSlip {
+  color: blue;
+}
+.bin_ListExportSlip {
+  padding-left: 5px;
+  color: red;
 }
 
-.listAgency_td_2 {
-  height: 50px;
-  padding: 10px 10px;
-  border: 1px solid darkgray;
-  text-align: center;
+.binListExportSlip {
+  color: red;
 }
-
-.listAgency_td {
-  height: 50px;
-  padding: 10px 45px;
-  border: 1px solid darkgray;
-  text-align: left;
+.date_ListExportSlip {
+  background: #e9e9e9;
+  width: 104px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  padding: auto;
+  margin: 5px;
+  outline: none;
+  margin-left: 10px;
 }
-
-.listAgency_tr_2 {
-  border: 1px solid rgb(186, 185, 185);
+.date_ListExportSlip1 {
+  padding-left: 37px;
 }
-
-.purple {
-  border: 1px solid darkgray;
+.date_ListExportSlip2 {
+  padding-left: 10px;
 }
-
-.ListAgency_th1 {
-  background-color: rgb(5, 5, 187);
-  height: 50px;
-  color: white;
-  padding: 10px 45px;
-  border: 1px solid darkgray;
-  text-align: left;
-}
-
-.nameSupply:hover{
-  cursor: pointer;
-  color: rgb(3, 3, 118);
-  text-decoration: underline;
+.date_ListExportSlip3 {
+  background: #e9e9e9;
+  width: 104px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  padding: auto;
+  margin: 5px;
+  outline: none;
+  margin-left: 10px;
 }
