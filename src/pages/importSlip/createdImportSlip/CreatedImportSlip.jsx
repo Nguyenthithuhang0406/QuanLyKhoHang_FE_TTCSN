@@ -199,7 +199,7 @@ const CreatedImportSlip = () => {
                   </div>
                 </div>
 
-                <div className="document-section">
+                {/* <div className="document-section">
                   <h3>Sở cứ</h3>
                   <div className="upload-group">
                     <div className="form-group">
@@ -215,13 +215,13 @@ const CreatedImportSlip = () => {
                           <input type="text" />
                           <div className="custom-file-input">
                             {/* <img src={upload} alt="" className="upload" /> */}
-                            <div className="custom-file-input">Ảnh</div>
+                            {/* <div className="custom-file-input">Ảnh</div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="button-section">
