@@ -91,7 +91,6 @@ const NavBar = () => {
           <div className="navBar-menu-item">
             <p><i className="fa-solid fa-chart-simple icon-navbar"></i>Quản lý kiểm kê</p>
           </div>
-          
           <div className="navBar-menu-item">
             <div className="menu-item-title">
               <p><i className="fa-solid fa-chart-simple icon-navbar"></i>Báo cáo thống kê</p>
