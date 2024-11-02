@@ -93,27 +93,41 @@
 .table_ListImportSlip {
   margin: 70px 0px 30px;
 }
+
 .button1_ListImportSlip {
   background-color: rgb(244, 244, 5);
   text-align: center;
   padding: 5px 10px;
   border-radius: 5px;
   justify-content: space-between;
-  /* margin-right: 30px; */
+  margin-right: 30px;
+  border: none;
 }
+.button1_ListImportSlip:focus{
+  outline: none;
+}
+
 .button2_ListImportSlip {
   background-color: rgb(9, 9, 238);
   text-align: center;
   padding: 5px 16px;
   border-radius: 5px;
-  /* margin-right: 30px; */
+  margin-right: 30px;
+  border: none;
 }
+.button2_ListImportSlip:focus{
+  outline: none;
+}
+
 .button3_ListImportSlip {
   background-color: rgb(229, 6, 6);
   text-align: center;
   padding: 5px 20px;
   border-radius: 5px;
   margin-right: 30px;
+}
+.button3_ListImportSlip:focus{
+  outline: none;
 }
 .button4_ListImportSlip {
   background-color: rgb(193, 16, 209);
@@ -122,6 +136,10 @@
   border-radius: 5px;
   margin-right: 30px;
 }
+.button4_ListImportSlip:focus{
+  outline: none;
+}
+
 .button_ListImportSlip {
   background-color: rgb(7, 190, 7);
   text-align: center;

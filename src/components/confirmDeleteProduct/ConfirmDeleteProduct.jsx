@@ -5,6 +5,7 @@ import "./ConfirmDeleteProduct.css";
 import { deleteProduct } from "@/api/productAPI/product";
 import { toast } from "react-toastify";
 import { deleteSupply } from "@/api/suppliesAPI/supply";
+import { deletedImportSlip } from "@/api/importSlipApi/importSlip";
 
 const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) => {
   
@@ -24,6 +25,16 @@ const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) =
         await deleteSupply(type,id);
         onCancel();
         toast.success("Xoá nguồn hàng thành công");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    if (type === "importSlip") {
+      try {
+        await deletedImportSlip(id);
+        onCancel();
+        toast.success("Xoá phiếu nhập thành công");
       } catch (error) {
         console.log(error);
       }

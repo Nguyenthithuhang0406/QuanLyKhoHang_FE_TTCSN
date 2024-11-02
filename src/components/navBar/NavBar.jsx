@@ -47,7 +47,7 @@ const NavBar = () => {
                 <div className="sub-menu-item">
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Nhập kho</p>
                 </div>
-                <p className="sub-menu-item" onClick={() => navigate('/listImportSlip')}>Phiếu nhập kho</p>
+                <p className="sub-menu-item" onClick={() => navigate(`/listImportSlip/Provider`)}>Phiếu nhập kho</p>
               </div>
             </div>
 
@@ -69,7 +69,7 @@ const NavBar = () => {
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Nhập kho</p>
                 </div>
                 <p className="sub-menu-item">Lệnh nhập kho</p>
-                <p className="sub-menu-item">Phiếu nhập kho</p>
+                <p className="sub-menu-item" onClick={() => navigate(`/listImportSlip/Agency`)}>Phiếu nhập kho</p>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ const NavBar = () => {
                 <div className="sub-menu-item">
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Nhập kho</p>
                 </div>
-                <p className="sub-menu-item">Phiếu nhập kho</p>
+                <p className="sub-menu-item" onClick={() => navigate(`/listImportSlip/Customer`)}>Phiếu nhập kho</p>
               </div>
             </div>
           </div>
