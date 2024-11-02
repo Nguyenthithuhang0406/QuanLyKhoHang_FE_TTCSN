@@ -7,8 +7,12 @@ import NavBar from '@/components/navBar/NavBar';
 const InforExportSlip = () => {
   return (
     <div class="exportForm-container">
-      <Header/>
+      <Header className="header"/>
       <NavBar/>
+      <div className="exportForm-nav">
+        <a href="">Xuất - nhập với NCC > </a>
+        <a href="">Xem phiếu xuất kho</a>
+      </div>
       <div className="exportForm-main">
         <div class="exportForm-title">
             PHIẾU XUẤT KHO
@@ -120,6 +124,18 @@ const InforExportSlip = () => {
                   <td>315.154.168</td>
                 </tr>
               </table>
+        </div>
+
+        <div className="ef-contract">
+          <div className="ef-contact-title">Hợp đồng</div>
+          <div className="ef-contract-img">
+            <div className="ef-contract-img-item">
+              Đây là hợp đồng
+            </div>
+            <div className="ef-contract-img-item">
+              Đây là hợp đồng
+            </div>
+          </div>
         </div>
 
       </div>
