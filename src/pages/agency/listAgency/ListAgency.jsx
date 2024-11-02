@@ -163,7 +163,7 @@ const ListAgency = () => {
             pageSize={limit}
             current={page}
             onChange={handleChangePage}
-            style={{ "position": "absolute", "bottom": "20px", "right": "50px", "position": "fixed" }}
+            style={{ position: "absolute", bottom: "20px", right: "50px", position: "fixed" }}
           />
         </div>
       </div>

@@ -110,7 +110,7 @@ const NavBar = () => {
               <div className="sub-menu">
                 <div className="sub-menu-item"> 
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Nguồn hàng xuất/nhập</p>
-                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Danh mục hàng hóa</p>
+                  <p><i className="fa-solid fa-chevron-right icon-navbar" onClick={() => navigate('/listProduct')}></i>Danh mục hàng hóa</p>
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Hợp đồng</p>
                 </div>
               </div>
