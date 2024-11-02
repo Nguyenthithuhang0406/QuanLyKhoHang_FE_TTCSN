@@ -31,7 +31,7 @@ const ListAgency = () => {
       try {
         const res = await getSupplies(limit, page);
         setSupplies(res.supplies);
-        setTotal(res.supplies.length);
+        setTotal(res.totalResult);
       } catch (error) {
         console.error(error);
       }
