@@ -1,6 +1,36 @@
+.header{
+    position: relative;
+}
 .exportForm-container{
-    width: fit-content;
+    background-color: #ccc;
+    height: 1500px;
+}
+
+.exportForm-nav{
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    left: 22%;
+    
+}
+
+.exportForm-nav a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.exportForm-main{
+    position: absolute;
+    width: 60%;
+    top: 160px;
+    right: 40px;
+    left: 22%;
+    min-height: max-content;
+    height: 80vh;
     background-color: #fff;
+    padding: 20px;
+    border: 1.5px solid black;
 }
 
 .exportForm-title{
@@ -9,13 +39,16 @@
     padding: 20px 0;
 }
 .exportForm{
-    border: 3px solid blue;
+    border: 1px solid black;
     padding: 20px;
+    width: 100%;
+    background-color: #e4e4e4;
 }
 
 .exportForm-infor{
     display: flex;
     justify-content: space-between;
+    
 }
 .exportForm-infor .col{
     flex-basis: 400px;
@@ -35,7 +68,7 @@
 }
 .exportForm-infor .ef-inforBox{
     flex-basis: 300px;
-    border: 1px solid blue;
+    border: 1px solid ;
     padding-left: 10px;
     height: 30px;
     line-height: 30px;
@@ -49,6 +82,8 @@
     border-collapse: collapse;
     font-family: Arial, sans-serif;
     margin: 50px 0px;
+    background-color: #ededed;
+    width: 100%;
 }
 
 .exportForm-listProduct th, td {
@@ -58,6 +93,29 @@
 }
 
 .exportForm-listProduct th {
-    background-color: blue;
+    background-color: rgb(73, 73, 74);
     color: #fff;
+}
+
+.ef-contract{
+    background-color: #e4e4e4;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.ef-contact-title{
+    font-weight: bold;
+}
+.ef-contract-img{
+    display: flex;
+    margin: 20px 0;
+}
+.ef-contract-img-item{
+    width: 200px;
+    height: 300px;
+    border: 1px solid black;
+    margin-right: 20px;
+    background-color: #ccc;
+    line-height: 300px;
+    text-align: center;
 }
