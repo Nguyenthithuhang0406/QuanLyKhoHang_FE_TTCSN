@@ -114,3 +114,7 @@
   background-color: #888; /* Màu của thanh cuộn ngang */
   border-radius: 6px; /* Bo tròn góc */
 }
+
+.sub-menu{
+    padding-left: 20px;
+}

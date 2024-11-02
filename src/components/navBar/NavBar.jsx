@@ -66,7 +66,6 @@ const NavBar = () => {
                 <p className="sub-menu-item">Phiếu nhập kho</p>
               </div>
             </div>
-            
           </div>
 
           <div className="navBar-menu-item">
@@ -86,12 +85,38 @@ const NavBar = () => {
                 <p className="sub-menu-item">Phiếu nhập kho</p>
               </div>
             </div>
-            </div>
+          </div>
             
 
           <div className="navBar-menu-item">
             <p><i className="fa-solid fa-chart-simple icon-navbar"></i>Quản lý kiểm kê</p>
           </div>
+          <div className="navBar-menu-item">
+            <div className="menu-item-title">
+              <p><i className="fa-solid fa-chart-simple icon-navbar"></i>Báo cáo thống kê</p>
+              <div className="sub-menu">
+                <div className="sub-menu-item"> 
+                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Báo cáo nhập kho</p>
+                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Báo cáo tồn kho</p>
+                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Báo cáo xuất nhập tồn</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="navBar-menu-item">
+            <div className="menu-item-title">
+              <p><i className="fa-solid fa-bars-staggered icon-navbar"></i>Danh mục</p>
+              <div className="sub-menu">
+                <div className="sub-menu-item"> 
+                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Nguồn hàng xuất/nhập</p>
+                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Danh mục hàng hóa</p>
+                  <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Hợp đồng</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
 
 
         </div>

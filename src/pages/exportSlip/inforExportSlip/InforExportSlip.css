@@ -1,0 +1,63 @@
+.exportForm-container{
+    width: fit-content;
+    background-color: #fff;
+}
+
+.exportForm-title{
+    text-align: center;
+    font-size: 20px;
+    padding: 20px 0;
+}
+.exportForm{
+    border: 3px solid blue;
+    padding: 20px;
+}
+
+.exportForm-infor{
+    display: flex;
+    justify-content: space-between;
+}
+.exportForm-infor .col{
+    flex-basis: 400px;
+}
+
+.exportForm p{
+    font-weight: bold;
+    font-size: 18px;
+}
+.exportForm-infor .col-item{
+    display: flex;
+    padding: 10px 0;
+}
+.exportForm-infor .col-item label{
+    flex-basis: 100px;
+    line-height: 30px;
+}
+.exportForm-infor .ef-inforBox{
+    flex-basis: 300px;
+    border: 1px solid blue;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.exportForm-infor .ef-formDescribe{
+    height: 100px;
+}
+.exportForm-listProduct table {
+    width: max-content;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin: 50px 0px;
+}
+
+.exportForm-listProduct th, td {
+    padding: 10px 20px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+.exportForm-listProduct th {
+    background-color: blue;
+    color: #fff;
+}
