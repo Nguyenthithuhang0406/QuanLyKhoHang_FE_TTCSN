@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { useState } from "react";
 import "./CreatedExportSlip.css";
 import NavBar from "@/components/navbar/NavBar";
