@@ -1,0 +1,148 @@
+.listInventoryRecord-container{
+    background-color: #e0e0e0;
+    
+}
+.listInventory{
+    position: absolute;
+    top: 80px;
+    right: 40px;
+    left: 22%;
+    min-height: max-content;
+    height: 80vh;
+    padding: 20px;
+    background-color: #e0e0e0;
+}
+  
+.listInventoryRecord-search-panel {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.listInventoryRecord-container .search-group {
+    display: flex;
+    width: 350px;
+}
+.listInventoryRecord-container .search-group:first-child {
+    margin-bottom: 20px;
+}
+
+
+
+.listInventoryRecord-container .search-group label{
+    flex-basis: 100px;
+    margin: auto 0;
+}
+
+
+.listInventoryRecord-container .search-group input, select {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-basis: 200px;
+}
+
+.listInventoryRecord-container .btn {
+    padding: 8px 16px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.listInventoryRecord-container .btn-search {
+    background-color: blue;
+    border: none;
+    color: white;
+    height: 40px;
+    margin: auto 0;
+    width: 120px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.listInventoryRecord-container .btn-search i{
+    margin-left: 8px;
+}
+
+.listInventoryRecord-container .btn-create {
+    background-color: #0000cc;
+    color: white;
+    display: flex;
+    margin: 30px 20px 30px auto;
+    padding: 12px 16px;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+}
+.listInventoryRecord-container .btn-create i{
+    line-height: 20px;
+    margin-right: 8px;
+}
+
+.listInventoryRecord-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+}
+
+.listInventoryRecord-container th {
+    background-color: #0000cc;
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+.listInventoryRecord-container td{
+    text-align: center;
+    border: 1px solid #000;
+    height: 40px;
+}
+
+
+.listInventoryRecord-container .status {
+    border-radius: 4px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+    width: 70%;
+    margin: auto;
+}
+
+.listInventoryRecord-container .status-pending {
+    background-color: #ffd700;
+    color: white;
+}
+
+.listInventoryRecord-container .status-rejected {
+    background-color: #ff4444;
+    color: white;
+}
+
+.listInventoryRecord-container .status-approved {
+    background-color: #00cc00;
+    color: white;
+}
+
+
+.listInventoryRecord-container .btn-edit {
+    width: 40px;
+    height: 30px;
+    margin: auto 5px;
+    background-color: white;
+    border: none;
+}
+
+.listInventoryRecord-container .btn-delete {
+    width: 40px;
+    height: 30px;
+    margin: auto 5px;
+    background-color: white;
+    border: none;
+}
+
+.listInventoryRecord-container .btn-edit:hover, .btn-delete:hover {
+    background-color: blue;
+}
