@@ -11,37 +11,39 @@ const ListInventory = () => {
         <Header className="header"/>
         <NavBar/>
         <div className="listInventory">
-          <div class="listInventoryRecord-search-panel">
-              <div class="search-row">
-                <div class="search-group">
-                  <label>Mã biên bản</label>
-                  <Formik type="text" placeholder="Nhập mã biên bản" />
+          <Formik>
+            <Form className="listInventoryRecord-search-panel">
+                <div className="search-row">
+                  <div className="search-group">
+                    <label htmlFor="MaBienBan">Mã biên bản</label>
+                    <input type="text" placeholder="Nhập mã biên bản" name="MaBienBan"/>
+                  </div>
+                  <div className="search-group">
+                    <label>Tình trạng</label>
+                    <select>
+                      <option>Tất cả</option>
+                      <option>Chờ duyệt</option>
+                      <option>Đã duyệt</option>
+                      <option>Từ chối</option>
+                    </select>
+                  </div>
                 </div>
-                <div class="search-group">
-                  <label>Tình trạng</label>
-                  <select>
-                    <option>Tất cả</option>
-                    <option>Chờ duyệt</option>
-                    <option>Đã duyệt</option>
-                    <option>Từ chối</option>
-                  </select>
-                </div>
+                <div className="search-row">
+                  <div className="search-group">
+                    <label htmlFor="dateStart">Từ ngày</label>
+                    <input type="date" name="dateStart"/>
+                  </div>
+                  <div className="search-group">
+                    <label htmlFor="dateEnd">Đến ngày</label>
+                    <input type="date" name="dateEnd"/>
+                  </div>
               </div>
-              <div class="search-row">
-                <div class="search-group">
-                  <label>Từ ngày</label>
-                  <Formik type="date"/>
-                </div>
-                <div class="search-group">
-                  <label>Đến ngày</label>
-                  <Formik type="date"/>
-                </div>
-            </div>
-            <button class="btn-search">Tìm kiếm <i class="fa-solid fa-magnifying-glass"></i></button>
-          </div>
+              <button className="btn-search">Tìm kiếm <i className="fa-solid fa-magnifying-glass"></i></button>
+            </Form>
+          </Formik>
         
-          <button class="btn btn-create">
-            <i class="fa-solid fa-plus"></i>Tạo biên bản kiểm kê
+          <button className="btn btn-create">
+            <i className="fa-solid fa-plus"></i>Tạo biên bản kiểm kê
           </button>
         
           <table>
@@ -61,10 +63,10 @@ const ListInventory = () => {
                 <td>BB78922SH</td>
                 <td>Kiểm tra định kỳ tháng 10/2022</td>
                 <td>30/10/2022 15:30</td>
-                <td><div class="status status-pending">Chờ duyệt</div></td>
-                <td class="actions">
-                  <button class="btn-edit">✏️</button>
-                  <button class="btn-delete">🗑️</button>
+                <td><div className="status status-pending">Chờ duyệt</div></td>
+                <td className="actions">
+                  <button className="btn-edit">✏️</button>
+                  <button className="btn-delete">🗑️</button>
                 </td>
               </tr>
               <tr>
@@ -72,10 +74,10 @@ const ListInventory = () => {
                 <td>BB15485DF</td>
                 <td>Kiểm tra định kỳ tháng 10/2022</td>
                 <td>30/10/2022 09:52</td>
-                <td><div class="status status-rejected">Từ chối</div></td>
-                <td class="actions">
-                  <button class="btn-edit">✏️</button>
-                  <button class="btn-delete">🗑️</button>
+                <td><div className="status status-rejected">Từ chối</div></td>
+                <td className="actions">
+                  <button className="btn-edit">✏️</button>
+                  <button className="btn-delete">🗑️</button>
                 </td>
               </tr>
               <tr>
@@ -83,10 +85,10 @@ const ListInventory = () => {
                 <td>BB18568GH</td>
                 <td>Kiểm tra đột xuất tháng 9/2022</td>
                 <td>15/09/2022 12:02</td>
-                <td><div class="status status-approved">Đã duyệt</div></td>
-                <td class="actions">
-                  <button class="btn-edit">✏️</button>
-                  <button class="btn-delete">🗑️</button>
+                <td><div className="status status-approved">Đã duyệt</div></td>
+                <td className="actions">
+                  <button className="btn-edit">✏️</button>
+                  <button className="btn-delete">🗑️</button>
                 </td>
               </tr>
             </tbody>
