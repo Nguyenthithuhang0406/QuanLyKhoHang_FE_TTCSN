@@ -41,7 +41,7 @@ const NavBar = () => {
                 <div className="sub-menu-item">
                   <p><i className="fa-solid fa-chevron-right icon-navbar"></i>Xuất kho</p>
                 </div>
-                <p className="sub-menu-item">Phiếu xuất kho</p>
+                <p className="sub-menu-item" onClick={() => navigate('/listExportSlip/Provider')}>Phiếu xuất kho</p>
               </div>
               <div className="sub-menu">
                 <div className="sub-menu-item">

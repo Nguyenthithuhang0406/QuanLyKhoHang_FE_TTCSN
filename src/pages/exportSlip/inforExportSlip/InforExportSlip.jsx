@@ -10,7 +10,7 @@ const InforExportSlip = () => {
       <Header className="header"/>
       <NavBar/>
       <div className="exportForm-nav">
-        <a href="">Xuất - nhập với NCC > </a>
+        <a href="">Xuất - nhập với NCC {">"} </a>
         <a href="">Xem phiếu xuất kho</a>
       </div>
       <div className="exportForm-main">

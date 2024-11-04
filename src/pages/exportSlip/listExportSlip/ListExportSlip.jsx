@@ -4,7 +4,9 @@ import React from "react";
 import "./ListExportSlip.css";
 import Header from "@/components/header/Header";
 import NavBar from "@/components/navBar/NavBar";
+import { useNavigate } from "react-router-dom";
 const ListExportSlip = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Header className="ListExportSlip" />
@@ -48,7 +50,7 @@ const ListExportSlip = () => {
             </span>
           </div>
         </div>
-        <div className="sub_3_ListExportSlip">
+        <div className="sub_3_ListExportSlip" onClick={() => navigate('/createdExportSlip') }>
           <p>+ Tạo phiếu xuất kho</p>
         </div>
         <div className="table_ListExportSlip">
