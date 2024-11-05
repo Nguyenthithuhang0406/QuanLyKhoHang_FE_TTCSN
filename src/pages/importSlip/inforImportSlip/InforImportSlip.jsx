@@ -11,7 +11,7 @@ const InforImportSlip = () => {
       <Header className="header"/>
       <NavBar/>
       <div className="importForm-nav">
-        <a href="">Xuất - nhập với NCC > </a>
+        <a href="">Xuất - nhập với NCC {">"} </a>
         <a href="">Xem phiếu nhập kho</a>
       </div>
       <div className="importForm-main">
