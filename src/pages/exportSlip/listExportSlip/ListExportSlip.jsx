@@ -229,7 +229,7 @@ const ListExportSlip = () => {
           </div>
           <div className="sub_2_ListExportSlip" onClick={handleSearch}>
             <span>
-              Tìm kiếm <i class="fa fa-search" aria-hidden="true"></i>
+              Tìm kiếm <i className="fa fa-search" aria-hidden="true"></i>
             </span>
           </div>
         </div>

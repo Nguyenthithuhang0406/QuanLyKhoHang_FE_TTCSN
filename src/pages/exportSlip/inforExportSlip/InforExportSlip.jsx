@@ -40,7 +40,7 @@ const InforExportSlip = () => {
   };
 
   return (
-    <div class="exportForm-container">
+    <div className="exportForm-container">
       <Header className="header" />
       <NavBar />
       <div style={{ maxHeight: "90vh", overflow: "auto" }}>
@@ -53,41 +53,41 @@ const InforExportSlip = () => {
           <p>Xem phiếu xuất kho</p>
         </div>
         <div className="exportForm-main">
-          <div class="exportForm-title">PHIẾU XUẤT KHO</div>
-          <div class="exportForm">
+          <div className="exportForm-title">PHIẾU XUẤT KHO</div>
+          <div className="exportForm">
             <p>Thông tin chung</p>
-            <div class="exportForm-infor">
-              <div class="col">
-                <div class="col-item">
+            <div className="exportForm-infor">
+              <div className="col">
+                <div className="col-item">
                   <label for="ef-agencyName">Nguồn nhận</label>
-                  <div class="ef-inforBox" name="ef-agencyName">
+                  <div className="ef-inforBox" name="ef-agencyName">
                     {(type === "Provider" &&
                       exportSlip.providerId?.providerName) ||
                       (type === "Agency" && exportSlip.agencyId?.agencyName)}
                   </div>
                 </div>
 
-                <div class="col-item">
+                <div className="col-item">
                   <label for="ef-agencyID">Mã nguồn</label>
-                  <div class="ef-inforBox" name="ef-agencyID">
+                  <div className="ef-inforBox" name="ef-agencyID">
                     {(type === "Provider" &&
                       exportSlip.providerId?.providerCode) ||
                       (type === "Agency" && exportSlip.agencyId?.agencyCode)}
                   </div>
                 </div>
 
-                <div class="col-item">
+                <div className="col-item">
                   <label for="ef-agencyPhone">Điện thoại</label>
-                  <div class="ef-inforBox" name="ef-agencyPhone">
+                  <div className="ef-inforBox" name="ef-agencyPhone">
                     {(type === "Provider" &&
                       exportSlip.providerId?.providerPhone) ||
                       (type === "Agency" && exportSlip.agencyId?.agencyPhone)}
                   </div>
                 </div>
 
-                <div class="col-item">
+                <div className="col-item">
                   <label for="ef-agencyAddress">Địa chỉ</label>
-                  <div class="ef-inforBox ef-formDescribe" name="ef-agencyID">
+                  <div className="ef-inforBox ef-formDescribe" name="ef-agencyID">
                     {(type === "Provider" &&
                       exportSlip.providerId?.providerAddress) ||
                       (type === "Agency" && exportSlip.agencyId?.agencyAddress)}
@@ -95,18 +95,18 @@ const InforExportSlip = () => {
                 </div>
               </div>
 
-              <div class="col">
-                <div class="col-item">
+              <div className="col">
+                <div className="col-item">
                   <label for="ef-formID">Mã phiếu</label>
-                  <div class="ef-inforBox" name="ef-formID">
+                  <div className="ef-inforBox" name="ef-formID">
                     {exportSlip.exportSlipCode}
                   </div>
                 </div>
 
-                <div class="col-item">
+                <div className="col-item">
                   <label for="ef-formDescribe">Lý do xuất</label>
                   <div
-                    class="ef-inforBox ef-formDescribe"
+                    className="ef-inforBox ef-formDescribe"
                     name="ef-formDescribe"
                   >
                     {exportSlip.reason}
@@ -116,7 +116,7 @@ const InforExportSlip = () => {
             </div>
           </div>
 
-          <div class="exportForm-listProduct">
+          <div className="exportForm-listProduct">
             <table>
               <tr>
                 <th>STT</th>
