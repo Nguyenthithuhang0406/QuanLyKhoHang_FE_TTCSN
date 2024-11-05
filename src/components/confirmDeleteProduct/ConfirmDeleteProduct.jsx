@@ -6,9 +6,15 @@ import { deleteProduct } from "@/api/productAPI/product";
 import { toast } from "react-toastify";
 import { deleteSupply } from "@/api/suppliesAPI/supply";
 import { deletedImportSlip } from "@/api/importSlipApi/importSlip";
+import { deletedExportSlip } from "@/api/exportSlipApi/exportSlip";
 
-const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) => {
-  
+const ConfirmDeleteProduct = ({
+  type,
+  onCancel,
+  id,
+  isRefresh,
+  setIsRefresh,
+}) => {
   const handleAgree = async () => {
     if (type === "deletedProduct") {
       try {
@@ -20,9 +26,9 @@ const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) =
       }
     }
 
-    if(type === "agency" || type === "provider") {
+    if (type === "agency" || type === "provider") {
       try {
-        await deleteSupply(type,id);
+        await deleteSupply(type, id);
         onCancel();
         toast.success("Xoá nguồn hàng thành công");
       } catch (error) {
@@ -40,17 +46,34 @@ const ConfirmDeleteProduct = ({ type, onCancel, id, isRefresh, setIsRefresh }) =
       }
     }
 
+    if (type === "exportSlip") {
+      try {
+        await deletedExportSlip(id);
+        onCancel();
+        toast.success("Xoá phiếu xuất thành công");
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     setIsRefresh(!isRefresh);
   };
 
   return (
     <div className="body">
       <div className="frame">
-        <span className="close" onClick={() => onCancel()}> &times; </span>
+        <span className="close" onClick={() => onCancel()}>
+          {" "}
+          &times;{" "}
+        </span>
         <p>Bạn chắc chắn muốn xoá?</p>
         <div className="btn-confirm-deleted">
-          <button className="confirm" onClick={() => handleAgree()}>Đồng ý</button>
-          <button className="cancel" onClick={() => onCancel()}>Huỷ</button>
+          <button className="confirm" onClick={() => handleAgree()}>
+            Đồng ý
+          </button>
+          <button className="cancel" onClick={() => onCancel()}>
+            Huỷ
+          </button>
         </div>
       </div>
     </div>

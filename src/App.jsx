@@ -110,11 +110,11 @@ const App = () => {
       element: <ListExportSlip/>
     },
     {
-      path: '/createdExportSlip',
+      path: '/createdExportSlip/:type',
       element: <CreatedExportSlip/>
     },
     {
-      path: '/inforExportSlip',
+      path: '/inforExportSlip/:exportSlipId',
       element: <InforExportSlip/>
     },
     {

@@ -79,10 +79,14 @@
 }
 
 .form-group input,
-.form-group select {
+.form-group-create select {
   padding: 8px;
   border: 1px solid #0B08AB;
   border-radius: 4px;
+}
+
+.form-group-create select {
+  margin-top: 10px;
 }
 
 .form-group input:focus{

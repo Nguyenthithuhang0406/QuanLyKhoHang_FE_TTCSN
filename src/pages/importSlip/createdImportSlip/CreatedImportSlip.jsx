@@ -213,7 +213,7 @@ const CreatedImportSlip = () => {
               <div className="info-section">
                 <h3>Thông tin chung</h3>
                 <div className="form-grid">
-                  <div className="form-group">
+                  <div className="form-group-create">
                     <label>Nguồn xuất</label>
                     <select
                       name="providerId"
