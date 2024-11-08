@@ -215,7 +215,7 @@ const CreatedImportSlip = () => {
                         <div className="input-img">
                           <input type="text" />
                           <div className="custom-file-input">
-                            <img src={upload} alt="" className="upload" />
+                          <div className="custom-file-input">Ảnh</div>
                           </div>
                         </div>
                       </div>
