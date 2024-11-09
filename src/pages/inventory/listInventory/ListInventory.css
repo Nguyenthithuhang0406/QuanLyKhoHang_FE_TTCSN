@@ -104,10 +104,9 @@
 
 .listInventoryRecord-container .status {
     border-radius: 4px;
-    font-weight: bold;
-    height: 25px;
-    line-height: 25px;
-    width: 70%;
+    height: 35px;
+    line-height: 35px;
+    width: 130px;
     margin: auto;
 }
 
@@ -130,19 +129,20 @@
 .listInventoryRecord-container .btn-edit {
     width: 40px;
     height: 30px;
-    margin: auto 5px;
-    background-color: white;
+    line-height: 30px;
+    color: blue;
+    font-size: 20px;
+}
+.listInventoryRecord-container table button{
     border: none;
+    background-color: #fff;
+    cursor: pointer;
 }
 
 .listInventoryRecord-container .btn-delete {
     width: 40px;
     height: 30px;
-    margin: auto 5px;
-    background-color: white;
-    border: none;
-}
-
-.listInventoryRecord-container .btn-edit:hover, .btn-delete:hover {
-    background-color: blue;
+    line-height: 30px;
+    color: red;
+    font-size: 20px;
 }

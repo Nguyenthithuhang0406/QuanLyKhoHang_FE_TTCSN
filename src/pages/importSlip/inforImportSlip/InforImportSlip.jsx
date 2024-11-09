@@ -34,7 +34,7 @@ const InforImportSlip = () => {
     
                     <div className="col-item">
                         <label for="if-agencyPhone">Điện thoại</label>
-                        <div classNameName="if-inforBox" name="if-agencyPhone">0987654321</div>
+                        <div className="if-inforBox if-agencyPhone" name="if-agencyPhone">0987654321</div>
                     </div>
     
                     <div className="col-item">
