@@ -62,8 +62,8 @@ const CreatedAgency = () => {
             <span className="title-createdAgency">&gt;</span>
             <p className="title-createdAgency">Thêm loại nguồn</p>
           </div>
-          <div className="content-container">
-            <div className="title-bar">Thêm mới nguồn</div>
+          <div className="content-container-agency">
+            <div className="title-bar-agency">Thêm mới nguồn</div>
               
             <div className="form-container" >
               <div className="form-group-created-agency">

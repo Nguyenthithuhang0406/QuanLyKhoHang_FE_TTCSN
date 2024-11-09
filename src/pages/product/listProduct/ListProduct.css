@@ -143,13 +143,13 @@
     color: white;
 }
 
-.pen .fa-pen {
+.pen-product .fa-pen {
     color: #007bff;
     cursor: pointer;
     /* margin-left: 15px; */
 }
 
-.bin .fa-trash-can {
+.bin-product .fa-trash-can {
     color: #dc3545;
     cursor: pointer;
     margin-left: 10px;
@@ -176,7 +176,6 @@
       z-index: 3;
 }
 
-.purplekien{
-    text-align: center;
+.purple{
     border: 1px solid #ccc;
 }
