@@ -94,27 +94,27 @@ const App = () => {
       element: <ListAgency/>
     },
     {
-      path: '/listImportSlip',
+      path: '/listImportSlip/:type',
       element: <ListImportSlip/>
     },
     {
-      path: '/createdImportSlip',
+      path: '/createdImportSlip/:type',
       element: <CreatedImportSlip/>
     },
     {
-      path: '/inforImportSlip',
+      path: '/inforImportSlip/:importSlipId',
       element: <InforImportSlip/>
     },
     {
-      path: '/listExportSlip',
+      path: '/listExportSlip/:type',
       element: <ListExportSlip/>
     },
     {
-      path: '/createdExportSlip',
+      path: '/createdExportSlip/:type',
       element: <CreatedExportSlip/>
     },
     {
-      path: '/inforExportSlip',
+      path: '/inforExportSlip/:exportSlipId',
       element: <InforExportSlip/>
     },
     {

@@ -16,7 +16,7 @@ const Register = () => {
   const initialValues = {
     fullName: "",
     email: "",
-    staffCode: "",
+    staffCode: `${Math.floor(Math.random() * 1000000)}`,
     userName: "",
     password: "",
     role: "staff",
@@ -106,6 +106,7 @@ const Register = () => {
                       name="staffCode"
                       type="text"
                       placeholder=""
+                      readOnly
                     />
                     <ErrorMessage
                       name="staffCode"

@@ -1,0 +1,134 @@
+
+.inforinventory_kien {
+    display: flex;
+    background-color: #d7d5d5;
+    width:77%;
+    height:auto;
+    margin-left: 350px;
+    margin-top: -600px;
+   
+    
+}
+
+.btt_kien {
+    width: 800px;
+    margin-right: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #a79a9a;
+    margin-left: 50px;
+    border: none;
+    margin-top: 20px;
+
+}
+
+.bangtinhtrang {
+    width: 250px;
+    background-color: #e3e3e3;
+    padding: 20px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    border: none;
+    /* margin-top: 20px; */
+}
+
+.bbkkhh {
+    text-align: center;
+    color: blue;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 20px;
+    border: none;
+}
+
+.info-section_kien {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color:#d7d5d5 ;
+    border:none;
+}
+
+.info-chung {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.fr {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.fr label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.fr input {
+    padding: 5px;
+    flex: 1;
+    margin-right: 10px;
+    border: none;
+}
+
+
+.tableKien {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.tableKien th, .tableKien td {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+.tableKien th {
+    background-color: #444;
+    color: #fff;
+}
+
+
+.bangtinhtrang button {
+    width: 40%;
+    height:40px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    margin-left: 110px;
+    
+}
+
+.fa-solid{
+    padding-left: 5px;
+}
+.delete-btt {
+    background-color: #ff6666;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.duyet-btt {
+    background-color: #ffa500;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.tuchoi-btt {
+    background-color: #ff4d4d;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.bangtinhtrang input {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+

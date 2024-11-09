@@ -3,7 +3,8 @@
 }
 .exportForm-container{
     background-color: #ccc;
-    height: 1500px;
+    max-height: 100vh;
+    overflow: auto;
 }
 
 .exportForm-nav{
@@ -14,7 +15,7 @@
     
 }
 
-.exportForm-nav a{
+.exportForm-nav p{
     text-decoration: none;
     color: #000;
     font-weight: bold;
@@ -22,12 +23,12 @@
 
 .exportForm-main{
     position: absolute;
-    width: 60%;
+    width: 55%;
     top: 160px;
     right: 40px;
     left: 22%;
-    min-height: max-content;
-    height: 80vh;
+    max-height: 80vh;
+    overflow: auto;
     background-color: #fff;
     padding: 20px;
     border: 1.5px solid black;
@@ -119,3 +120,87 @@
     line-height: 300px;
     text-align: center;
 }
+
+.status-panel {
+    width: 250px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 4px;
+    position: absolute;
+    top: 160px;
+    right: 50px;
+    max-height: 80vh;
+    overflow: auto;
+  }
+  .status-header{
+    margin-bottom: 10px;
+  }
+  
+  .status-group {
+    margin-bottom: 15px;
+    /* display : flex;
+    justify-content : space-between; */
+  }
+  
+  .status-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+  }
+  
+  .status-btn {
+    width: 40%;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    /* margin-left : 30px; */
+    
+  }
+  
+  .status-info {
+    min-height: 40px;
+    font-size: 16px;
+    color: #666;
+    /* margin-left : 30px; */
+    
+    
+  }
+  .status-info input {
+    width: 100%;
+    padding: 4px 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    
+
+  }
+  
+  /* .status-info .name {
+    margin-bottom: 2px;
+    
+    
+  }
+  
+  .status-info .time {
+    font-size: 11px;
+    
+  } */
+  
+  /* Button styles */
+  .delete { background:  #FFC19E;; color: white; }
+  .approve { background: #FFBC16;; color: black; }
+  .reject { background: #EE4B3C; color: white; }
+  .exported { 
+    background: #888888;
+    color: white;
+    /* opacity: 0.7; */
+    /* cursor: not-allowed; */
+  }
+  .return { background: #888888; color: white; }
+  

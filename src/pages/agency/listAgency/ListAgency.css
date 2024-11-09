@@ -143,8 +143,8 @@
   background-color: rgb(5, 5, 187);
   height: 50px;
   color: white;
-  padding: 10px 45px;
-  border: 1px solid darkgray;
+  padding: 10px 10px;
+  border: 1px solid rgb(200, 200, 200);
   text-align: center;
 }
 .ListAgency_th_1 {
@@ -154,7 +154,7 @@
   padding: 10px 10px;
 }
 .table2_ListAgency {
-  border: 1px solid darkgray;
+  border: 1px solid rgb(200, 200, 200);
   width: 100%;
   text-align: right;
   background-color: whitesmoke;
@@ -168,31 +168,31 @@
 .listAgency_td_2 {
   height: 50px;
   padding: 10px 10px;
-  border: 1px solid darkgray;
+  border: 1px solid rgb(200, 200, 200);
   text-align: center;
 }
 
 .listAgency_td {
   height: 50px;
-  padding: 10px 45px;
-  border: 1px solid darkgray;
+  padding: 10px 10px;
+  border: 1px solid rgb(200, 200, 200);
   text-align: left;
 }
 
 .listAgency_tr_2 {
-  border: 1px solid rgb(186, 185, 185);
+  border: 1px solid rgb(200, 200, 200);
 }
 
 .purple {
-  border: 1px solid darkgray;
+  border: 1px solid rgb(200, 200, 200);
 }
 
 .ListAgency_th1 {
   background-color: rgb(5, 5, 187);
   height: 50px;
   color: white;
-  padding: 10px 45px;
-  border: 1px solid darkgray;
+  padding: 10px 10px;
+  border: 1px solid rgb(200, 200, 200);
   text-align: left;
 }
 
@@ -200,4 +200,8 @@
   cursor: pointer;
   color: rgb(3, 3, 118);
   text-decoration: underline;
+}
+
+.table2_ListAgency tr:nth-child(even) {
+    background-color: #f9f9f9;
 }

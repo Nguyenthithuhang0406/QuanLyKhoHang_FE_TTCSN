@@ -31,7 +31,7 @@ const ListAgency = () => {
       try {
         const res = await getSupplies(limit, page);
         setSupplies(res.supplies);
-        setTotal(res.supplies.length);
+        setTotal(res.totalResult);
       } catch (error) {
         console.error(error);
       }
@@ -163,7 +163,7 @@ const ListAgency = () => {
             pageSize={limit}
             current={page}
             onChange={handleChangePage}
-            style={{ "position": "absolute", "bottom": "20px", "right": "50px", "position": "fixed" }}
+            style={{ position: "absolute", bottom: "20px", right: "50px", position: "fixed" }}
           />
         </div>
       </div>
