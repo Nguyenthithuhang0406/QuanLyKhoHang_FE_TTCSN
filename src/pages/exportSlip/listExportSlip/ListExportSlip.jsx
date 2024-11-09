@@ -309,11 +309,13 @@ const ListExportSlip = () => {
                         {exportSlip.status === "PENDING"
                           ? "Chờ duyệt"
                           : exportSlip.status === "DONE"
-                          ? "Đã nhập"
+                          ? "Đã xuất"
                           : exportSlip.status === "REJECTED"
                           ? "Từ chối"
                           : exportSlip.status === "CONFIRMED"
                           ? "Đã duyệt"
+                          : exportSlip.status === "RETURNED"
+                          ? "Hoàn hàng"
                           : ""}
                       </option>
                       <option
