@@ -65,8 +65,8 @@ const ListInventory = () => {
                 <td>30/10/2022 15:30</td>
                 <td><div className="status status-pending">Chờ duyệt</div></td>
                 <td className="actions">
-                  <button className="btn-edit">✏️</button>
-                  <button className="btn-delete">🗑️</button>
+                  <button><i class="fa-solid fa-pen btn-edit"></i></button>
+                  <button><i className="fa-solid fa-trash btn-delete"></i></button>
                 </td>
               </tr>
               <tr>
@@ -76,8 +76,8 @@ const ListInventory = () => {
                 <td>30/10/2022 09:52</td>
                 <td><div className="status status-rejected">Từ chối</div></td>
                 <td className="actions">
-                  <button className="btn-edit">✏️</button>
-                  <button className="btn-delete">🗑️</button>
+                  <button><i class="fa-solid fa-pen btn-edit"></i></button>
+                  <button><i className="fa-solid fa-trash btn-delete"></i></button>
                 </td>
               </tr>
               <tr>
@@ -87,8 +87,8 @@ const ListInventory = () => {
                 <td>15/09/2022 12:02</td>
                 <td><div className="status status-approved">Đã duyệt</div></td>
                 <td className="actions">
-                  <button className="btn-edit">✏️</button>
-                  <button className="btn-delete">🗑️</button>
+                  <button><i class="fa-solid fa-pen btn-edit"></i></button>
+                  <button><i className="fa-solid fa-trash btn-delete"></i></button>
                 </td>
               </tr>
             </tbody>

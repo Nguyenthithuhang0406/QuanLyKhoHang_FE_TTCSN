@@ -70,7 +70,14 @@
 }
 .importForm-infor .if-inforBox{
     flex-basis: 300px;
-    border: 1px solid ;
+    border: 1px solid #000;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+    width: 300px;
+}
+.importForm-infor .if-agencyPhone{
+    border: 1px solid #000;
     padding-left: 10px;
     height: 30px;
     line-height: 30px;
