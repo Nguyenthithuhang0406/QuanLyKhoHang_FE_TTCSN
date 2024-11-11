@@ -22,7 +22,7 @@ const ListInventory = () => {
                   name="MaBienBan"
                 />
               </div>
-              <div className="search-group">
+<div className="search-group">
                 <label>Tình trạng</label>
                 <select className="tinh-trang">
                   <option>Tất cả</option>
