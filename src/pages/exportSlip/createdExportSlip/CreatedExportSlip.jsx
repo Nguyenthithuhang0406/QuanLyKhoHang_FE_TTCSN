@@ -233,7 +233,7 @@ const CreatedExportSlip = () => {
                 <div className="form-grid">
                   <div className="form-group-create">
                     <label>Nguồn nhận</label>
-                    <select name="providerId" onChange={handleChangeProvider}>
+                    <select className="nguon-nhan" name="providerId" onChange={handleChangeProvider}>
                       <option value="">-Chọn nguồn nhận-</option>
                       {listProvider.length > 0 &&
                         listProvider.map((provider) => (

@@ -216,6 +216,7 @@ const CreatedImportSlip = () => {
                   <div className="form-group-create">
                     <label>Nguồn xuất</label>
                     <select
+                    className="nguon-xuat"
                       name="providerId"
                       onChange={handleChangeProvider}
                     >
