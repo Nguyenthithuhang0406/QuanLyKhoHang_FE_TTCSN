@@ -1,13 +1,16 @@
 
+.inforinventoryheader{
+    position: relative;
+}
 .inforinventory_kien {
+    position: absolute;
     display: flex;
     background-color: #d7d5d5;
     width:77%;
     height:auto;
-    margin-left: 350px;
-    margin-top: -600px;
-   
-    
+    left: 350px;
+   top: 150px;
+    padding-bottom: 50px;
 }
 
 .btt_kien {
