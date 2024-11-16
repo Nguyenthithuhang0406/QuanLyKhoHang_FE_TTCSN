@@ -22,7 +22,7 @@ const ListInventory = () => {
                   name="MaBienBan"
                 />
               </div>
-<div className="search-group">
+              <div className="search-group">
                 <label>Tình trạng</label>
                 <select className="tinh-trang">
                   <option>Tất cả</option>
@@ -73,8 +73,8 @@ const ListInventory = () => {
                 <div className="status status-pending">Chờ duyệt</div>
               </td>
               <td className="actions">
-                <button className="btn-edit">✏️</button>
-                <button className="btn-delete">🗑️</button>
+                <button className="btn-edit"><i class="fa-solid fa-pen"></i></button>
+                <button className="btn-delete"><i class="fa-solid fa-trash"></i></button>
               </td>
             </tr>
             <tr>
@@ -86,8 +86,8 @@ const ListInventory = () => {
                 <div className="status status-rejected">Từ chối</div>
               </td>
               <td className="actions">
-                <button className="btn-edit">✏️</button>
-                <button className="btn-delete">🗑️</button>
+                <button className="btn-edit"><i class="fa-solid fa-pen"></i></button>
+                <button className="btn-delete"><i class="fa-solid fa-trash"></i></button>
               </td>
             </tr>
             <tr>
@@ -99,8 +99,8 @@ const ListInventory = () => {
                 <div className="status status-approved">Đã duyệt</div>
               </td>
               <td className="actions">
-                <button className="btn-edit">✏️</button>
-                <button className="btn-delete">🗑️</button>
+                <button className="btn-edit"><i class="fa-solid fa-pen"></i></button>
+                <button className="btn-delete"><i class="fa-solid fa-trash"></i></button>
               </td>
             </tr>
           </tbody>
