@@ -138,5 +138,11 @@
 
 .listInventoryRecord-container .btn-edit:hover,
 .btn-delete:hover {
-  background-color: blue;
+  background-color: #ccc;
+}
+.btn-edit i{
+  color: blue;
+}
+.btn-delete i{
+  color: red;
 }

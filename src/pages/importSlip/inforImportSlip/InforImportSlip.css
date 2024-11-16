@@ -300,4 +300,9 @@
     /* cursor: not-allowed; */
   }
   .return { background: #888888; color: white; }
+
+.col-item div{
+    overflow: auto;
+    -ms-overflow-style: none;
+}
   
