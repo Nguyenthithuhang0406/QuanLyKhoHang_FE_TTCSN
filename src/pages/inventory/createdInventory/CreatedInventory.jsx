@@ -30,7 +30,12 @@ const CreatedInventory = () => {
                   <div className="input-inventory">
                     <div className="info-item">
                       <label>Kiểm kê tại kho</label>
-                      <select className="input-ive"></select>
+                      <select
+                        style={{
+                          height: "35px !important",
+                        }}
+                        className="input-ive kiem-ke"
+                      ></select>
                     </div>
                     <div className="info-item">
                       <label>Ngày kiểm</label>
@@ -39,7 +44,7 @@ const CreatedInventory = () => {
                   </div>
                   <div className="info-item purpose">
                     <label>Mục đích</label>
-                    <textarea className="input-ive" rows="5" />
+                    <textarea className="p1" rows="5" />
                   </div>
                 </div>
               </div>
