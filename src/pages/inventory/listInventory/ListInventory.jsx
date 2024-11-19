@@ -5,7 +5,9 @@ import "./ListInventory.css";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import Header from "@/components/header/Header";
 import NavBar from "@/components/navBar/NavBar";
+import { useNavigate } from "react-router-dom";
 const ListInventory = () => {
+  const navigate = useNavigate();
   return (
     <div class="listInventoryRecord-container">
       <Header className="header" />
@@ -48,7 +50,10 @@ const ListInventory = () => {
           </Form>
         </Formik>
 
-        <button className="btn btn-create">
+        <button
+          className="btn btn-create"
+          onClick={() => navigate("/createdInventory")}
+        >
           <i className="fa-solid fa-plus"></i>Tạo biên bản kiểm kê
         </button>
 
@@ -73,8 +78,12 @@ const ListInventory = () => {
                 <div className="status status-pending">Chờ duyệt</div>
               </td>
               <td className="actions">
-                <button className="btn-edit"><i class="fa-solid fa-pen"></i></button>
-                <button className="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                <button className="btn-edit">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button className="btn-delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
               </td>
             </tr>
             <tr>
@@ -86,8 +95,12 @@ const ListInventory = () => {
                 <div className="status status-rejected">Từ chối</div>
               </td>
               <td className="actions">
-                <button className="btn-edit"><i class="fa-solid fa-pen"></i></button>
-                <button className="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                <button className="btn-edit">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button className="btn-delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
               </td>
             </tr>
             <tr>
@@ -99,8 +112,12 @@ const ListInventory = () => {
                 <div className="status status-approved">Đã duyệt</div>
               </td>
               <td className="actions">
-                <button className="btn-edit"><i class="fa-solid fa-pen"></i></button>
-                <button className="btn-delete"><i class="fa-solid fa-trash"></i></button>
+                <button className="btn-edit">
+                  <i class="fa-solid fa-pen"></i>
+                </button>
+                <button className="btn-delete">
+                  <i class="fa-solid fa-trash"></i>
+                </button>
               </td>
             </tr>
           </tbody>

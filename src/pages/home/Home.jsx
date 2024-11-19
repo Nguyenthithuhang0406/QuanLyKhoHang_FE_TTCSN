@@ -1,42 +1,122 @@
 /* eslint-disable */
 import Header from "@/components/header/Header";
 import NavBar from "@/components/navBar/NavBar";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-ChartJS.register(ArcElement, Tooltip, Legend);
-const overviewData = {
-  datasets: [
-    {
-      data: [37, 63],
-      backgroundColor: ["#FFBB01", "#30A032"],
-      // hoverBackgroundColor: ["#FFCE56", "#36A2EB"],
-    },
-  ],
-};
-
-const exportData = {
-  datasets: [
-    {
-      data: [37, 52, 11],
-      backgroundColor: ["#FFBB01", "#FFD45F", "#FFEAB0"],
-      // hoverBackgroundColor: ["#FFCE56", "#FF7043", "#FF6384"],
-    },
-  ],
-};
-
-const importData = {
-  datasets: [
-    {
-      data: [82, 18],
-      backgroundColor: ["#30A032", "#95f5a8"],
-      // hoverBackgroundColor: ["#4BC0C0", "#36A2EB"],
-    },
-  ],
-};
+import {
+  exportWithSource,
+  importExportRatio,
+  importWithSource,
+} from "@/api/generalStatisticsApi/generalStatistics";
 
 const Home = () => {
+  const [dataOverView, setDataOverView] = useState({});
+  const [dataExport, setDataExport] = useState({});
+  const [dataImport, setDataImport] = useState({});
+
+  const [time1, setTime1] = useState({
+    timeStart1: "",
+    timeEnd1: "",
+  });
+
+  const [time2, setTime2] = useState({
+    timeStart2: "",
+    timeEnd2: "",
+  });
+
+  const [time3, setTime3] = useState({
+    timeStart3: "",
+    timeEnd3: "",
+  });
+
+  useEffect(() => {
+    const getData1 = async () => {
+      const data1 = await importExportRatio(time1.timeStart1, time1.timeEnd1);
+      setDataOverView(data1);
+    };
+
+    getData1();
+  }, [time1]);
+
+  useEffect(() => {
+    const getData2 = async () => {
+      const data2 = await exportWithSource(time2.timeStart2, time2.timeEnd2);
+      setDataExport(data2);
+    };
+
+    getData2();
+  }, [time2]);
+
+  useEffect(() => {
+    const getData3 = async () => {
+      const data3 = await importWithSource(time3.timeStart3, time3.timeEnd3);
+      setDataImport(data3);
+    };
+
+    getData3();
+  }, [time3]);
+
+  const handleChangeTime1 = (e) => {
+    const { name, value } = e.target;
+    setTime1({
+      ...time1,
+      [name]: value,
+    });
+  };
+
+  const handleChangeTime2 = (e) => {
+    const { name, value } = e.target;
+    setTime2({
+      ...time2,
+      [name]: value,
+    });
+  };
+
+  const handleChangeTime3 = (e) => {
+    const { name, value } = e.target;
+    setTime3({
+      ...time3,
+      [name]: value,
+    });
+  };
+
+  ChartJS.register(ArcElement, Tooltip, Legend);
+  const overviewData = {
+    datasets: [
+      {
+        data: [dataOverView.exportQuantity, dataOverView.importQuantity],
+        backgroundColor: ["#FFBB01", "#30A032"],
+        hoverBackgroundColor: ["#FFCE56", "#36A2EB"],
+      },
+    ],
+  };
+
+  const exportData = {
+    datasets: [
+      {
+        data: [
+          dataExport.exportWithProvider,
+          dataExport.exportWithAgency,
+          dataExport.returnWithAgency,
+        ],
+        backgroundColor: ["#FFBB01", "#FFD45F", "#FFEAB0"],
+        hoverBackgroundColor: ["#FFCE56", "#FF7043", "#FF6384"],
+      },
+    ],
+  };
+
+  const importData = {
+    datasets: [
+      {
+        data: [dataImport.importWithProvider, dataImport.importWithAgency],
+        backgroundColor: ["#30A032", "#95f5a8"],
+        hoverBackgroundColor: ["#4BC0C0", "#36A2EB"],
+      },
+    ],
+  };
+
   return (
     <>
       <Header className="headerListP" />
@@ -53,9 +133,23 @@ const Home = () => {
               <p>Tỉ lệ xuất nhập kho</p>
               <div className="date_time_home">
                 <label htmlFor="">Từ ngày</label>
-                <input className="date_home" type="date" name="" id="" />
+                <input
+                  className="date_home"
+                  type="date"
+                  name="timeStart1"
+                  id=""
+                  value={time1.timeStart1}
+                  onChange={(e) => handleChangeTime1(e)}
+                />
                 <label htmlFor="">Đến ngày</label>
-                <input className="date_home" type="date" name="" id="" />
+                <input
+                  className="date_home"
+                  type="date"
+                  name="timeEnd1"
+                  id=""
+                  value={time1.timeEnd1}
+                  onChange={(e) => handleChangeTime1(e)}
+                />
               </div>
             </div>
             <div className="dong3_tq">
@@ -76,15 +170,19 @@ const Home = () => {
                     <i className="fa-regular fa-calendar-check"></i>
                   </div>
                   <p className="home-text">
-                    Tổng số phiếu <p>52</p>
+                    Tổng số phiếu <br /> <span>{dataOverView.countSlip}</span>
                   </p>
                 </div>
                 <div className="col3_home">
                   <div className="icon_home">
-                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <i className="fa-solid fa-boxes-stacked"></i>
                   </div>
                   <p className="home-text">
-                    Tổng lượng tồn kho <p>52,369</p>
+                    Tổng lượng tồn kho <br />
+                    <span>
+                      {dataOverView.importQuantity -
+                        dataOverView.exportQuantity}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -98,12 +196,26 @@ const Home = () => {
               </p>
             </div>
             <div className="dong2_tq">
-              <p>Tỉ lệ xuất nhập kho theo nguồn nhập</p>
+              <p>Tỉ lệ xuất kho theo nguồn nhập</p>
               <div className="date_time_home">
                 <label htmlFor="">Từ ngày</label>
-                <input className="date_home" type="date" name="" id="" />
+                <input
+                  className="date_home"
+                  type="date"
+                  name="timeStart2"
+                  id=""
+                  value={time2.timeStart2}
+                  onChange={(e) => handleChangeTime2(e)}
+                />
                 <label htmlFor="">Đến ngày</label>
-                <input className="date_home" type="date" name="" id="" />
+                <input
+                  className="date_home"
+                  type="date"
+                  name="timeEnd2"
+                  id=""
+                  value={time2.timeEnd2}
+                  onChange={(e) => handleChangeTime2(e)}
+                />
               </div>
             </div>
             <div className="dong3_tq">
@@ -112,13 +224,13 @@ const Home = () => {
                 <div className="col_2_home">
                   <div className="o3_home"></div>
                   <p>
-                    Xuất kho <p>cho NCC</p>
+                    Xuất kho <br /> <span>cho NCC</span>
                   </p>
                 </div>
                 <div className="col_2_home">
                   <div className="o4_home"></div>
                   <p>
-                    Xuất kho <p>cho ĐLC1</p>
+                    Xuất kho <br /> <span>cho ĐLC1</span>
                   </p>
                 </div>
                 <div className="col_2_home">
@@ -132,15 +244,20 @@ const Home = () => {
                     <i className="fa-regular fa-calendar-check"></i>
                   </div>
                   <p className="home-text">
-                    Số phiếu xuất kho <p>709</p>
+                    Số phiếu xuất kho <br /> <span>{dataExport.countSlip}</span>
                   </p>
                 </div>
                 <div className="col3_home">
                   <div className="icon_home">
-                    <i class="fa-solid fa-box-archive"></i>
+                    <i className="fa-solid fa-box-archive"></i>
                   </div>
                   <p className="home-text">
-                    Tổng lượng xuất kho<p>2,238</p>
+                    Tổng lượng xuất kho
+                    <br />
+                    <span>
+                      {dataExport.exportWithProvider +
+                        dataExport.exportWithAgency}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -153,12 +270,26 @@ const Home = () => {
               </p>
             </div>
             <div className="dong2_tq">
-              <p>Tỉ lệ xuất nhập kho theo nguồn xuất</p>
+              <p>Tỉ lệ nhập kho theo nguồn xuất</p>
               <div className="date_time_home">
                 <label htmlFor="">Từ ngày</label>
-                <input className="date_home" type="date" name="" id="" />
+                <input
+                  className="date_home"
+                  type="date"
+                  name="timeStart3"
+                  id=""
+                  value={time3.timeStart3}
+                  onChange={(e) => handleChangeTime3(e)}
+                />
                 <label htmlFor="">Đến ngày</label>
-                <input className="date_home" type="date" name="" id="" />
+                <input
+                  className="date_home"
+                  type="date"
+                  name="timeEnd3"
+                  id=""
+                  value={time3.timeEnd3}
+                  onChange={(e) => handleChangeTime3(e)}
+                />
               </div>{" "}
             </div>
             <div className="dong3_tq">
@@ -167,13 +298,13 @@ const Home = () => {
                 <div className="col_2_home">
                   <div className="o6_home"></div>
                   <p>
-                    Nhập kho <p>từ NCC</p>
+                    Nhập kho <br /> <span>từ NCC</span>
                   </p>
                 </div>
                 <div className="col_2_home">
                   <div className="o7_home"></div>
                   <p>
-                    Nhập kho <p>từ ĐLC1</p>
+                    Nhập kho <br /> <span>từ ĐLC1</span>
                   </p>
                 </div>
               </div>
@@ -183,15 +314,19 @@ const Home = () => {
                     <i className="fa-regular fa-calendar-check"></i>
                   </div>
                   <p className="home-text">
-                    Số phiếu nhập kho <p>1,023</p>
+                    Số phiếu nhập kho <br /> <span>{dataImport.countSlip}</span>
                   </p>
                 </div>
                 <div className="col3_home">
                   <div className="icon_home">
-                    <i class="fa-solid fa-box-archive"></i>
+                    <i className="fa-solid fa-box-archive"></i>
                   </div>
                   <p className="home-text">
-                    Tổng lượng nhập kho <p>5,206</p>
+                    Tổng lượng nhập kho <br />{" "}
+                    <span>
+                      {dataImport.importWithProvider +
+                        dataImport.importWithAgency}
+                    </span>
                   </p>
                 </div>
               </div>

@@ -30,7 +30,7 @@ const NavBar = () => {
 
         <div className="navBar-menu">
           <div className="navBar-menu-item">
-            <p>
+            <p onClick={() => navigate("/")}>
               <i className="fa-solid fa-chart-pie icon-navbar"></i>Tổng quan
             </p>
           </div>
@@ -152,7 +152,7 @@ const NavBar = () => {
           </div>
 
           <div className="navBar-menu-item">
-            <p>
+            <p onClick={() => navigate("/listInventory")}>
               <i className="fa-solid fa-chart-simple icon-navbar"></i>Quản lý
               kiểm kê
             </p>
