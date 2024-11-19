@@ -1,119 +1,227 @@
 /* eslint-disable */
-import React from 'react'
-import Header from '@/components/header/Header';
-import NavBar from '@/components/navBar/NavBar';
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+
+import Header from "@/components/header/Header";
+import NavBar from "@/components/navBar/NavBar";
+import { getRecordInventoryById } from "@/api/recordInventoryApi/recordInventory";
+import { formatDate } from "@/utils/function/slipFuntion";
+
 import "./InforInventory.css";
-const InforInventory = () => {
+const InfoInventory = () => {
+  const [recordInventory, setRecordInventory] = useState({});
+
+  const navigate = useNavigate();
+  const { recordInventoryId } = useParams();
+
+  useEffect(() => {
+    const getRecordInventory = async () => {
+      const res = await getRecordInventoryById(recordInventoryId);
+      setRecordInventory(res.recordInventory);
+    };
+
+    getRecordInventory();
+  }, []);
+
+  const handleCountDifference = () => {
+    let count = 0;
+    if (recordInventory.products?.length > 0) {
+      recordInventory.products?.forEach((item) => {
+        count += +item.difference;
+      });
+    }
+    return count;
+  };
   return (
     <>
-    <Header className="inforinventoryheader" />
-    <NavBar />
-    <div className="inforinventory_kien">
-      <div className="btt_kien">
-        <div className="bbkkhh">BIÊN BẢN KIỂM KÊ HÀNG HÓA</div>
-        <div className="info-section_kien">
-            <div class="info_chung">Thông tin chung</div>
-
-            <div className="fr">
-                <label>Mã biên bản:</label>
-                <input type="text" placeholder="Nhập mã biên bản"/>
+      <Header className="header_infim" />
+      <NavBar />
+      <div className="container_infinven">
+        <div className="lef_infim">
+          <div className="top_sub_infim">
+            <p className="h1_top_sub_infim">
+              <span onClick={() => navigate("/listInventory")}>
+                Danh sách biên bản kiểm kê hàng hóa
+              </span>
+              <span>
+                <i className="fa-solid fa-chevron-right" style={{color: "black"}}></i>
+              </span>
+              Xem biên bản kiểm kê hàng hóa
+            </p>
+          </div>
+          <div className="sub_infinven">
+            <div className="f1_infim">
+              <p className="cen_inf">
+                BẢNG KIỂM KÊ HÀNG HÓA
+                <span className="icon_x_inf">
+                  <i className="fa-solid fa-x"></i>
+                </span>
+              </p>
             </div>
-
-            <div className="fr">
-                <label>Kiểm kê tại kho:</label>
-                <input type="text" placeholder="Nhập mã kho"/>
-                <label>Ngày kiểm:</label>
-                <input type="date"/>
+            <div className="box1_infim">
+              <p
+                className="inf_inf"
+                style={{ fontSize: "20px", fontWeight: "700" }}
+              >
+                Thông tin chung
+              </p>
+              <div className="sub_box1_infim">
+                <div className="flecx_inf">
+                  <p>Mã biên bản</p>
+                  <div className="inp1_inf">
+                    {recordInventory.recordInventoryCode}
+                  </div>
+                </div>
+                <div></div>
+                <div className="flecx_inf">
+                  <p>Kiểm kê tại kho</p>
+                  <div className="inp1_inf">
+                    {recordInventory.agencyId?.agencyName}
+                  </div>
+                </div>
+                {/* <div className='flecx_inf'>
+                  <p>Nhập tại kho</p>
+                  <div className='inp1_inf'></div>
+                </div> */}
+                <div className="flecx_inf">
+                  <p>Ngày kiểm</p>
+                  <div className="inp1_inf">
+                    {formatDate(recordInventory.recordInventoryDate)}
+                  </div>
+                </div>
+              </div>
+              <div className="sub2_inven">
+                <p>Mục đích</p>
+                <div className="inp2_infven">{recordInventory.purpose}</div>
+              </div>
             </div>
+            <div className="box2_infim">
+              <table className="List_infim">
+                <tbody>
+                  <tr className="tr_infim">
+                    <th className="centerinfim" rowSpan={2}>
+                      STT
+                    </th>
+                    <th className="centerinfim" rowSpan={2}>
+                      Tên hàng hoá
+                    </th>
+                    <th className="centerinfim" rowSpan={2}>
+                      Mã hàng
+                    </th>
+                    <th className="centerinfim" rowSpan={2}>
+                      Đơn vị <div>tính</div>
+                    </th>
+                    <th className="centerinfim" rowSpan={2}>
+                      Đơn giá
+                    </th>
+                    <th className="centerinfim" colSpan={3}>
+                      Số Lượng
+                    </th>
+                    <th className="centerinfim" rowSpan={2}>
+                      Xử lý
+                    </th>
+                  </tr>
+                  <tr className="tr_infim">
+                    <th className="centerinfim">
+                      Theo hệ <div>thống</div>
+                    </th>
+                    <th className="centerinfim">
+                      Theo <div>kiểm kê</div>
+                    </th>
+                    <th className="centerinfim">
+                      Chênh <div>Lệch</div>
+                    </th>
+                  </tr>
 
-            <div className="fr">
-                <label>Mục đích:</label>
-                <input type="text" placeholder="Nhập mục đích"/>
+                  {recordInventory.products?.length > 0 &&
+                    recordInventory.products?.map((item, index) => (
+                      <tr key={item.productId?._id}>
+                        <td>{index + 1}</td>
+                        <td>{item.productId?.productName}</td>
+                        <td>{item.productId?.productCode}</td>
+                        <td>{item.productId?.productDVT}</td>
+                        <td>{item.productId?.productPrice}</td>
+                        <td>{item.numberOfSystem}</td>
+                        <td>{item.numberOfReality}</td>
+                        <td>{item.difference}</td>
+                        <td>{item.solution ? item.solution : ""}</td>
+                      </tr>
+                    ))}
+                  <tr className="tr_infim">
+                    <th className="sum_inf_1" colSpan={8}>
+                      Tổng
+                      <span className="count_inf">
+                        {handleCountDifference()}
+                      </span>
+                    </th>
+                    <th className="sum_inf_2"></th>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
-        
+        <div className="rig_infim">
+          <div>
+            <p>Tình trạng</p>
+          </div>
+          <div className="status_infim">
+            <div className="flex2_inf">
+              <p>Tạo bởi</p>
+              <button className="b1_infim">
+                Xóa{" "}
+                <span>
+                  <i className="fa-solid fa-key"></i>
+                </span>
+              </button>
+            </div>
+            <div className="out_inf">{recordInventory.userId?.fullName}</div>
+            <div className="out_inf">
+              {formatDate(recordInventory.createdAt)}
+            </div>
+          </div>
+          <div className="status_infim">
+            <div className="flex2_inf">
+              <p>Duyệt bởi</p>
+              <button className="b2_infim">
+                Duyệt{" "}
+                <span>
+                  <i className="fa-solid fa-key"></i>
+                </span>
+              </button>
+            </div>
+            <div className="out_inf">
+              {recordInventory.status === "CONFIRMED" &&
+                recordInventory.userEditStatus?.fullName}
+            </div>
+            <div className="out_inf">
+              {recordInventory.status === "CONFIRMED" &&
+                formatDate(recordInventory.updatedAt)}
+            </div>
+          </div>
+          <div className="status_infim">
+            <div className="flex2_inf">
+              <p>Từ chối bởi</p>
+              <button className="b3_infim">
+                Từ chối{" "}
+                <span>
+                  <i className="fa-solid fa-key"></i>
+                </span>
+              </button>
+            </div>
+            <div className="out_inf">
+              {recordInventory.status === "REJECTED" &&
+                recordInventory.userEditStatus?.fullName}
+            </div>
+            <div className="out_inf">
+              {recordInventory.status === "REJECTED" &&
+                formatDate(recordInventory.updatedAt)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-        <table className="tableKien">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Tên hàng hóa</th>
-                    <th>Mã hàng</th>
-                    <th>Đơn vị tính</th>
-                    <th>Đơn giá</th>
-                    {/* <th>Số lượng</th> */}
-                    <th>Số lượng hệ thống</th>
-                    <th>Số lượng kiểm kê</th>
-                    <th>Chênh lệch</th>
-                    <th>Xử lý</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>ĐT Samsung Galaxy S8</td>
-                    <td>XXXX1234</td>
-                    <td>Cái</td>
-                    <td>20.000.000</td>
-                    {/* <td>20</td> */}
-                    <td>20</td>
-                    <td>20</td>
-                    <td>0</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>ĐT Samsung Galaxy S7</td>
-                    <td>XXXX1544</td>
-                    <td>Cái</td>
-                    <td>16.000.000</td>
-                    {/* <td>18</td> */}
-                    <td>18</td>
-                    <td>18</td>
-                    <td>0</td>
-                    <td></td>
-                </tr>
-               
-                <tr>
-                    <td>4</td>
-                    <td>ĐT Sony Xperia XZ5</td>
-                    <td>XXXX7678</td>
-                    <td>Cái</td>
-                    <td>8.200.000</td>
-                    {/* <td>12</td> */}
-                    <td>12</td>
-                    <td>10</td>
-                    <td>(2)</td>
-                    <td>Xuất kho</td>
-                </tr>
-                <tr>
-                    <td colspan="8">Tổng</td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-
-    <div className="bangtinhtrang">
-        <b>Tình trạng</b>
-        <button className="delete-btt">Xóa<i class="fa-solid fa-key"></i></button>
-        <label>Người tạo:</label>
-        <input type="text" placeholder="Nhập tên người tạo" />
-        <input type="text" placeholder="Ngày tạo" />
-
-        <button className="duyet-btt">Duyệt<i class="fa-solid fa-key"></i></button>
-        <label>Người duyệt:</label>
-        <input type="text" placeholder="Nhập tên người duyệt" />
-        <input type="text" placeholder="Ngày duyệt" />
-
-        <button className="tuchoi-btt">Từ chối<i class="fa-solid fa-key"></i></button>
-        <label>Người từ chối:</label>
-        <input type="text" placeholder="Nhập tên người từ chối"/>
-        <input type="text" placeholder="Ngày từ chối" />
-    </div>
-</div>
-</>
-  )
-}
-export default InforInventory;
+export default InfoInventory;
