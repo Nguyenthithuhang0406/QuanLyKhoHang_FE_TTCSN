@@ -1,0 +1,107 @@
+.header-report-import{
+    position: relative;
+}
+.report-import-background{
+    position: absolute;
+    top: 70px;
+    left: 19%;
+    width: 81%;
+    background-color: #c2c2c2;
+    padding-left: 25px;
+    padding-right: 35px;
+    padding-top: 10px;
+    height: 100%;
+    max-height: 92vh;
+    overflow: auto;
+}
+.report-import{
+    background-color: white;
+    padding-bottom: 1px;
+}
+.title-chart{
+    font-size: 22px;
+    padding: 32px 0;
+    text-align: center;
+    font-weight: bold;
+    color: blue;
+}
+.filter-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 128px;
+}
+.report-import .filter-item{
+    height: 30px;
+}
+
+.report-import .filter-item label{
+    margin-right: 8px;
+    line-height: 30px;
+}
+.report-import .filter-item input, select{
+    height: 30px;
+}
+
+.import-chart{
+    margin: 48px 0;
+}
+.import-chart .chart{
+    width: 700px;
+    height: 500px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    border-bottom: 1.5px solid gray;
+    border-left: 1.5px solid gray;
+    margin: 0 auto 12px;
+}
+
+
+.import-chart .column-item{
+    text-align: center;
+    padding: 0 48px;
+}
+.import-chart .column1{
+    width: 60px;
+    height: 306px;
+    background-color: #30a032;
+    margin: 0 auto;
+}
+.import-chart .column2{
+    width: 60px;
+    height: 360px;
+    background-color: #30a032;
+    margin: 0 auto;
+}
+.import-chart .column3{
+    width: 60px;
+    height: 390px;
+    background-color: #30a032;
+    margin: 0 auto;
+}
+.import-chart .column4{
+    width: 60px;
+    height: 300px;
+    background-color: #30a032;
+    margin: 0 auto;
+}
+
+.product-name{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 316px;
+    padding-right: 48px;
+}
+.product-name > div{
+    width: 156px;
+    text-align: center;
+}
+
+.report-import .chart-y-name{
+    width: 770px;
+    margin: 8px auto;
+}
+
+.report-import .last-item-chart{
+    display: flex;
+}
