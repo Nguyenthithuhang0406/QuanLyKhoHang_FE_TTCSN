@@ -1,73 +1,131 @@
-/* eslint-disable */
-import React from 'react'
-
-import './ReportImport.css';
-import Header from '@/components/header/Header';
+import React from "react";
 import NavBar from "@/components/navBar/NavBar";
+import Header from "@/components/header/Header";
+import Chart from "chart.js/auto";
+
+import "./ReportImport.css";
+
 const ReportImport = () => {
+  // Thiết lập dữ liệu cho biểu đồ cột
+  const labels = [
+    "Mặt hàng 1",
+    "Mặt hàng 2",
+    "Mặt hàng 3",
+    "Mặt hàng 4",
+    "Mặt hàng 5",
+    "Mặt hàng 6",
+    "Mặt hàng 7",
+  ];
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: "Nhập kho",
+        data: [65, 59, 80, 81, 56, 55, 40],
+        backgroundColor: "#30a032",
+        borderColor: "#30a032",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const config = {
+    type: "bar",
+    data: data,
+    options: {
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: "Các loại hàng hóa",
+            font: {
+              size: 14,
+              weight: "bold",
+            },
+            padding: {
+              bottom: 10,
+            },
+          },
+          grid: {
+            drawOnChartArea: false,
+          },
+        },
+        y: {
+          title: {
+            display: true,
+            text: "Số lượng (sản phẩm)",
+            font: {
+              size: 14,
+              weight: "bold",
+            },
+            padding: {
+              left: 10,
+            },
+          },
+          suggestedMin: 0,
+          suggestedMax: 100,
+          ticks: {
+            stepSize: 20,
+          },
+        },
+      },
+      plugins: {
+        title: {
+          display: true,
+          // text: "Biểu đồ tồn kho",
+        },
+      },
+    },
+  };
+
+  React.useEffect(() => {
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const chart = new Chart(ctx, config);
+
+    return () => {
+      chart.destroy();
+    };
+  }, []);
+
   return (
-    <div className="reportImport-container">
-      <Header className="header-report-import"/>
-      <NavBar/>
-      <div className="report-import-background">
-        <div className="report-import">
-          <div className="title-chart">BIỂU ĐỒ BÁO CÁO NHẬP KHO</div>
-          <div className="filter-box">
-            <div className="filter-item">
-              <label className="startDate" htmlFor="start-date">Từ ngày :</label>
-              <input type="date" name="start-date"/>
-            </div>
-
-            <div className="filter-item">
-              <label className="endDate" htmlFor="end-date">Đến ngày :</label>
-              <input type="date" name="end-date"/>
-            </div>
-
-            <div className="filter-item">
-              <label className="typeImport" htmlFor="type-import">Loại báo cáo :</label>
-              <select name="type-import" id="type-import">
-                <option value="baoCaoXuat">Báo cáo xuất</option>
-                <option value="baoCaoTon">Báo cáo tồn</option>
-                <option value="baoCaoXuatNhapTon">Báo cáo xuất nhập tồn</option>
+    <div>
+      <div className="reportInventory-container">
+        <Header className="header-reportInventory" />
+        <NavBar />
+        <div className="reportInventory">
+          <div className="reportInventory-nav">
+            <p className="rInventory-link">Báo cáo hàng hóa</p> &gt;
+            <p className="rInventory-link"> Báo cáo nhập kho</p>
+          </div>
+          <div className="rInventory-bieudo">
+            <h3 className="rInventory-title">Biểu đồ báo cáo nhập kho</h3>
+            <div className="time-style">
+              <span className="date_reportInventory1">Từ ngày</span>
+              <input
+                type="date"
+                className="date_reportInventory"
+                placeholder=""
+              />
+              <span className="date_reportInventory2">Đến ngày</span>
+              <input
+                type="date"
+                className="date_reportInventory3"
+                placeholder=""
+              />
+              <select className="style-report" name="" id="">
+                <option value="">-Loại báo cáo-</option>
+                <option>Biểu đồ</option>
+                <option>Bảng</option>
               </select>
             </div>
-          </div>
-
-          <div className="import-chart">
-            <div className="chart-y-name">Số lượng</div>
-            <div className="chart">
-              <div className="column-item">
-                <div className="number">1020</div>
-                <div className="column1" ></div>
-              </div>
-              <div className="column-item">
-                <div className="number">1200</div>
-                <div className="column2"></div>
-              </div>
-              <div className="column-item">
-                <div className="number">1300</div>
-                <div className="column3"></div>
-              </div>
-              <div className="column-item">
-                <div className="number">1000</div>
-                <div className="column4"></div>
-              </div>
+            <div className="bieu-do-Inventory">
+              <canvas id="myChart"></canvas>
             </div>
-            <div className="last-item-chart">
-              <div className="product-name">
-                <div>Hàng hóa 1</div>
-                <div>Hàng hóa 2</div>
-                <div>Hàng hóa 3</div>
-                <div>Hàng hóa 4</div>
-              </div>
-              <div className="chart-x-name">Các loại hàng hóa</div>
-            </div>
-          
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default ReportImport;
