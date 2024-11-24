@@ -10,6 +10,7 @@ import {
   importExportRatio,
   importWithSource,
 } from "@/api/generalStatisticsApi/generalStatistics";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [dataOverView, setDataOverView] = useState({});
@@ -31,6 +32,14 @@ const Home = () => {
     timeEnd3: "",
   });
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      navigate("/login");
+    }
+  }, []);
   useEffect(() => {
     const getData1 = async () => {
       const data1 = await importExportRatio(time1.timeStart1, time1.timeEnd1);

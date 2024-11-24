@@ -25,15 +25,12 @@ import InforImportSlip from "./pages/importSlip/inforImportSlip/InforImportSlip"
 import ListExportSlip from "./pages/exportSlip/listExportSlip/ListExportSlip";
 import CreatedExportSlip from "./pages/exportSlip/createdExportSlip/CreatedExportSlip";
 import InforExportSlip from "./pages/exportSlip/inforExportSlip/InforExportSlip";
-import DLFromLocal from "./components/downloadProduct/downloadProductFromLocal/DLFromLocal";
-import DLFromExcel from "./components/downloadProduct/downloadProductFromExcel/DLFromExcel";
 import CreatedInventory from "./pages/inventory/createdInventory/CreatedInventory";
 import InforInventory from "./pages/inventory/inforInventory/InforInventory";
 import ListInventory from "./pages/inventory/listInventory/ListInventory";
 import ReportImport from "./pages/report/reportImport/ReportImport";
 import ReportInventory from "./pages/report/reportInventory/ReportInventory";
 import ReportEII from "./pages/report/reportExportImportInventory/ReportEII";
-import TableReport from "./components/tableReport/TableReport";
 
 const App = () => {
   const routes = useRoutes([
@@ -122,14 +119,6 @@ const App = () => {
       element: <InforExportSlip />,
     },
     {
-      path: "/download/local",
-      element: <DLFromLocal />,
-    },
-    {
-      path: "/download/excel",
-      element: <DLFromExcel />,
-    },
-    {
       path: "/createdInventory",
       element: <CreatedInventory />,
     },
@@ -152,10 +141,6 @@ const App = () => {
     {
       path: "/report-export-import-inventory",
       element: <ReportEII />,
-    },
-    {
-      path: "/table-report",
-      element: <TableReport />,
     },
     {
       path: "*",
