@@ -1,96 +1,223 @@
 /* eslint-disable */
-import React from 'react';
-import './ReportEII.css';
-import { Bar } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
-import Header from '@/components/header/Header';
-import NavBar from '@/components/navBar/NavBar';
+import React, { useEffect, useRef, useState } from "react";
+import Header from "@/components/header/Header";
+import NavBar from "@/components/navBar/NavBar";
+import Chart from "chart.js/auto";
+import "./ReportEII.css";
+import { reportExportImportInventory } from "@/api/reportApi/Report";
+import TableReport from "@/components/tableReport/TableReport";
+
 const ReportEII = () => {
-  const data = {
-    labels: ['Hàng hóa 1', 'Hàng hóa 2', 'Hàng hóa 3', 'Hàng hóa 4', 'Hàng hóa 5'],
-    datasets: [
-      {
-        label: 'Xuất kho',
-        data: [80, 20, 40, 170,60],
-        stack: 'stack',
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1,
-        barThickness: 30
-      },
-      {
-        label: 'Tồn Kho',
-        data: [45, 60, 25, 45,90 ],
-        stack: 'stack',
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1,
-        barThickness: 30
-      },
-    ]
-  };
-  
-  const options = {
-    scales: {
-      y: {
-        stacked: true,
-        beginAtZero: true,
-        display: true,
-        title: {
-          display: true,
-          text: 'Số lượng'
-        }
-      },
-      x: {
-        stacked: true,
-        display: true,
-        title: {
-          display: true,
-          text: 'Các loại hàng hóa'
-        },
-        categoryPercentage: 0.5,
-        barPercentage: 0.5
+  const chartRef = useRef(null);
+  let stackedBarChart = useRef(null);
+
+  const [labels, setLabels] = useState([]);
+  const [dataExports, setDataExports] = useState([]);
+  const [dataInventorys, setDataInventorys] = useState([]);
+  const [time, setTime] = useState({
+    timeStart: "",
+    timeEnd: "",
+  });
+
+  const [list, setList] = useState([]);
+  const [type, setType] = useState("chart");
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await reportExportImportInventory(time.timeStart, time.timeEnd);
+        const filterData = res.filter(
+          (item) =>
+            item.exportQuantity >= 0 &&
+            item.inventoryQuantity >= 0 &&
+            item.importQuantity >= 0
+        );
+        setList(filterData);
+        const labels = filterData.map((item) => item.productName);
+        const dataExports = filterData.map((item) => item.exportQuantity);
+        const dataInventorys = filterData.map((item) => item.inventoryQuantity);
+        setLabels(labels);
+        setDataExports(dataExports);
+        setDataInventorys(dataInventorys);
+      } catch (error) {
+        console.log(error);
       }
-    },
-    plugins: {
-      title: {
-        display: true,
-      }
+    };
+    getData();
+  }, [time.timeEnd, time.timeStart]);
+
+  const createChart = () => {
+    if (!chartRef.current) return;
+
+    const ctx = chartRef.current.getContext("2d");
+    if (stackedBarChart.current) {
+      stackedBarChart.current.destroy();
     }
+
+    const maxDataValue = Math.max(...dataExports, ...dataInventorys);
+    const suggestedMax =
+      maxDataValue < 100 ? maxDataValue + 100 : maxDataValue * 1.2;
+    stackedBarChart.current = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: labels,
+        datasets: [
+          {
+            label: "Xuất kho",
+            data: dataExports,
+            backgroundColor: "#30a03",
+            borderColor: "#30a032",
+            borderWidth: 1,
+            // barThickness: 50,
+          },
+          {
+            label: "Tồn kho",
+            data: dataInventorys,
+            backgroundColor: "#fdbe10",
+            borderColor: "#fed871",
+            borderWidth: 1,
+            // barThickness: 50,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "top",
+            labels: {
+              color: "black",
+              font: {
+                size: 11,
+              },
+            },
+          },
+          tooltip: {
+            enabled: true,
+            tooltip: {
+              enabled: true,
+              bodyFont: {
+                size: 11,
+              },
+              titleFont: {
+                size: 11,
+              },
+            },
+          },
+        },
+        scales: {
+          x: {
+            stacked: true,
+            ticks: {
+              color: "black",
+              font: {
+                size: 11,
+              },
+            },
+          },
+          y: {
+            stacked: true,
+            beginAtZero: true,
+            suggestedMax: suggestedMax,
+            ticks: {
+              stepSize: 20,
+              color: "black",
+              font: {
+                size: 14,
+              },
+            },
+          },
+        },
+      },
+    });
   };
-  
+
+  useEffect(() => {
+    if (labels.length && dataExports.length && dataInventorys.length) {
+      createChart();
+    }
+
+    return () => {
+      if (stackedBarChart.current) {
+        stackedBarChart.current.destroy();
+        stackedBarChart.current = null;
+      }
+    };
+  }, [type, labels, dataExports, dataInventorys]);
+
+  const handleChangeTime = (e) => {
+    const { name, value } = e.target;
+    setTime({
+      ...time,
+      [name]: value,
+    });
+
+    console.log(time);
+  };
+
+  const handleChangeType = (e) => {
+    setType(e.target.value);
+  };
+
   return (
-    <>
-      <Header className="reporteii" />
+    <div>
+      <Header className="headerListP" />
       <NavBar />
-      <div className="report-eii-container">
-        <div className="bieudo"><h1>BIỂU ĐỒ BÁO CÁO XUẤT NHẬP TỒN</h1></div>
-        <div className="congcu">
-          <form>
-            <div className="chon">
-              <div className="chon1">
-                <label htmlFor="date">Từ Ngày:</label>
-                <input type="date" id="date" name="date" />
-              </div>
-              <div className="chon2">
-                <label htmlFor="date">Đến Ngày:</label>
-                <input type="date" id="date" name="date" />
-              </div>
-              <div className="chon3">
-                <label htmlFor="option">Lựa chọn:</label>
-                <select id="option" name="option" required>
-                  <option value="">--Chọn một tùy chọn--</option>
-                  <option value="option1">Tùy chọn 1</option>
-                  <option value="option2">Tùy chọn 2</option>
-                </select>
+      <div className="rcbody">
+        <div className="rcframe">
+          <div className="rctitle">BIỂU ĐỒ BÁO CÁO XUẤT NHẬP TỒN</div>
+          <div className="rcSearch">
+            <div className="rcInput">
+              <div className="rcbox1">
+                <div className="rcbox2">
+                  <span className="rcfrom">Từ ngày</span>
+                </div>
+                <div className="rcbox3">
+                  <input
+                    type="date"
+                    className="rcdate"
+                    name="timeStart"
+                    value={time.timeStart}
+                    onChange={(e) => handleChangeTime(e)}
+                  />
+                </div>
+                <div className="rcbox2">
+                  <span className="rcto">Đến ngày</span>
+                </div>
+                <div className="rcbox3">
+                  <input
+                    type="date"
+                    className="rcdate"
+                    name="timeEnd"
+                    value={time.timeEnd}
+                    onChange={(e) => handleChangeTime(e)}
+                  />
+                </div>
               </div>
             </div>
-          </form>
+            <div className="rcbbox">
+              <select
+                name="rcoption"
+                id="rcoption"
+                onChange={(e) => handleChangeType(e)}
+              >
+                <option>{type === "chart" ? "Xem biểu đồ" : "Xem bảng"}</option>
+                <option value="chart">Xem biểu đồ</option>
+                <option value="table">Xem bảng</option>
+              </select>
+            </div>
+          </div>
+          <div className="rcChart">
+            {type === "chart" ? (
+              <canvas ref={chartRef}></canvas>
+            ) : (
+              <TableReport list={list} />
+            )}
+          </div>
         </div>
-        <Bar data={data} options={options} />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,197 +1,100 @@
-.header-report-import{
-    position: relative;
-}
-.report-import-background{
+.reportImport-container {
+    background-color: #c2c2c2;
+    min-height: 90vh;
+    max-height: 90vh;
+    overflow: auto;
+    width: 82%;
+    height: 100vh;
+    padding: 15px 30px;
     position: absolute;
     top: 70px;
-    left: 19%;
-    width: 81%;
-    background-color: #c2c2c2;
-    padding-left: 25px;
-    padding-right: 35px;
-    padding-top: 10px;
-    height: 100%;
-    max-height: 92vh;
+    left: 18%;
+    padding-bottom: 60px;
+    font-size: 16px;
     overflow: auto;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-.report-import{
+
+.reportImport-h2 {
+    text-align: center;
+    margin: 20px 0;
+    color: #0b08ab;
+}
+
+.date-ImportReport {
+    text-align: center;
+}
+
+.date-ImportReport1 {
+    padding-left: 37px;
+}
+
+.date-ImportReport2 {
+    padding-left: 10px;
+}
+
+.date-ImportReport3 {
+    background: #e9e9e9;
+    width: 104px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: auto;
+    margin: 5px;
+    outline: none;
+    margin-left: 10px;
+}
+
+.reportImport-type {
+    margin-left: 10px;
+}
+
+.reportImport-select {
+    background: #e9e9e9;
+    width: 104px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    padding: auto;
+    margin: 5px;
+    outline: none;
+    margin-left: 10px;
+}
+
+.RI-caption-text {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #30a032 !important;
+}
+
+.RI-caption {
+    display: flex;
+    gap: 20px;
+}
+
+.IR-barchart {
+    margin-top: 20px;
+    height: 70%;
+    width: 100%;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.RI-frame {
+    height: 85vh;
     background-color: white;
-    padding-bottom: 1px;
-}
-.title-chart{
-    font-size: 22px;
-    padding: 32px 0;
+    width: 98%;
     text-align: center;
-    font-weight: bold;
-    color: blue;
-}
-.filter-box{
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 128px;
-}
-.report-import .filter-item{
-    height: 30px;
+    padding: 20px;
+    border-radius: 10px;
 }
 
-.report-import .filter-item label{
-    margin-right: 8px;
-    line-height: 30px;
-}
-.report-import .filter-item input, select{
-    height: 30px;
-}
-
-.import-chart{
-    margin: 48px 0;
-}
-.import-chart .chart{
-    width: 700px;
-    height: 500px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    border-bottom: 1.5px solid gray;
-    border-left: 1.5px solid gray;
-    margin: 0 auto 12px;
-}
-
-
-.import-chart .column-item{
-    text-align: center;
-    padding: 0 48px;
-}
-.import-chart .column1{
-    width: 60px;
-    height: 306px;
-    background-color: #30a032;
-    margin: 0 auto;.header-reportInventory {
-            position: relative;
-        }
-    
-        .reportInventory-nav {
-            margin-bottom: 30px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-    
-        .rInventory-link {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-    
-        .reportInventory {
-            position: absolute;
-            top: 100px;
-            right: 40px;
-            left: 340px;
-            max-height: 90vh;
-            overflow: auto;
-        }
-    
-        .rInventory-bieudo {
-            border-top: 1px solid #ccc;
-            border-radius: 15px;
-            border: 1px solid #ccc;
-            font-size: 18px;
-            box-shadow: 10px 10px 10px #ccc;
-            display: flex;
-            flex-direction: column;
-        }
-    
-        .rInventory-title {
-            background-color: blue;
-            color: white;
-            padding: 20px 30px;
-            border-radius: 15px 15px 0px 0px;
-            font-size: 18px;
-            /* margin-bottom: 30px; */
-            text-align: center;
-        }
-    
-        .time-style {
-            margin-top: 10px;
-            text-align: right;
-        }
-    
-        .date_reportInventory {
-            background: #e9e9e9;
-            width: 104px;
-            height: 30px;
-            border: none;
-            border-radius: 5px;
-            padding: auto;
-            margin: 5px;
-            outline: none;
-            margin-left: 10px;
-        }
-    
-        .date_reportInventory1 {
-            padding-left: 37px;
-        }
-    
-        .date_reportInventory2 {
-            padding-left: 10px;
-        }
-    
-        .date_reportInventory3 {
-            background: #e9e9e9;
-            width: 104px;
-            height: 30px;
-            border: none;
-            border-radius: 5px;
-            padding: auto;
-            margin: 5px;
-            outline: none;
-            margin-left: 10px;
-        }
-    
-        .style-report {
-            margin: 0 20px;
-            height: 30px;
-        }
-    
-        .bieu-do-Inventory {
-            margin: 20px;
-        }
-}
-.import-chart .column2{
-    width: 60px;
-    height: 360px;
-    background-color: #30a032;
-    margin: 0 auto;
-}
-.import-chart .column3{
-    width: 60px;
-    height: 390px;
-    background-color: #30a032;
-    margin: 0 auto;
-}
-.import-chart .column4{
-    width: 60px;
-    height: 300px;
-    background-color: #30a032;
-    margin: 0 auto;
-}
-
-.product-name{
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 316px;
-    padding-right: 48px;
-}
-.product-name > div{
-    width: 156px;
-    text-align: center;
-}
-
-.report-import .chart-y-name{
-    width: 770px;
-    margin: 8px auto;
-}
-
-.report-import .last-item-chart{
-    display: flex;
+.IR-barchart canvas {
+    width: auto !important;
+    /* Cho phép canvas mở rộng theo nội dung */
+    min-width: 100%;
+    /* Đặt kích thước tối thiểu */
 }

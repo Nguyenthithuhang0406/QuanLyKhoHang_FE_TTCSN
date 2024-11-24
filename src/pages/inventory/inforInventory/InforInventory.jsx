@@ -34,17 +34,6 @@ const InfoInventory = () => {
   };
   return (
     <>
-    <Header className="inforinventoryheader" />
-    <NavBar />
-    <div className="inforinventory_kien">
-      <div className="btt_kien">
-        <div className="bbkkhh">BIÊN BẢN KIỂM KÊ HÀNG HÓA</div>
-        <div className="info-section_kien">
-            <div className="info_chung">Thông tin chung</div>
-
-            <div className="fr">
-                <label>Mã biên bản:</label>
-                <input type="text" placeholder="Nhập mã biên bản"/>
       <Header className="header_infim" />
       <NavBar />
       <div className="container_infinven">
@@ -55,7 +44,10 @@ const InfoInventory = () => {
                 Danh sách biên bản kiểm kê hàng hóa
               </span>
               <span>
-                <i className="fa-solid fa-chevron-right" style={{color: "black"}}></i>
+                <i
+                  className="fa-solid fa-chevron-right"
+                  style={{ color: "black" }}
+                ></i>
               </span>
               Xem biên bản kiểm kê hàng hóa
             </p>

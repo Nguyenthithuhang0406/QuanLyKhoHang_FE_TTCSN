@@ -165,15 +165,17 @@ const NavBar = () => {
               </p>
               <div className="sub-menu">
                 <div className="sub-menu-item">
-                  <p>
+                  <p onClick={() => navigate("/report-import")}>
                     <i className="fa-solid fa-chevron-right icon-navbar"></i>Báo
                     cáo nhập kho
                   </p>
-                  <p>
+                  <p onClick={() => navigate("/report-inventory")}>
                     <i className="fa-solid fa-chevron-right icon-navbar"></i>Báo
                     cáo tồn kho
                   </p>
-                  <p>
+                  <p
+                    onClick={() => navigate("/report-export-import-inventory")}
+                  >
                     <i className="fa-solid fa-chevron-right icon-navbar"></i>Báo
                     cáo xuất nhập tồn
                   </p>

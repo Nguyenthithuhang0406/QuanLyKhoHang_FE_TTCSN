@@ -1,130 +1,177 @@
-import React from "react";
-import NavBar from "@/components/navBar/NavBar";
-import Header from "@/components/header/Header";
-import Chart from "chart.js/auto";
+/* eslint-disable */
+import React, { useEffect, useState } from "react";
+import {
+  Chart as ChartJS,
+  BarElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend,
+} from "chart.js";
 
+import Header from "@/components/header/Header";
+import NavBar from "@/components/navBar/NavBar";
+import { Bar } from "react-chartjs-2";
+
+import { reportExportImportInventory } from "@/api/reportApi/Report";
 import "./ReportInventory.css";
+import TableReport from "@/components/tableReport/TableReport";
 
 const ReportInventory = () => {
-  // Thiết lập dữ liệu cho biểu đồ cột
-  const labels = [
-    "Mặt hàng 1",
-    "Mặt hàng 2",
-    "Mặt hàng 3",
-    "Mặt hàng 4",
-    "Mặt hàng 5",
-    "Mặt hàng 6",
-    "Mặt hàng 7",
-  ];
+  const [labels, setLabels] = useState([]);
+  const [datas, setDatas] = useState([]);
+  const [time, setTime] = useState({
+    timeStart: "",
+    timeEnd: "",
+  });
+
+  const [list, setList] = useState([]);
+  const [type, setType] = useState("chart");
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const res = await reportExportImportInventory(
+          time.timeStart,
+          time.timeEnd
+        );
+        const filterData = res.filter(
+          (item) =>
+            item.exportQuantity >= 0 &&
+            item.inventoryQuantity >= 0 &&
+            item.importQuantity >= 0
+        );
+        setList(filterData);
+        const labels = filterData.map((item) => item.productName);
+        const datas = filterData.map((item) => item.inventoryQuantity);
+        setLabels(labels);
+        setDatas(datas);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getData();
+  }, [time.timeEnd, time.timeStart]);
+
+  ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend);
   const data = {
     labels: labels,
     datasets: [
       {
-        label: "Tồn kho",
-        data: [65, 59, 80, 81, 56, 55, 40],
-        backgroundColor: "#30a032",
-        borderColor: "#30a032",
+        label: "Số lượng hàng hoá",
+        data: datas,
+        backgroundColor: "#fdbe10",
+        borderColor: "#fed871",
         borderWidth: 1,
+        // barThickness: 50,
+        // maxBarThickness: 50,
       },
     ],
   };
 
-  const config = {
-    type: "bar",
-    data: data,
-    options: {
-      scales: {
-        x: {
-          title: {
-            display: true,
-            text: "Các loại hàng hóa",
-            font: {
-              size: 14,
-              weight: "bold",
-            },
-            padding: {
-              bottom: 10,
-            },
-          },
-          grid: {
-            drawOnChartArea: false,
-          },
-        },
-        y: {
-          title: {
-            display: true,
-            text: "Số lượng (sản phẩm)",
-            font: {
-              size: 14,
-              weight: "bold",
-            },
-            padding: {
-              left: 10,
-            },
-          },
-          suggestedMin: 0,
-          suggestedMax: 100,
-          ticks: {
-            stepSize: 20,
-          },
-        },
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
       },
-      plugins: {
-        title: {
-          display: true,
-          // text: "Biểu đồ tồn kho",
+    },
+    scales: {
+      x: {
+        ticks: {
+          // color: "black",
+          font: {
+            size: 11,
+          },
+          maxRotation: 45,
+        },
+        categoryPercentage: 1,
+        barPercentage: 1,
+      },
+      y: {
+        ticks: {
+          color: "black",
+          font: {
+            size: 14,
+          },
         },
       },
     },
+    datasets: {
+      barThickness: 100,
+      maxBarThickness: 100,
+    },
   };
 
-  React.useEffect(() => {
-    const ctx = document.getElementById("myChart").getContext("2d");
-    const chart = new Chart(ctx, config);
+  const handleChangeTime = (e) => {
+    const { name, value } = e.target;
+    setTime({
+      ...time,
+      [name]: value,
+    });
 
-    return () => {
-      chart.destroy();
-    };
-  }, []);
+    console.log(time);
+  };
 
+  const handleChangeType = (e) => {
+    setType(e.target.value);
+  };
   return (
-    <div>
-      <div className="reportInventory-container">
-        <Header className="header-reportInventory" />
-        <NavBar />
-        <div className="reportInventory">
-          <div className="reportInventory-nav">
-            <p className="rInventory-link">Báo cáo hàng hóa</p> &gt;
-            <p className="rInventory-link"> Báo cáo tồn kho</p>
+    <>
+      <Header />
+      <NavBar />
+      <div className="reportImport-container">
+        <div className="RI-frame">
+          <h2 className="reportImport-h2">BIỂU ĐỒ BÁO CÁO TỒN KHO</h2>
+          <div className="date-ImportReport">
+            <span className="date-ImportReport1">Từ ngày</span>
+            <input
+              type="date"
+              className="date-ImportReport3"
+              name="timeStart"
+              value={time.timeStart}
+              onChange={(e) => handleChangeTime(e)}
+            />
+            <span
+              className="date-ImportReport2"
+              name="timeEnd"
+              value={time.timeEnd}
+              onChange={(e) => handleChangeTime(e)}
+            >
+              Đến ngày
+            </span>
+            <input type="date" className="date-ImportReport3" />
+            <span className="reportImport-type">Loại báo cáo</span>
+            <select
+              name=""
+              id=""
+              className="reportImport-select"
+              onChange={(e) => handleChangeType(e)}
+            >
+              <option>{type === "chart" ? "Biểu đồ" : "Bảng"}</option>
+              <option value="chart">Biểu đồ</option>
+              <option value="table">Bảng</option>
+            </select>
           </div>
-          <div className="rInventory-bieudo">
-            <h3 className="rInventory-title">Biểu đồ báo cáo tồn kho</h3>
-            <div className="time-style">
-              <span className="date_reportInventory1">Từ ngày</span>
-              <input
-                type="date"
-                className="date_reportInventory"
-                placeholder=""
-              />
-              <span className="date_reportInventory2">Đến ngày</span>
-              <input
-                type="date"
-                className="date_reportInventory3"
-                placeholder=""
-              />
-              <select className="style-report" name="" id="">
-                <option value="">-Loại báo cáo-</option>
-                <option>Biểu đồ</option>
-                <option>Bảng</option>
-              </select>
+          {type === "chart" ? (
+            <div className="RI-caption">
+              <div className="RI-caption-text1"></div>
+              <p>Số lượng hàng hoá</p>
             </div>
-            <div className="bieu-do-Inventory">
-              <canvas id="myChart"></canvas>
-            </div>
+          ) : (
+            <div></div>
+          )}
+          <div className="IR-barchart">
+            {type === "chart" ? (
+              <Bar data={data} options={options} />
+            ) : (
+              <TableReport list={list} />
+            )}
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
