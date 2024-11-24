@@ -1,0 +1,32 @@
+.reporteii{
+    position: relative;
+}
+.report-eii-container{
+    position: absolute;
+    width:1100px;
+    height:auto;
+    margin-left: 350px;
+    margin-top:-600px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.bieudo{
+    font-size: 10px;
+    text-align: center;
+    margin-top:20px;
+    
+}
+.chon{
+    margin-top: 30px;
+    display: flex;
+}
+.chon1{
+    margin-left: 200px;
+}
+.chon2{
+    margin-left: 50px;
+}
+.chon3{
+    margin-left: 50px;
+}
