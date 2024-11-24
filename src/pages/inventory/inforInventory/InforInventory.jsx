@@ -12,7 +12,7 @@ const InforInventory = () => {
       <div className="btt_kien">
         <div className="bbkkhh">BIÊN BẢN KIỂM KÊ HÀNG HÓA</div>
         <div className="info-section_kien">
-            <div class="info_chung">Thông tin chung</div>
+            <div className="info_chung">Thông tin chung</div>
 
             <div className="fr">
                 <label>Mã biên bản:</label>
