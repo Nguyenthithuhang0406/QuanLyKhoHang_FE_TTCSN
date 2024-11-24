@@ -134,7 +134,7 @@ const App = () => {
       element: <CreatedInventory />,
     },
     {
-      path: "/inforInventory",
+      path: "/inforInventory/:recordInventoryId",
       element: <InforInventory />,
     },
     {

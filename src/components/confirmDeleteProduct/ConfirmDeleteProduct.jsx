@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { deleteSupply } from "@/api/suppliesAPI/supply";
 import { deletedImportSlip } from "@/api/importSlipApi/importSlip";
 import { deletedExportSlip } from "@/api/exportSlipApi/exportSlip";
+import { deletedRecordInventory } from "@/api/recordInventoryApi/recordInventory";
 
 const ConfirmDeleteProduct = ({
   type,
@@ -56,6 +57,15 @@ const ConfirmDeleteProduct = ({
       }
     }
 
+    if (type === "recordInventory") {
+      try {
+        await deletedRecordInventory(id);
+        onCancel();
+        toast.success("Xoá phiếu kiểm kê thành công");
+      } catch (error) {
+        console.log(error);
+      }
+    }
     setIsRefresh(!isRefresh);
   };
 
