@@ -7,9 +7,12 @@ import NavBar from "@/components/navBar/NavBar";
 import { editProfile, getUserById, uploadAvatar } from "@/api/userAPI/user";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { setUser } from "@/store/userSlice";
+
 
 const Information = () => {
-  const [user, setUser] = useState({
+  const [userInf, setUserInf] = useState({
     fullName: "",
     userName: "",
     email: "",
@@ -28,6 +31,8 @@ const Information = () => {
 
   const { userId } = useParams();
 
+  const dispath = useDispatch();
+
   useEffect(() => {
     const getUser = async () => {
       const respone = await getUserById(userId);
@@ -37,7 +42,7 @@ const Information = () => {
       const year = dateObj.getUTCFullYear();
 
       respone.startDate = `${day}/${month}/${year}`;
-      setUser({
+      setUserInf({
         fullName: respone.fullName,
         userName: respone.userName,
         email: respone.email,
@@ -51,6 +56,8 @@ const Information = () => {
       });
 
       setAvatar(respone.avatar);
+
+      dispath(setUser(respone));
     };
 
     getUser();
@@ -58,15 +65,15 @@ const Information = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUser({
-      ...user,
+    setUserInf({
+      ...userInf,
       [name]: value,
     });
   };
 
   const handleUpdate = async () => {
-    console.log(user);
-    await editProfile(user, userId);
+    console.log(userInf);
+    await editProfile(userInf, userId);
     toast.success("Cập nhật thông tin thành công");
     setIsRefresh(!isRefresh);
   };
@@ -120,7 +127,7 @@ const Information = () => {
             ></i>
           </label>
           <p className="infoUsername">
-            <b>{user.userName}</b>
+            <b>{userInf.userName}</b>
           </p>
         </div>
         <div className="infoContainer">
@@ -133,7 +140,7 @@ const Information = () => {
               {/* <input className="info-input" type="text" /> */}
               <input
                 className="info-input"
-                value={user.fullName}
+                value={userInf.fullName}
                 name="fullName"
                 onChange={(e) => handleChange(e)}
               />
@@ -145,7 +152,7 @@ const Information = () => {
               {/* <input className="info-input" type="text" /> */}
               <input
                 className="info-input"
-                value={user.email}
+                value={userInf.email}
                 name="email"
                 onChange={(e) => handleChange(e)}
               />
@@ -157,7 +164,7 @@ const Information = () => {
               {/* <input className="info-input" type="text" /> */}
               <input
                 className="info-input"
-                value={user.phoneNumber}
+                value={userInf.phoneNumber}
                 name="phoneNumber"
                 onChange={(e) => handleChange(e)}
               />
@@ -167,7 +174,7 @@ const Information = () => {
                 Mã nhân viên
               </label>
               {/* <input className="info-input" type="text" /> */}
-              <input className="info-input" value={user.staffCode} readOnly />
+              <input className="info-input" value={userInf.staffCode} readOnly />
             </div>
             <div className="info-group-field">
               <label className="info-label" htmlFor="infoPosition">
@@ -176,7 +183,7 @@ const Information = () => {
               {/* <input className="info-input" type="text" /> */}
               <input
                 className="info-input"
-                value={user.role == "manager" ? "Quản lý" : "Nhân viên"}
+                value={userInf.role == "manager" ? "Quản lý" : "Nhân viên"}
                 readOnly
               />
             </div>
@@ -187,7 +194,7 @@ const Information = () => {
               {/* <input className="info-input" type="text" /> */}
               <input
                 className="info-input"
-                value={user.address}
+                value={userInf.address}
                 name="address"
                 onChange={(e) => handleChange(e)}
               />
@@ -207,9 +214,9 @@ const Information = () => {
                 }}
               >
                 <option>
-                  {user.gender === "male"
+                  {userInf.gender === "male"
                     ? "Nam"
-                    : user.gender === "fermale"
+                    : userInf.gender === "fermale"
                     ? "Nữ"
                     : "Khác"}
                 </option>
@@ -223,7 +230,7 @@ const Information = () => {
                 Ngày vào làm
               </label>
               {/* <input className="info-input" type="text" /> */}
-              <input className="info-input" value={user.startDate} readOnly />
+              <input className="info-input" value={userInf.startDate} readOnly />
             </div>
 
             <div className="button-section">
