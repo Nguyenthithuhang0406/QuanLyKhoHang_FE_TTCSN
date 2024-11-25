@@ -157,7 +157,7 @@ export const editProfile = async (data, userId) => {
   try {
     const { fullName, email, phoneNumber, address, gender } = data;
     await requestWithToken(authInstance, {
-      url: `/user/edit-profile/:${userId}`,
+      url: `/user/edit-profile/${userId}`,
       method: "put",
       data: {
         fullName,
@@ -180,7 +180,7 @@ export const uploadAvatar = async (data, userId) => {
     formData.append("avatar", data);
 
     const respone = await requestWithToken(authInstance, {
-      url: `/user/upload-avatar/:${userId}`,
+      url: `/user/upload-avatar/${userId}`,
       method: "post",
       headers: {
         "Content-Type": "multipart/form-data",

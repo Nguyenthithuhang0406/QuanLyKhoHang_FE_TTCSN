@@ -84,6 +84,10 @@
     cursor: pointer;
 }
 
+.active i{
+    color: #fff !important;
+}
+
 .navBar-menu-item p:hover i {
     color: #fff;
 }

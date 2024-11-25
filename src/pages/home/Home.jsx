@@ -95,7 +95,7 @@ const Home = () => {
   const overviewData = {
     datasets: [
       {
-        data: [dataOverView.exportQuantity, dataOverView.importQuantity],
+        data: [dataOverView?.exportQuantity, dataOverView?.importQuantity],
         backgroundColor: ["#FFBB01", "#30A032"],
         hoverBackgroundColor: ["#FFCE56", "#36A2EB"],
       },
@@ -106,9 +106,9 @@ const Home = () => {
     datasets: [
       {
         data: [
-          dataExport.exportWithProvider,
-          dataExport.exportWithAgency,
-          dataExport.returnWithAgency,
+          dataExport?.exportWithProvider,
+          dataExport?.exportWithAgency,
+          dataExport?.returnWithAgency,
         ],
         backgroundColor: ["#FFBB01", "#FFD45F", "#FFEAB0"],
         hoverBackgroundColor: ["#FFCE56", "#FF7043", "#FF6384"],
@@ -119,7 +119,7 @@ const Home = () => {
   const importData = {
     datasets: [
       {
-        data: [dataImport.importWithProvider, dataImport.importWithAgency],
+        data: [dataImport?.importWithProvider, dataImport?.importWithAgency],
         backgroundColor: ["#30A032", "#95f5a8"],
         hoverBackgroundColor: ["#4BC0C0", "#36A2EB"],
       },
