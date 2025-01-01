@@ -8,7 +8,7 @@ import { registerAPI } from "@/api/userAPI/user";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { registerValidation } from "@/utils/validation.js/userValidation";
-import image4 from  "@/assets/images/image4.png"
+import image4 from "@/assets/images/image4.png";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -16,7 +16,7 @@ const Register = () => {
   const initialValues = {
     fullName: "",
     email: "",
-    staffCode: "",
+    staffCode: `${Math.floor(Math.random() * 1000000)}`,
     userName: "",
     password: "",
     role: "staff",
@@ -106,6 +106,7 @@ const Register = () => {
                       name="staffCode"
                       type="text"
                       placeholder=""
+                      readOnly
                     />
                     <ErrorMessage
                       name="staffCode"
@@ -199,11 +200,7 @@ const Register = () => {
             </Formik>
           </div>
           <div className="imagine">
-            <img
-              className="imagine-img"
-              src={image4}
-              alt=""
-            />
+            <img className="imagine-img" src={image4} alt="" />
           </div>
         </div>
       </div>

@@ -9,6 +9,7 @@ import Header from '@/components/header/Header';
 import NavBar from '@/components/navBar/NavBar';
 import './ListProduct.css';
 import ConfirmDeleteProduct from '@/components/confirmDeleteProduct/ConfirmDeleteProduct';
+import { formatCurrency } from '@/utils/function/slipFuntion';
 
 const ListProduct = () => {
   const [listProducts, setListProducts] = useState([]);
@@ -117,15 +118,15 @@ const ListProduct = () => {
                     listProducts.length > 0 && listProducts.map((product, index) => {
                       return (
                         <tr key={product._id}>
-                          <td className="listtable3">{index + 1}</td>
+                          <td className="listtable3">{(page - 1) * limit + index + 1}</td>
                           <td className="listtable3">{product.productName}</td>
                           <td className="listtable3">{product.productCode}</td>
                           <td className="listtable3">{product.productGroup}</td>
                           <td className="listtable3">{product.productDVT}</td>
-                          <td className="listtable3">{product.productPrice}</td>
+                          <td className="listtable3">{formatCurrency(product.productPrice)}</td>
                           <td className='purple'>
-                            <span className='pen' onClick={() => handleClickPen(product._id)}><i className="fa-solid fa-pen"></i></span>
-                            <span className='bin' onClick={() => handleClickBin(product._id)}><i className="fa-solid fa-trash-can"></i></span>
+                            <span className='pen-product' onClick={() => handleClickPen(product._id)}><i className="fa-solid fa-pen"></i></span>
+                            <span className='bin-product' onClick={() => handleClickBin(product._id)}><i className="fa-solid fa-trash-can"></i></span>
                           </td>
                         </tr>
                       )

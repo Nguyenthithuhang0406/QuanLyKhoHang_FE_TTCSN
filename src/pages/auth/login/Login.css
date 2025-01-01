@@ -89,7 +89,7 @@
 .login-image{
     height: 100%;
     width: 100%;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 12px 12px 0px 0px;
     border: 1px solid #ccc;
     border-radius: 8px 0px 0px 8px;
 }

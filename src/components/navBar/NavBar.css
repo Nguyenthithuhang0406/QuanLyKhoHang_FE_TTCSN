@@ -1,68 +1,98 @@
-.main{
+.main {
     width: 320px;
     /* background-color: #ccc; */
     /* height: 900px; */
     max-height: 90vh;
     overflow: auto;
+    border-right: 1px solid #ccc;
 
 }
-.navBar hr{
+
+.navBar hr {
     border-top: 2px solid rgba(2, 9, 206, 0.845);
 }
-.navBar{
+
+.navBar {
     padding: 24px;
-    font-size: 18px;
+    font-size: 16px;
     width: 100%;
     background-color: #fff;
     color: rgba(2, 9, 206, 0.845);
 }
-.navBar-menu{
+
+.navBar-menu {
     padding: 8px 0;
 }
-.navBar-user{
+
+.navBar-user {
     display: flex;
-    margin-bottom:  24px;
+    margin-bottom: 24px;
 }
-.user-avt{
+
+.user-avt {
     height: 100px;
     width: 100px;
 }
-.user-avt img{
+
+.user-avt img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
-.user-name{
+
+.user-name {
     height: 100px;
     line-height: 100px;
     margin-left: 16px;
-    font-size: 20px;
+    font-size: 18px;
 }
-.navBar i{
+
+.user-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.navBar i {
     padding-right: 12px;
 }
+
 /* .navBar-menu-item{
     margin: 16px 0;
 }
 .sub-menu-item{
     margin: 8px 0;
 } */
-.sub-menu > p{
+.sub-menu>p {
     margin-left: 23.25px;
 }
-.navBar-menu-item p{
+
+.navBar-menu-item p {
     padding: 8px;
     color: rgba(2, 9, 206, 0.845);
 }
-.navBar-menu-item p:hover{
+
+.navBar-menu-item p:hover {
     color: #fff;
     background-color: rgba(2, 9, 206, 0.845);
     border-radius: 8px;
+    cursor: pointer;
 }
 
-.navBar-menu-item p:hover i{
+.active {
+    color: #fff !important;
+    background-color: rgba(2, 9, 206, 0.845);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.active i{
+    color: #fff !important;
+}
+
+.navBar-menu-item p:hover i {
     color: #fff;
 }
+
 /* .sub-menu{
     display: none;
 }
@@ -76,41 +106,55 @@
     display: block;
 } */
 
-.icon-navbar{
+.icon-navbar {
     color: rgba(2, 9, 206, 0.845);
 }
 
 ::-webkit-scrollbar {
-  width: 2px; /* Độ rộng thanh cuộn dọc */  
+    width: 2px;
+    /* Độ rộng thanh cuộn dọc */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #c7c7c7; /* Màu của phần có thể kéo */
-  border-radius: 6px; /* Bo tròn góc */
+    background-color: #c7c7c7;
+    /* Màu của phần có thể kéo */
+    border-radius: 6px;
+    /* Bo tròn góc */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #747373; /* Màu của phần có thể kéo khi hover */
+    background-color: #747373;
+    /* Màu của phần có thể kéo khi hover */
 }
 
 /* Style cho phần track của thanh cuộn (nền) */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Màu nền của thanh cuộn */
-  border-radius: 6px; /* Bo tròn góc */
+    background: #f1f1f1;
+    /* Màu nền của thanh cuộn */
+    border-radius: 6px;
+    /* Bo tròn góc */
 }
 
 /* Style cho phần track khi thanh cuộn được kéo */
 ::-webkit-scrollbar-track:hover {
-  background: #e0e0e0; /* Màu nền khi hover */
+    background: #e0e0e0;
+    /* Màu nền khi hover */
 }
 
 /* Dùng cho thanh cuộn ngang */
 ::-webkit-scrollbar-horizontal {
-  height: 2px; /* Chiều cao của thanh cuộn ngang */
+    height: 2px;
+    /* Chiều cao của thanh cuộn ngang */
 }
 
 /* Dùng cho thanh cuộn ngang (thumb) */
 ::-webkit-scrollbar-thumb:horizontal {
-  background-color: #888; /* Màu của thanh cuộn ngang */
-  border-radius: 6px; /* Bo tròn góc */
+    background-color: #888;
+    /* Màu của thanh cuộn ngang */
+    border-radius: 6px;
+    /* Bo tròn góc */
+}
+
+.sub-menu {
+    padding-left: 20px;
 }

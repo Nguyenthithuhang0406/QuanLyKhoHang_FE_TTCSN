@@ -37,12 +37,12 @@ const ForgetPassword = () => {
             <div className="main-content">
               <div className="form-card">
                 <h2 className="form-title">QUÊN MẬT KHẨU</h2>
-                  <div className="form-group">
+                  <div className="form-group-fogot">
                     <label htmlFor="email" className='foget-label'>Email</label>
                     <Field type="email" id="email" name="email" className='foget-input' />
                     <ErrorMessage name="email" component='div' style={{ "color": 'red', "fontSize": '12px' }} />
                   </div>
-                  <div className="form-group">
+                  <div className="form-group-fogot">
                     <label htmlFor="userName" className='foget-label'>Tên đăng nhập</label>
                     <Field type="text" id="username" name="userName" className='foget-input' />
                     <ErrorMessage name="userName" component='div' style={{ "color": 'red', "fontSize": '12px' }} />
