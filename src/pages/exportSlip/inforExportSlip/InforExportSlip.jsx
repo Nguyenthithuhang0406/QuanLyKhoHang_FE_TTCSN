@@ -43,7 +43,7 @@ const InforExportSlip = () => {
     <div className="exportForm-container">
       <Header className="header" />
       <NavBar />
-      <div style={{ maxHeight: "90vh", overflow: "auto" }}>
+      <div style={{ maxHeight: "100vh", overflow: "auto" }}>
         <div className="exportForm-nav" style={{ display: "flex" }}>
           <p onClick={() => navigate(`/listExportSlip/${type}`)}>
             Xuất - nhập với{" "}
@@ -87,7 +87,10 @@ const InforExportSlip = () => {
 
                 <div className="col-item">
                   <label for="ef-agencyAddress">Địa chỉ</label>
-                  <div className="ef-inforBox ef-formDescribe" name="ef-agencyID">
+                  <div
+                    className="ef-inforBox ef-formDescribe"
+                    name="ef-agencyID"
+                  >
                     {(type === "Provider" &&
                       exportSlip.providerId?.providerAddress) ||
                       (type === "Agency" && exportSlip.agencyId?.agencyAddress)}

@@ -5,7 +5,7 @@ import "./Information.css";
 import Header from "@/components/header/Header";
 import NavBar from "@/components/navBar/NavBar";
 import { editProfile, getUserById, uploadAvatar } from "@/api/userAPI/user";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { setUser } from "@/store/userSlice";
@@ -33,6 +33,7 @@ const Information = () => {
 
   const dispath = useDispatch();
 
+  const navigate = useNavigate();
   useEffect(() => {
     const getUser = async () => {
       const respone = await getUserById(userId);
@@ -76,6 +77,7 @@ const Information = () => {
     await editProfile(userInf, userId);
     toast.success("Cập nhật thông tin thành công");
     setIsRefresh(!isRefresh);
+    navigate("/");
   };
 
   const handleCancel = () => {
