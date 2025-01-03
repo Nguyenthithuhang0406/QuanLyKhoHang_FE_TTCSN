@@ -20,10 +20,10 @@
 
 .sub_infim {
     background-color: white;
-    width: 1200px;
+    width: 800px;
     border: 1px solid black;
-    height: 100vh;
-    padding-top: 10px;
+    height: auto;
+    padding: 10px 0px;
 }
 
 .cen_inf {
@@ -51,7 +51,7 @@
 
 .inp1_inf1 {
     border: 1px solid black;
-    width: 400px;
+    width: 200px;
     height: 30px;
     overflow: auto;
     border-radius: 3px;
@@ -61,7 +61,7 @@
 
 .inp2_inf {
     border: 1px solid black;
-    width: 400px;
+    width: 200px;
     height: 56px;
     overflow: auto;
     border-radius: 3px;
