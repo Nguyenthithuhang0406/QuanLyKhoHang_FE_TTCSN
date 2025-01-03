@@ -5,8 +5,8 @@
 .container_infim {
     position: absolute;
     top: 70px;
-    left: 15%;
-    width: 85%;
+    left: 21%;
+    width: 79%;
     background-color: #c2c2c2;
     padding-left: 5px;
     padding-right: 15px;
@@ -20,10 +20,10 @@
 
 .sub_infim {
     background-color: white;
-    width: 1200px;
+    width: 800px;
     border: 1px solid black;
-    height: 100vh;
-    padding-top: 10px;
+    height: auto;
+    padding: 10px 0px;
 }
 
 .cen_inf {
@@ -49,9 +49,9 @@
     column-gap: 55px;
 }
 
-.inp1_inf {
+.inp1_inf1 {
     border: 1px solid black;
-    width: 400px;
+    width: 200px;
     height: 30px;
     overflow: auto;
     border-radius: 3px;
@@ -61,7 +61,7 @@
 
 .inp2_inf {
     border: 1px solid black;
-    width: 400px;
+    width: 200px;
     height: 56px;
     overflow: auto;
     border-radius: 3px;

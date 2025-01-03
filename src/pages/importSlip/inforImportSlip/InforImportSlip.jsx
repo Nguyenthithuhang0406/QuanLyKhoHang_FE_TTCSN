@@ -83,7 +83,7 @@ const InforImportSlip = () => {
               <div className="sub_box1_infim">
                 <div className="flecx_inf">
                   <p>Nguồn xuất</p>
-                  <div className="inp1_inf">
+                  <div className="inp1_inf1">
                     {(type === "Provider" &&
                       importSlip.providerId?.providerName) ||
                       (type === "Agency" && importSlip.agencyId?.agencyName)}
@@ -91,11 +91,11 @@ const InforImportSlip = () => {
                 </div>
                 <div className="flecx_inf">
                   <p>Mã phiếu</p>
-                  <div className="inp1_inf">{importSlip.importSlipCode}</div>
+                  <div className="inp1_inf1">{importSlip.importSlipCode}</div>
                 </div>
                 <div className="flecx_inf">
                   <p>Mã nguồn</p>
-                  <div className="inp1_inf">
+                  <div className="inp1_inf1">
                     {(type === "Provider" &&
                       importSlip.providerId?.providerCode) ||
                       (type === "Agency" && importSlip.agencyId?.agencyCode)}
@@ -107,7 +107,7 @@ const InforImportSlip = () => {
                 </div> */}
                 <div className="flecx_inf">
                   <p>Số điện thoại</p>
-                  <div className="inp1_inf">
+                  <div className="inp1_inf1">
                     {(type === "Provider" &&
                       importSlip.providerId?.providerPhone) ||
                       (type === "Agency" && importSlip.agencyId?.agencyPhone)}
