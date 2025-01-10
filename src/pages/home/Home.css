@@ -4,10 +4,7 @@
   display: flex;
 }
 .container_home {
-  position: absolute;
-  top: 70px;
-  left: 21%;
-  width: 79%;
+  width: 100%;
   background-color: #c2c2c2;
   padding-left: 25px;
   padding-right: 35px;

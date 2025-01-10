@@ -1,0 +1,17 @@
+.layout-h {
+  position: fixed;
+  width: 100%;
+}
+
+.layout-n {
+  position: fixed;
+  width: 100%;
+  top: 70px;
+}
+
+.layout-m {
+  position: fixed;
+  width: calc(100% - 21%);
+  top: 70px;
+  left: 21%;
+}

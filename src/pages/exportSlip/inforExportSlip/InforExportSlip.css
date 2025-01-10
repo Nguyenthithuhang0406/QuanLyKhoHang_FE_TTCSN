@@ -1,18 +1,14 @@
-.header{
-    position: relative;
-}
+
 .exportForm-container{
     background-color: #ccc;
-    max-height: 100vh;
+    height: 100vh;
     overflow: auto;
+    width: 100%;
+    padding: 20px;
 }
 
 .exportForm-nav{
-    position: absolute;
-    top: 100px;
-    right: 40px;
-    left: 22%;
-    
+    margin-bottom: 50px;
 }
 
 .exportForm-nav p{
@@ -22,12 +18,8 @@
 }
 
 .exportForm-main{
-    position: absolute;
-    width: 55%;
-    top: 160px;
-    right: 40px;
-    left: 22%;
-    max-height: 80vh;
+    width: 75%;
+    height: 80vh;
     overflow: auto;
     background-color: #fff;
     padding: 20px;
@@ -127,9 +119,9 @@
     padding: 15px;
     border-radius: 4px;
     position: absolute;
-    top: 160px;
+    top: 90px;
     right: 50px;
-    max-height: 80vh;
+    height: 80vh;
     overflow: auto;
   }
   .status-header{

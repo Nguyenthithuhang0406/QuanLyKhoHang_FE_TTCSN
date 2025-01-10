@@ -1,11 +1,8 @@
 .CreatedInventory-body {
   background-color: #c2c2c2;
   height: 100vh;
-  width: 79%;
-  padding: 15px 100px;
-  position: absolute;
-  top: 70px;
-  left: 21%;
+  width: 100%;
+  padding: 50px;
   overflow: auto;
 }
 

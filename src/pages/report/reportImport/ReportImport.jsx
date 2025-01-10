@@ -9,13 +9,12 @@ import {
   Legend,
 } from "chart.js";
 
-import Header from "@/components/header/Header";
-import NavBar from "@/components/navBar/NavBar";
 import { Bar } from "react-chartjs-2";
 
 import "./ReportImport.css";
 import { reportExportImportInventory } from "@/api/reportApi/Report";
 import TableReport from "@/components/tableReport/TableReport";
+import Layout from "@/components/layout/Layout";
 
 const ReportImport = () => {
   const [list, setList] = useState([]);
@@ -117,58 +116,58 @@ const ReportImport = () => {
 
   return (
     <>
-      <Header />
-      <NavBar />
-      <div className="reportImport-container">
-        <div className="RI-frame">
-          <h2 className="reportImport-h2">BIỂU ĐỒ BÁO CÁO NHẬP KHO</h2>
-          <div className="date-ImportReport">
-            <span className="date-ImportReport1">Từ ngày</span>
-            <input
-              type="date"
-              className="date-ImportReport3"
-              name="timeStart"
-              value={time.timeStart}
-              onChange={(e) => handleChangeTime(e)}
-            />
-            <span
-              className="date-ImportReport2"
-              name="timeEnd"
-              value={time.timeEnd}
-              onChange={(e) => handleChangeTime(e)}
-            >
-              Đến ngày
-            </span>
-            <input type="date" className="date-ImportReport3" />
-            <span className="reportImport-type">Loại báo cáo</span>
-            <select
-              name=""
-              id=""
-              className="reportImport-select"
-              onChange={handleChangeType}
-            >
-              <option>{type === "chart" ? "Biểu đồ" : "Bảng"}</option>
-              <option value="chart">Biểu đồ</option>
-              <option value="table">Bảng</option>
-            </select>
-          </div>
-          {type === "chart" ? (
-            <div className="RI-caption">
-              <div className="RI-caption-text"></div>
-              <p>Số lượng hàng hoá</p>
+      <Layout>
+        <div className="reportImport-container">
+          <div className="RI-frame">
+            <h2 className="reportImport-h2">BIỂU ĐỒ BÁO CÁO NHẬP KHO</h2>
+            <div className="date-ImportReport">
+              <span className="date-ImportReport1">Từ ngày</span>
+              <input
+                type="date"
+                className="date-ImportReport3"
+                name="timeStart"
+                value={time.timeStart}
+                onChange={(e) => handleChangeTime(e)}
+              />
+              <span
+                className="date-ImportReport2"
+                name="timeEnd"
+                value={time.timeEnd}
+                onChange={(e) => handleChangeTime(e)}
+              >
+                Đến ngày
+              </span>
+              <input type="date" className="date-ImportReport3" />
+              <span className="reportImport-type">Loại báo cáo</span>
+              <select
+                name=""
+                id=""
+                className="reportImport-select"
+                onChange={handleChangeType}
+              >
+                <option>{type === "chart" ? "Biểu đồ" : "Bảng"}</option>
+                <option value="chart">Biểu đồ</option>
+                <option value="table">Bảng</option>
+              </select>
             </div>
-          ) : (
-            <div></div>
-          )}
-          <div className="IR-barchart">
             {type === "chart" ? (
-              <Bar data={data} options={options} />
+              <div className="RI-caption">
+                <div className="RI-caption-text"></div>
+                <p>Số lượng hàng hoá</p>
+              </div>
             ) : (
-              <TableReport list={list} />
+              <div></div>
             )}
+            <div className="IR-barchart">
+              {type === "chart" ? (
+                <Bar data={data} options={options} />
+              ) : (
+                <TableReport list={list} />
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     </>
   );
 };

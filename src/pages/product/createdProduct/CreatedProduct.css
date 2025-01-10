@@ -1,6 +1,4 @@
-.header-cP{
-    position: relative;
-}
+
 .createProduct-nav{
     margin-bottom: 30px;
     display: flex;
@@ -13,10 +11,8 @@
     font-weight: bold;
 }
 .createProduct{
-    position: absolute;
-    top: 100px;
-    right: 40px;
-    left: 340px;
+    width: 100%;
+    padding: 50px;
     max-height: 90vh;
     overflow: auto
 }

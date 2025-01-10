@@ -1,11 +1,10 @@
 /* eslint-disable */
 import React, { useEffect, useRef, useState } from "react";
-import Header from "@/components/header/Header";
-import NavBar from "@/components/navBar/NavBar";
 import Chart from "chart.js/auto";
 import "./ReportEII.css";
 import { reportExportImportInventory } from "@/api/reportApi/Report";
 import TableReport from "@/components/tableReport/TableReport";
+import Layout from "@/components/layout/Layout";
 
 const ReportEII = () => {
   const chartRef = useRef(null);
@@ -162,61 +161,63 @@ const ReportEII = () => {
 
   return (
     <div>
-      <Header className="headerListP" />
-      <NavBar />
-      <div className="rcbody">
-        <div className="rcframe">
-          <div className="rctitle">BIỂU ĐỒ BÁO CÁO XUẤT NHẬP TỒN</div>
-          <div className="rcSearch">
-            <div className="rcInput">
-              <div className="rcbox1">
-                <div className="rcbox2">
-                  <span className="rcfrom">Từ ngày</span>
-                </div>
-                <div className="rcbox3">
-                  <input
-                    type="date"
-                    className="rcdate"
-                    name="timeStart"
-                    value={time.timeStart}
-                    onChange={(e) => handleChangeTime(e)}
-                  />
-                </div>
-                <div className="rcbox2">
-                  <span className="rcto">Đến ngày</span>
-                </div>
-                <div className="rcbox3">
-                  <input
-                    type="date"
-                    className="rcdate"
-                    name="timeEnd"
-                    value={time.timeEnd}
-                    onChange={(e) => handleChangeTime(e)}
-                  />
+      <Layout>
+        <div className="rcbody">
+          <div className="rcframe">
+            <div className="rctitle">BIỂU ĐỒ BÁO CÁO XUẤT NHẬP TỒN</div>
+            <div className="rcSearch">
+              <div className="rcInput">
+                <div className="rcbox1">
+                  <div className="rcbox2">
+                    <span className="rcfrom">Từ ngày</span>
+                  </div>
+                  <div className="rcbox3">
+                    <input
+                      type="date"
+                      className="rcdate"
+                      name="timeStart"
+                      value={time.timeStart}
+                      onChange={(e) => handleChangeTime(e)}
+                    />
+                  </div>
+                  <div className="rcbox2">
+                    <span className="rcto">Đến ngày</span>
+                  </div>
+                  <div className="rcbox3">
+                    <input
+                      type="date"
+                      className="rcdate"
+                      name="timeEnd"
+                      value={time.timeEnd}
+                      onChange={(e) => handleChangeTime(e)}
+                    />
+                  </div>
                 </div>
               </div>
+              <div className="rcbbox">
+                <select
+                  name="rcoption"
+                  id="rcoption"
+                  onChange={(e) => handleChangeType(e)}
+                >
+                  <option>
+                    {type === "chart" ? "Xem biểu đồ" : "Xem bảng"}
+                  </option>
+                  <option value="chart">Xem biểu đồ</option>
+                  <option value="table">Xem bảng</option>
+                </select>
+              </div>
             </div>
-            <div className="rcbbox">
-              <select
-                name="rcoption"
-                id="rcoption"
-                onChange={(e) => handleChangeType(e)}
-              >
-                <option>{type === "chart" ? "Xem biểu đồ" : "Xem bảng"}</option>
-                <option value="chart">Xem biểu đồ</option>
-                <option value="table">Xem bảng</option>
-              </select>
+            <div className="rcChart">
+              {type === "chart" ? (
+                <canvas ref={chartRef}></canvas>
+              ) : (
+                <TableReport list={list} />
+              )}
             </div>
-          </div>
-          <div className="rcChart">
-            {type === "chart" ? (
-              <canvas ref={chartRef}></canvas>
-            ) : (
-              <TableReport list={list} />
-            )}
           </div>
         </div>
-      </div>
+      </Layout>
     </div>
   );
 };

@@ -1,12 +1,7 @@
-.header_infim {
-    position: relative;
-}
+
 
 .container_infinven {
-    position: absolute;
-    top: 70px;
-    left: 21%;
-    width: 79%;
+    width: 100%;
     background-color: #c2c2c2;
     padding-left: 5px;
     padding-right: 15px;

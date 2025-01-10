@@ -5,8 +5,6 @@ import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
-import NavBar from "@/components/navbar/NavBar";
-import Header from "@/components/header/Header";
 import recycle from "../../../assets/images/bin.png";
 
 import "./CreatedExportSlip.css";
@@ -15,6 +13,7 @@ import { createdContract } from "@/api/contractApi/contract";
 import { createdExportSlip } from "@/api/exportSlipApi/exportSlip";
 import { formatCurrency } from "@/utils/function/slipFuntion";
 import DLFromLocal from "@/components/downloadProduct/downloadProductFromLocal/DLFromLocal";
+import Layout from "@/components/layout/Layout";
 
 const CreatedExportSlip = () => {
   const { type } = useParams();
@@ -198,287 +197,270 @@ const CreatedExportSlip = () => {
     navigate(`/listExportSlip/${type}`);
   };
   return (
-    <div className="main-container">
-      <Header className="header-createdImportSlip" />
-      <div className="content-container-createdImportSlip">
-        <NavBar />
-        <div className="right-content">
-          <div className="navigation-path">
-            <span onClick={() => navigate(`/listExportSlip/${type}`)}>
-              Xuất - nhập với{" "}
-              {(type === "Provider" && "NCC") ||
-                (type === "Agency" && "Nội bộ")}
-            </span>
-            &gt; Tạo mới phiếu xuất kho
-          </div>
+    <>
+      <Layout>
+        <div className="content-container-createdImportSlip">
+          <div className="right-content">
+            <div className="navigation-path">
+              <span onClick={() => navigate(`/listExportSlip/${type}`)}>
+                Xuất - nhập với{" "}
+                {(type === "Provider" && "NCC") ||
+                  (type === "Agency" && "Nội bộ")}
+              </span>
+              &gt; Tạo mới phiếu xuất kho
+            </div>
 
-          <div className="action-buttons">
-            <button className="add-button external">
-              + Thêm hàng từ file ngoài
-            </button>
-            <button
-              className="add-button system"
-              onClick={() => setShowUploadFromLocal(true)}
-            >
-              + Thêm hàng từ hệ thống
-            </button>
-          </div>
+            <div className="action-buttons">
+              <button className="add-button external">
+                + Thêm hàng từ file ngoài
+              </button>
+              <button
+                className="add-button system"
+                onClick={() => setShowUploadFromLocal(true)}
+              >
+                + Thêm hàng từ hệ thống
+              </button>
+            </div>
 
-          <div className="form-container-createdImport">
-            <h2 className="form-title">PHIẾU XUẤT KHO</h2>
+            <div className="form-container-createdImport">
+              <h2 className="form-title">PHIẾU XUẤT KHO</h2>
 
-            <div className="form-section">
-              <div className="info-section">
-                <h3>Thông tin chung</h3>
-                <div className="form-grid">
-                  <div className="form-group-create">
-                    <label>Nguồn nhận</label>
-                    <select className="nguon-nhan" name="providerId" onChange={handleChangeProvider}>
-                      <option value="">-Chọn nguồn nhận-</option>
-                      {listProvider.length > 0 &&
-                        listProvider.map((provider) => (
-                          <option key={provider._id} value={provider._id}>
-                            {provider.providerName || provider.agencyName}
-                          </option>
-                        ))}
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label>Mã phiếu</label>
-                    <input
-                      name="idSlip"
-                      style={{ backgroundColor: "darkgray" }}
-                      value={newExportSlip.exportSlipCode}
-                      readOnly
-                    />
-                  </div>
-                  <div className="form-group short-input">
-                    <label>Mã nguồn</label>
-                    <input
-                      style={{
-                        width: "100%",
-                        height: "40px",
-                        paddingLeft: "10px",
-                      }}
-                      name="providerCode"
-                      value={providerInfor.providerCode}
-                      readOnly
-                    />
-                  </div>
-                  <div className="form-group short-input">
-                    <label>Số điện thoại</label>
-                    <input
-                      type="text"
-                      value={providerInfor.providerPhone}
-                      readOnly
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Địa chỉ</label>
-                    <textarea
-                      rows="5"
-                      value={providerInfor.providerAddress}
-                      readOnly
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Lý do xuất</label>
-                    <textarea
-                      rows="5"
-                      value={newExportSlip.reason}
-                      name="reason"
-                      onChange={(e) =>
-                        setNewExportSlip({
-                          ...newExportSlip,
-                          reason: e.target.value,
-                        })
-                      }
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="table-section">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>STT</th>
-                      <th>Tên hàng hóa</th>
-                      <th>Mã hàng</th>
-                      <th>Đơn vị tính</th>
-                      <th>Đơn giá</th>
-                      <th>Số lượng</th>
-                      <th>Chiết khấu</th>
-                      <th>Thành tiền</th>
-                      <th>Xóa</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {selectedProducts.length > 0 &&
-                      selectedProducts.map((product, index) => (
-                        <tr key={product._id}>
-                          <td>{index + 1}</td>
-                          <td>{product.productName}</td>
-                          <td>{product.productCode}</td>
-                          <td>{product.productDVT}</td>
-                          <td>{formatCurrency(product.productPrice)}</td>
-                          <td>
-                            <input
-                              type="number"
-                              name="quantity"
-                              onChange={(e) =>
-                                handleChangeField(e, product._id)
-                              }
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                border: "none",
-                              }}
-                              placeholder="nhập số lượng"
-                            />
-                          </td>
-                          <td>
-                            <input
-                              type="text"
-                              name="discount"
-                              onChange={(e) =>
-                                handleChangeField(e, product._id)
-                              }
-                              style={{
-                                width: "100%",
-                                height: "100%",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                border: "none",
-                              }}
-                              placeholder="nhập % chiết khấu"
-                            />
-                          </td>
-                          <td>{formatCurrency(calculateLineTotal(product))}</td>
-                          <td>
-                            <button className="delete-button">
-                              <img src={recycle} alt="" className="bin" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    <tr className="total-row">
-                      <td colSpan="7">Tổng</td>
-                      <td>{formatCurrency(calculateTotalPrice)}</td>
-                      <td></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-
-              <div className="attachment-section">
-                <div className="contract-section">
-                  <h3>Hợp đồng</h3>
-                  <div className="upload-group">
+              <div className="form-section">
+                <div className="info-section">
+                  <h3>Thông tin chung</h3>
+                  <div className="form-grid">
+                    <div className="form-group-create">
+                      <label>Nguồn nhận</label>
+                      <select
+                        className="nguon-nhan"
+                        name="providerId"
+                        onChange={handleChangeProvider}
+                      >
+                        <option value="">-Chọn nguồn nhận-</option>
+                        {listProvider.length > 0 &&
+                          listProvider.map((provider) => (
+                            <option key={provider._id} value={provider._id}>
+                              {provider.providerName || provider.agencyName}
+                            </option>
+                          ))}
+                      </select>
+                    </div>
                     <div className="form-group">
-                      <label>Nội dung</label>
+                      <label>Mã phiếu</label>
+                      <input
+                        name="idSlip"
+                        style={{ backgroundColor: "darkgray" }}
+                        value={newExportSlip.exportSlipCode}
+                        readOnly
+                      />
+                    </div>
+                    <div className="form-group short-input">
+                      <label>Mã nguồn</label>
+                      <input
+                        style={{
+                          width: "100%",
+                          height: "40px",
+                          paddingLeft: "10px",
+                        }}
+                        name="providerCode"
+                        value={providerInfor.providerCode}
+                        readOnly
+                      />
+                    </div>
+                    <div className="form-group short-input">
+                      <label>Số điện thoại</label>
                       <input
                         type="text"
+                        value={providerInfor.providerPhone}
+                        readOnly
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>Địa chỉ</label>
+                      <textarea
+                        rows="5"
+                        value={providerInfor.providerAddress}
+                        readOnly
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label>Lý do xuất</label>
+                      <textarea
+                        rows="5"
+                        value={newExportSlip.reason}
+                        name="reason"
                         onChange={(e) =>
-                          setContract({
-                            ...contract,
-                            contractContent: e.target.value,
+                          setNewExportSlip({
+                            ...newExportSlip,
+                            reason: e.target.value,
                           })
                         }
                       />
                     </div>
-                    <br />
-                    <div className="form-group-upload">
-                      <label>Hình ảnh</label>
-                      <div className="input-upload">
-                        <input
-                          className="input-file-name"
-                          type="url"
-                          value={fileNames.join(", ")}
-                          onChange={(e) => handleChangeFileNameContract(e)}
-                        />
+                  </div>
+                </div>
+                <div className="table-section">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>STT</th>
+                        <th>Tên hàng hóa</th>
+                        <th>Mã hàng</th>
+                        <th>Đơn vị tính</th>
+                        <th>Đơn giá</th>
+                        <th>Số lượng</th>
+                        <th>Chiết khấu</th>
+                        <th>Thành tiền</th>
+                        <th>Xóa</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {selectedProducts.length > 0 &&
+                        selectedProducts.map((product, index) => (
+                          <tr key={product._id}>
+                            <td>{index + 1}</td>
+                            <td>{product.productName}</td>
+                            <td>{product.productCode}</td>
+                            <td>{product.productDVT}</td>
+                            <td>{formatCurrency(product.productPrice)}</td>
+                            <td>
+                              <input
+                                type="number"
+                                name="quantity"
+                                onChange={(e) =>
+                                  handleChangeField(e, product._id)
+                                }
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  border: "none",
+                                }}
+                                placeholder="nhập số lượng"
+                              />
+                            </td>
+                            <td>
+                              <input
+                                type="text"
+                                name="discount"
+                                onChange={(e) =>
+                                  handleChangeField(e, product._id)
+                                }
+                                style={{
+                                  width: "100%",
+                                  height: "100%",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  border: "none",
+                                }}
+                                placeholder="nhập % chiết khấu"
+                              />
+                            </td>
+                            <td>
+                              {formatCurrency(calculateLineTotal(product))}
+                            </td>
+                            <td>
+                              <button className="delete-button">
+                                <img src={recycle} alt="" className="bin" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))}
+                      <tr className="total-row">
+                        <td colSpan="7">Tổng</td>
+                        <td>{formatCurrency(calculateTotalPrice)}</td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-                        <label style={{ width: "40px", height: "40px" }}>
+                <div className="attachment-section">
+                  <div className="contract-section">
+                    <h3>Hợp đồng</h3>
+                    <div className="upload-group">
+                      <div className="form-group">
+                        <label>Nội dung</label>
+                        <input
+                          type="text"
+                          onChange={(e) =>
+                            setContract({
+                              ...contract,
+                              contractContent: e.target.value,
+                            })
+                          }
+                        />
+                      </div>
+                      <br />
+                      <div className="form-group-upload">
+                        <label>Hình ảnh</label>
+                        <div className="input-upload">
                           <input
-                            type="file"
-                            accept="image/*"
-                            style={{ display: "none" }}
-                            multiple
-                            onChange={handleFileChange}
+                            className="input-file-name"
+                            type="url"
+                            value={fileNames.join(", ")}
+                            onChange={(e) => handleChangeFileNameContract(e)}
                           />
-                          <i className="fa-solid fa-cloud-arrow-up"></i>
-                        </label>
+
+                          <label style={{ width: "40px", height: "40px" }}>
+                            <input
+                              type="file"
+                              accept="image/*"
+                              style={{ display: "none" }}
+                              multiple
+                              onChange={handleFileChange}
+                            />
+                            <i className="fa-solid fa-cloud-arrow-up"></i>
+                          </label>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                {/* <div className="document-section">
-                  <h3>Sở cứ</h3>
-                  <div className="upload-group">
-                    <div className="form-group">
-                      <label>Nội dung</label>
-                      <input type="text" />
-                    </div>
-                    <br />
-                    <div className="form-group">
-                      <label>Hình ảnh</label>
-                      <div className="file-input-wrapper">
-                        <input type="file" className="hidden-file-input" />
-                        <div className="input-img">
-                          <input type="text" />
-                          <div className="custom-file-input">
-                          <div className="custom-file-input">Ảnh</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div> */}
-              </div>
-
-              <div className="button-section">
-                <button
-                  className="cancel-button"
-                  onClick={handleCancelCreateExportSlip}
-                >
-                  Hủy
-                </button>
-                <button
-                  className="save-button"
-                  type="submit"
-                  onClick={handleSubmit}
-                >
-                  Lưu
-                </button>
+                <div className="button-section">
+                  <button
+                    className="cancel-button"
+                    onClick={handleCancelCreateExportSlip}
+                  >
+                    Hủy
+                  </button>
+                  <button
+                    className="save-button"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
+                    Lưu
+                  </button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      {showUploadFromLocal && (
-        <div className="overlay" onClick={handleCancelUploadLocal}>
-          <motion.div
-            className="item-upload"
-            onClick={(e) => e.stopPropagation()}
-            animate={{ opacity: 1, scal: 1 }}
-            initial={{ opacity: 0, scal: 0.5 }}
-            transition={{ duration: 0.3 }}
-          >
-            <DLFromLocal
-              onCancel={handleCancelUploadLocal}
-              selectedProducts={selectedProducts}
-              setSelectedProducts={setSelectedProducts}
-              isRefresh={isRefresh}
-              setIsRefresh={setIsRefresh}
-            />
-          </motion.div>
-        </div>
-      )}
-    </div>
+        {showUploadFromLocal && (
+          <div className="overlay" onClick={handleCancelUploadLocal}>
+            <motion.div
+              className="item-upload"
+              onClick={(e) => e.stopPropagation()}
+              animate={{ opacity: 1, scal: 1 }}
+              initial={{ opacity: 0, scal: 0.5 }}
+              transition={{ duration: 0.3 }}
+            >
+              <DLFromLocal
+                onCancel={handleCancelUploadLocal}
+                selectedProducts={selectedProducts}
+                setSelectedProducts={setSelectedProducts}
+                isRefresh={isRefresh}
+                setIsRefresh={setIsRefresh}
+              />
+            </motion.div>
+          </div>
+        )}
+      </Layout>
+    </>
   );
 };
 

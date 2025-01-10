@@ -1,12 +1,11 @@
 /* eslint-disable */
 import React, { useEffect, useState } from "react";
 
-import Header from "@/components/header/Header";
-import NavBar from "@/components/navBar/NavBar";
 import "./CreatedAgency.css";
 import { useNavigate } from "react-router-dom";
 import { createdSupply } from "@/api/suppliesAPI/supply";
 import { toast } from "react-toastify";
+import Layout from "@/components/layout/Layout";
 const CreatedAgency = () => {
 
   const navigate = useNavigate();
@@ -52,61 +51,111 @@ const CreatedAgency = () => {
 
   return (
     <div>
-      <Header className="header-createdAgency" />
-      <NavBar />
+      <Layout>
+        <div className="main-CreatedAgency">
+          <div className="body-CreatedAgency">
+            <div className="breadcrumb">
+              <p
+                className="title-createdAgency"
+                onClick={() => navigate("/listAgency")}
+                style={{ cursor: "pointer" }}
+              >
+                Quản lý nguồn hàng xuất/nhập
+              </p>
+              <span className="title-createdAgency">&gt;</span>
+              <p className="title-createdAgency">Thêm loại nguồn</p>
+            </div>
+            <div className="content-container-agency">
+              <div className="title-bar-agency">Thêm mới nguồn</div>
 
-      <div className="main-CreatedAgency">
-        <div className="body-CreatedAgency">
-          <div className="breadcrumb">
-            <p className="title-createdAgency" onClick={() => navigate('/listAgency')} style={{cursor: 'pointer'}}>Quản lý nguồn hàng xuất/nhập</p>
-            <span className="title-createdAgency">&gt;</span>
-            <p className="title-createdAgency">Thêm loại nguồn</p>
-          </div>
-          <div className="content-container-agency">
-            <div className="title-bar-agency">Thêm mới nguồn</div>
-              
-            <div className="form-container" >
-              <div className="form-group-created-agency">
-                <label className="form-label">Mã nguồn</label>
-                <input type="text" name="supplyCode" value={supply.supplyCode} className="form-input" readOnly />
-              </div>
+              <div className="form-container">
+                <div className="form-group-created-agency">
+                  <label className="form-label">Mã nguồn</label>
+                  <input
+                    type="text"
+                    name="supplyCode"
+                    value={supply.supplyCode}
+                    className="form-input"
+                    readOnly
+                  />
+                </div>
 
-              <div className="form-group-created-agency">
-                <label className="form-label">Tên nguồn</label>
-                <input type="text" name="supplyName" value={supply.supplyName} className="form-input" onChange={handleChange}/>
-                
-              </div>
+                <div className="form-group-created-agency">
+                  <label className="form-label">Tên nguồn</label>
+                  <input
+                    type="text"
+                    name="supplyName"
+                    value={supply.supplyName}
+                    className="form-input"
+                    onChange={handleChange}
+                  />
+                </div>
 
-              <div className="form-group-created-agency">
-                <label className="form-label">Loại nguồn</label>
-                <select name="supplyType" value={supply.supplyType} onChange={handleChange} id="" className="form-input" required>
-                  <option value="">-Loại nguồn-</option>
-                  <option value="provider">Nhà cung cấp</option>
-                  <option value="agency">Đại lý</option>
-                </select>
-              </div>
+                <div className="form-group-created-agency">
+                  <label className="form-label">Loại nguồn</label>
+                  <select
+                    name="supplyType"
+                    value={supply.supplyType}
+                    onChange={handleChange}
+                    id=""
+                    className="form-input"
+                    required
+                  >
+                    <option value="">-Loại nguồn-</option>
+                    <option value="provider">Nhà cung cấp</option>
+                    <option value="agency">Đại lý</option>
+                  </select>
+                </div>
 
-              <div className="form-group-created-agency">
-                <label className="form-label">Địa chỉ</label>
-                <input type="text" name="supplyAddress" value={supply.supplyAddress} onChange={handleChange} className="form-input" required/>
-              </div>
+                <div className="form-group-created-agency">
+                  <label className="form-label">Địa chỉ</label>
+                  <input
+                    type="text"
+                    name="supplyAddress"
+                    value={supply.supplyAddress}
+                    onChange={handleChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
 
-              <div className="form-group-created-agency">
-                <label className="form-label">Số điện thoại</label>
-                <input type="text" name="supplyPhone" value={supply.supplyPhone} onChange={handleChange} className="form-input" required/>
-              </div>
+                <div className="form-group-created-agency">
+                  <label className="form-label">Số điện thoại</label>
+                  <input
+                    type="text"
+                    name="supplyPhone"
+                    value={supply.supplyPhone}
+                    onChange={handleChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
 
-              <div className="form-group-created-agency">
-                <label className="form-label">Email</label>
-                <input type="text" name="supplyEmail" value={supply.supplyEmail} onChange={handleChange} className="form-input" required/>
-              </div>
+                <div className="form-group-created-agency">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="text"
+                    name="supplyEmail"
+                    value={supply.supplyEmail}
+                    onChange={handleChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
 
-              <div className="form-group-created-agency">
-                <label className="form-label">Người đại diện</label>
-                <input type="text" name="supplyRepresentative" value={supply.supplyRepresentative} onChange={handleChange} className="form-input" required/>
-              </div>
+                <div className="form-group-created-agency">
+                  <label className="form-label">Người đại diện</label>
+                  <input
+                    type="text"
+                    name="supplyRepresentative"
+                    value={supply.supplyRepresentative}
+                    onChange={handleChange}
+                    className="form-input"
+                    required
+                  />
+                </div>
 
-              {/* <div className="form-group-created-agency">
+                {/* <div className="form-group-created-agency">
                 <label className="form-label">Thêm thông tin (Nếu có)</label>
                 <textarea
                   type="text"
@@ -116,14 +165,26 @@ const CreatedAgency = () => {
                 ></textarea>
               </div> */}
 
-              <div className="button-group">
-                <button className="save-btn" type="submit" onClick={handleSubmit}>Lưu</button>
-                <button className="cancel-btn" onClick={() => navigate('/listAgency')}>Hủy</button>
-              </div>
+                <div className="button-group">
+                  <button
+                    className="save-btn"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
+                    Lưu
+                  </button>
+                  <button
+                    className="cancel-btn"
+                    onClick={() => navigate("/listAgency")}
+                  >
+                    Hủy
+                  </button>
                 </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </Layout>
     </div>
   );
 };
