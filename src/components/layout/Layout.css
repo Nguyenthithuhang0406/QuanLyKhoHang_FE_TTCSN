@@ -8,10 +8,3 @@
   width: 100%;
   top: 70px;
 }
-
-.layout-m {
-  position: fixed;
-  width: calc(100% - 21%);
-  top: 70px;
-  left: 21%;
-}

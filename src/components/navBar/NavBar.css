@@ -1,7 +1,6 @@
 .main {
-    width: 320px;
-    /* background-color: #ccc; */
-    /* height: 900px; */
+    /* max-width: 320px; */
+    width: 21%;
     max-height: 90vh;
     overflow: auto;
     border-right: 1px solid #ccc;
@@ -56,12 +55,6 @@
     padding-right: 12px;
 }
 
-/* .navBar-menu-item{
-    margin: 16px 0;
-}
-.sub-menu-item{
-    margin: 8px 0;
-} */
 .sub-menu>p {
     margin-left: 23.25px;
 }
@@ -69,11 +62,12 @@
 .navBar-menu-item p {
     padding: 8px;
     color: rgba(2, 9, 206, 0.845);
+    margin-top: 5px;
 }
 
 .navBar-menu-item p:hover {
     color: #fff;
-    background-color: rgba(2, 9, 206, 0.845);
+    background-color: rgba(2, 103, 254, 0.845);
     border-radius: 8px;
     cursor: pointer;
 }

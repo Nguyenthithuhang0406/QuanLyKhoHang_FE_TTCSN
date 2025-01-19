@@ -4,7 +4,7 @@ import React from "react";
 import "./NavBar.css";
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-const NavBar = () => {
+const NavBar = ({ isOpen, setIsOpen }) => {
   const user = useSelector((state) => state.user);
 
   const navigate = useNavigate();
@@ -16,7 +16,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="main">
+    <div className="main" style={{display: isOpen ? "block" : "none"}}>
       <div className="navBar">
         <div className="navBar-user">
           <div className="user-avt">
